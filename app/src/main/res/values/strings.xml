@@ -1,0 +1,2784 @@
+<resources>
+    <string name="app_name">Arriva Vozni Red</string>
+    <string name="input_departure">Vstopna Postaja</string>
+    <string name="input_arrival">Izstopna Postaja</string>
+    <string name="button_swap">Zamenjaj Postaji</string>
+    <string name="button_send">Išči Vozni Red</string>
+    <string-array name="stations">
+        <item>Adergas,137007</item>
+        <item>Adria,152191</item>
+        <item>Ajdovščina,137011</item>
+        <item>Ajdovščina ribnik,137012</item>
+        <item>Ajdovščina Š,137013</item>
+        <item>Ajševica sp.,137014</item>
+        <item>Ajševica vrh,136537</item>
+        <item>Andlovec,137017</item>
+        <item>Andrešček,137025</item>
+        <item>Ankaran bol.,137028</item>
+        <item>Ankaran K,137029</item>
+        <item>Ankaran t,137031</item>
+        <item>Antene,136629</item>
+        <item>Anton na Pohorju K,137032</item>
+        <item>AP-Ljubenska,152194</item>
+        <item>Apače les.ind.,137034</item>
+        <item>Apače/Drav.p.,137035</item>
+        <item>Apače/Drav.p.K,137036</item>
+        <item>Apače/G.Radgoni,137037</item>
+        <item>Apače/G.Radgoni kovač K,137038</item>
+        <item>Arnež,137046</item>
+        <item>Artmanja vas,137049</item>
+        <item>Autostazione di Trieste/Trst,901216</item>
+        <item>Avrelijo,137055</item>
+        <item>Babni Vrt K,150221</item>
+        <item>Babni vrt vas,900017</item>
+        <item>Babno Polje,137061</item>
+        <item>Bač,137062</item>
+        <item>Bajta,136538</item>
+        <item>Bakovnik Lidl,137065</item>
+        <item>Bakovnik Pošta,150196</item>
+        <item>Bakrc,137066</item>
+        <item>Banja Luka,900036</item>
+        <item>Banjaloka,137069</item>
+        <item>Banjole,900038</item>
+        <item>Banka - 5. prekomorske,901422</item>
+        <item>Banka II,135770</item>
+        <item>Barbara,137072</item>
+        <item>Baredi,137073</item>
+        <item>Barlič,137075</item>
+        <item>Bašelj,137076</item>
+        <item>Bauimex,135822</item>
+        <item>Beblerjeva,135772</item>
+        <item>Beblerjeva o,135773</item>
+        <item>Begunje na Gor.,137084</item>
+        <item>Begunje na Gor.Elan,137085</item>
+        <item>Begunje na Gor.žaga,137086</item>
+        <item>Bela/Motniku,137090</item>
+        <item>Bela/Špitaliču,137091</item>
+        <item>Belca,137092</item>
+        <item>Belca pri mostu,137093</item>
+        <item>Beli križ,136630</item>
+        <item>Beli križ pd,136631</item>
+        <item>Beljak,900051</item>
+        <item>Belšakova Bar Venera,150281</item>
+        <item>Belšakova Dom krajanov,150282</item>
+        <item>Beltinci,137102</item>
+        <item>Belvedere,137106</item>
+        <item>Benedikt v Sl.G.,137109</item>
+        <item>Bereča vas,137112</item>
+        <item>Berkovci,137113</item>
+        <item>Bernardin K,136632</item>
+        <item>Bernardova Raven,900059</item>
+        <item>Bertoki ZAD,137116</item>
+        <item>Besnica/Kr.GD,135823</item>
+        <item>Besnica/Kr.K,135824</item>
+        <item>Besnica/Kr.sp,135825</item>
+        <item>Besnica/Kr.Š,135826</item>
+        <item>Besnica/Kr.ZD,135827</item>
+        <item>Besnica/Kr.zg.,135828</item>
+        <item>Betola,137117</item>
+        <item>Bezena,137120</item>
+        <item>Bezena Robič,137121</item>
+        <item>Bezina,137124</item>
+        <item>Birčna vas,137135</item>
+        <item>Birčna vas ŽP,137136</item>
+        <item>Bistrica ob Dravi,137141</item>
+        <item>Bistrica pri Limbušu,137143</item>
+        <item>Bistrica pri Trž.bloki,137144</item>
+        <item>Bistrica pri Trž.K,137145</item>
+        <item>Bistrica pri Tržiču,137146</item>
+        <item>Bistrica/Kr.,137147</item>
+        <item>Bistrica/Mokronogu,137149</item>
+        <item>Bistrica/Selnici,137150</item>
+        <item>Bistrica/Selnici K,137151</item>
+        <item>Bistrica/Selnici Škrabl,137152</item>
+        <item>Bistrica/Vranskem,137153</item>
+        <item>Biš,137137</item>
+        <item>Biš gasilski dom,902105</item>
+        <item>Biš Silos,902104</item>
+        <item>Bišečki vrh,901425</item>
+        <item>Biška vas,137139</item>
+        <item>Bitnje v Bohinju,137155</item>
+        <item>Blagovica,137163</item>
+        <item>Bled,137171</item>
+        <item>Bled Gmajna,137172</item>
+        <item>Bled grad,137173</item>
+        <item>Bled Mlino,137174</item>
+        <item>Bled Petrol,137175</item>
+        <item>Bled Š,137176</item>
+        <item>Bled Union,137177</item>
+        <item>Bled Zaka,137178</item>
+        <item>Blejska Dobrava Črna Vas,900078</item>
+        <item>Blejska Dobrava Iskra,135725</item>
+        <item>Blejska Dobrava K,135726</item>
+        <item>Blejska Dobrava pokopališče,135727</item>
+        <item>Blejska Dobrava trgovina,135728</item>
+        <item>Blekova vas,137179</item>
+        <item>Bloki,135729</item>
+        <item>Bloška Polica,137181</item>
+        <item>Bobovek,135829</item>
+        <item>Bobovek bloki,900079</item>
+        <item>Bobovek K,135830</item>
+        <item>Bodešče,137183</item>
+        <item>Bohinj Ukanc,137200</item>
+        <item>Bohinjska Bela,137201</item>
+        <item>Bohinjska Bela vojašnica,137202</item>
+        <item>Bohinjska Bistrica,137196</item>
+        <item>Bohinjska Bistrica ŽP/RS,137197</item>
+        <item>Bohinjska Češnjica,137198</item>
+        <item>Bohinjsko jezero/lake,137199</item>
+        <item>Bohova,137203</item>
+        <item>Bojtina,150664</item>
+        <item>Bol.Izola,135724</item>
+        <item>Bolečka vas,137209</item>
+        <item>Bolehnečici,137210</item>
+        <item>Bolk,137211</item>
+        <item>Bonifika K,137212</item>
+        <item>Borje,137219</item>
+        <item>Borl,137220</item>
+        <item>Borovci,137221</item>
+        <item>Boršt/Krki K,137227</item>
+        <item>Bos. Gradiška MP,900092</item>
+        <item>Bosanska Gradiška,900102</item>
+        <item>Bosanska Gradiška MP,900103</item>
+        <item>Boštanj most,137232</item>
+        <item>Botanični vrt,900115</item>
+        <item>Bovec,137235</item>
+        <item>Bovšič,901225</item>
+        <item>BOXMARK Kidričevo,901427</item>
+        <item>Branoslavci,137247</item>
+        <item>Bratislavci Hojnik,137249</item>
+        <item>Bratislavci Kovač,137250</item>
+        <item>Bratje Reš,901428</item>
+        <item>Bratonečice,137253</item>
+        <item>Brce,137254</item>
+        <item>Brdo/Kr.,135831</item>
+        <item>Brebovnica,137258</item>
+        <item>Breg Aleš,135832</item>
+        <item>Breg ob Savi,135833</item>
+        <item>Breg pri Kočevju,137260</item>
+        <item>Breg pri Litiji,137261</item>
+        <item>Breg pri Ribnici,137263</item>
+        <item>Bregana MP (HR),900127</item>
+        <item>Bregana MP*,900128</item>
+        <item>Brekovice,137273</item>
+        <item>Brengova,137274</item>
+        <item>Brengova Ploj,137275</item>
+        <item>Brengova tran.,137276</item>
+        <item>Bresnica K,137277</item>
+        <item>Bresnica trg.,137278</item>
+        <item>Brestrnica,136279</item>
+        <item>Brezje pri Dobu,137300</item>
+        <item>Brezje pri Poljčanah,150493</item>
+        <item>Brezje pri Trž.,137302</item>
+        <item>Brezje/Dobrepolju,137303</item>
+        <item>Brezje/Gor.,137304</item>
+        <item>Brezje/Raki,137305</item>
+        <item>Brezje/Sv.Jurij ob Ščavn.,137306</item>
+        <item>Breznica,137309</item>
+        <item>Brezniški Potok,137310</item>
+        <item>Brezno/Hrastniku,137311</item>
+        <item>Brezno/Radljah ob Dravi,137313</item>
+        <item>Brezovci K,137317</item>
+        <item>Brezovec/Cirkulanah,137319</item>
+        <item>Brezovec/Cirkulanah 40,137320</item>
+        <item>Brezovica/Zagorju ob S.,137327</item>
+        <item>Brezula 27,137329</item>
+        <item>Brezula Mlakar,137330</item>
+        <item>Brežice,137286</item>
+        <item>Brežice K,137289</item>
+        <item>Brežice ŽP,137296</item>
+        <item>Brinje/Mirni,137333</item>
+        <item>Briše/Izlakah,137338</item>
+        <item>Britof/Kr.,135834</item>
+        <item>Britof/Kr.Johanca,135835</item>
+        <item>Brnica,137340</item>
+        <item>Brnik/airport Ljubljana,138867</item>
+        <item>Brod,136572</item>
+        <item>Brode vas,141668</item>
+        <item>Brode/Šk.Loki,137341</item>
+        <item>Brstje,150283</item>
+        <item>Bršljin (vojašnica),152193</item>
+        <item>Bršljin Čefidelj,136573</item>
+        <item>Bršljin Novoteks,136600</item>
+        <item>Bruhanja vas,137345</item>
+        <item>Bruna vas,137346</item>
+        <item>Brunšvik,137347</item>
+        <item>Brunšvik obr.,137348</item>
+        <item>Brvace,137349</item>
+        <item>BTC,136574</item>
+        <item>Bubno,137353</item>
+        <item>Buč,137354</item>
+        <item>Buč Hruševka,137355</item>
+        <item>Bučečovci,137358</item>
+        <item>Bučka,137359</item>
+        <item>Bučka Remic,137360</item>
+        <item>Bukovci,137365</item>
+        <item>Bukovica/Selščici,137370</item>
+        <item>Bukovščica,137375</item>
+        <item>Cave del Predil,900151</item>
+        <item>Cerkljanska Dobrava,137446</item>
+        <item>Cerklje na Gorenjskem,137447</item>
+        <item>Cerklje na Gorenjskem OB,137448</item>
+        <item>Cerklje ob Krki,137449</item>
+        <item>Cerklje Š,900156</item>
+        <item>Cerknica,137451</item>
+        <item>Cerkno,137453</item>
+        <item>Cerkvenjak,137458</item>
+        <item>Cerov Log,137464</item>
+        <item>Cerovec pri Trebelnem,137467</item>
+        <item>Cerovec/Gorjanci,137469</item>
+        <item>Ceršak,150387</item>
+        <item>Ceršak K,137473</item>
+        <item>Ceršak tov.,137474</item>
+        <item>Cesarjeva ulica,136575</item>
+        <item>Cesta 1.maja 104,135730</item>
+        <item>Cesta 1.maja 122,135731</item>
+        <item>Cesta/Ajdovščini,137481</item>
+        <item>Cesta/Dobrepolju,137482</item>
+        <item>Ceste K,137484</item>
+        <item>Cestno podjetje,136576</item>
+        <item>Cetore,137486</item>
+        <item>Cezanjevci,150229</item>
+        <item>Cezanjevci K,137487</item>
+        <item>Cezlak K,137489</item>
+        <item>Ciglence Jug,137493</item>
+        <item>Ciglence Kogolšek,137494</item>
+        <item>Ciglence Pihler,137495</item>
+        <item>Cigonca,137496</item>
+        <item>Cirknica posestvo,137499</item>
+        <item>Cirknica Švajncer,137500</item>
+        <item>Cirkovce/Drav.p.,137501</item>
+        <item>Cirkulane,137505</item>
+        <item>Cirkulane K,137506</item>
+        <item>Cogetinci,137508</item>
+        <item>Cunkovci,137568</item>
+        <item>Cvetkovci,137572</item>
+        <item>Cvetlin,900172</item>
+        <item>Čadovlje pri Tržiču,137383</item>
+        <item>Čadovlje/Golniku,137384</item>
+        <item>Čadovlje/Golniku K,900177</item>
+        <item>Čadram,137385</item>
+        <item>Čakova,137387</item>
+        <item>Čatež ob Savi,137393</item>
+        <item>Čebine,137395</item>
+        <item>Čemšenik,137431</item>
+        <item>Čeplez,137439</item>
+        <item>Čeplez sp.,137440</item>
+        <item>Čepulje,137444</item>
+        <item>Češenjski most,137476</item>
+        <item>Češnjevek,137477</item>
+        <item>Češnjice Povšič,137478</item>
+        <item>Češnjice pri Trebelnem,137479</item>
+        <item>Četež,137485</item>
+        <item>Čežarji,137488</item>
+        <item>Čirče,135836</item>
+        <item>Čolnišče,137513</item>
+        <item>Črdenc,137514</item>
+        <item>Črešnjevci,137517</item>
+        <item>Črešnjevci 31,137518</item>
+        <item>Črešnjevec/Sl.Bist.,137520</item>
+        <item>Črešnjevec/Sl.Bist.Jurič,137521</item>
+        <item>Črmošnjice pri Stopičah,137525</item>
+        <item>Črmošnjice pri Stopičah K,137526</item>
+        <item>Črna pri Kamniku N.Jašek,137529</item>
+        <item>Črna pri Kamniku Petek,137530</item>
+        <item>Črna pri Kamniku rudnik,137531</item>
+        <item>Črnci K.,901447</item>
+        <item>Črnci/G.Radgoni,137532</item>
+        <item>Črnevšek,137539</item>
+        <item>Črni Kal sp.,137540</item>
+        <item>Črni Kal zg.,137541</item>
+        <item>Črni les,137542</item>
+        <item>Črniče,137547</item>
+        <item>Črnivec nad Kamnikom,137548</item>
+        <item>Črnivec/Rad.,137549</item>
+        <item>Črnomelj,137552</item>
+        <item>Črnomelj "Kočevje",137553</item>
+        <item>Črnomelj Belokrajnska 22,137554</item>
+        <item>Črnomelj h.Lahinja,137560</item>
+        <item>Črnomelj PTT,137563</item>
+        <item>Čušperk,137570</item>
+        <item>D.Gradišče/Dol.T.,137585</item>
+        <item>D.Kot,137589</item>
+        <item>D.Laknice,137590</item>
+        <item>D.Lokvica,137594</item>
+        <item>D.Ložine,137595</item>
+        <item>D.Maharovec,137596</item>
+        <item>D.Mokro Polje,137597</item>
+        <item>D.Nemška vas,137598</item>
+        <item>D.Počehova,137601</item>
+        <item>D.Počehova kombinat,150267</item>
+        <item>D.Podpoljane K,137602</item>
+        <item>D.Poljana,137604</item>
+        <item>D.Poljane K,137605</item>
+        <item>D.Prekopa,137606</item>
+        <item>D.Radulje,137607</item>
+        <item>D.Radulje K,137608</item>
+        <item>D.Straža,137613</item>
+        <item>D.Suhadol,137614</item>
+        <item>D.Suhor pri Metliki,137615</item>
+        <item>D.Težka Voda,137617</item>
+        <item>D.vas pri Krškem,137620</item>
+        <item>D.vas/Ribnici,137624</item>
+        <item>D.Vrhpolje,137626</item>
+        <item>Dane,137630</item>
+        <item>Davor,137635</item>
+        <item>Davški most,137636</item>
+        <item>Debeli Rtič,137637</item>
+        <item>Debeli Rtič 59,137638</item>
+        <item>Dekani,137647</item>
+        <item>Delnice,137652</item>
+        <item>Delnice K,137653</item>
+        <item>Desenci K,137656</item>
+        <item>Destrnik,137660</item>
+        <item>Destrnik pokopališče,901451</item>
+        <item>Destrnik ZD,150095</item>
+        <item>Devina,137661</item>
+        <item>Devina 7,137662</item>
+        <item>Dežno pri Podlehniku,902094</item>
+        <item>Divača,137664</item>
+        <item>Dob/Domžalah,137666</item>
+        <item>Dob2/Domžalah,152210</item>
+        <item>Dobe,137669</item>
+        <item>Dobje/Šk.Loki,137675</item>
+        <item>Dobovec/Kumu,137685</item>
+        <item>Dobračeva,137686</item>
+        <item>Dobrava kovačija,137687</item>
+        <item>Dobrava/Črnučah,137689</item>
+        <item>Dobrava/Dobrniču,137690</item>
+        <item>Dobrava/Moravčah,137691</item>
+        <item>Dobrava/Sl.Bist.,137695</item>
+        <item>Dobrava/Šk.Loko,137692</item>
+        <item>Dobrava/Šk.Loko II,137693</item>
+        <item>Dobrava/Škocjanu,137694</item>
+        <item>Dobravlje/Ajdovščini,137697</item>
+        <item>Dobrina/Žetalah,137700</item>
+        <item>Dobrnič,137709</item>
+        <item>Dobro Polje/Rad.,137710</item>
+        <item>Dobropolje/Il.Bistrici,137711</item>
+        <item>Dobrovce jug,902096</item>
+        <item>Dobrovce Mejna,902099</item>
+        <item>Dobrovce sever,901457</item>
+        <item>Dobrovce šola,902095</item>
+        <item>Dobrovce vrtec,137717</item>
+        <item>Dobruška vas,137722</item>
+        <item>Dobruška vas K,137723</item>
+        <item>Dogoše GD,136298</item>
+        <item>Doklece,137724</item>
+        <item>Dol pri Hrastniku,137729</item>
+        <item>Dol pri Ljubljani,137731</item>
+        <item>Dol pri Trebnjem,137732</item>
+        <item>Dol.Brdo,137733</item>
+        <item>Dol.Njive Domiter,137734</item>
+        <item>Dol.Raka,137736</item>
+        <item>Dol.Toplice,137737</item>
+        <item>Dol/G.Gradu,137738</item>
+        <item>Dol/G.Gradu Rogačnik,137739</item>
+        <item>Dolane/Cirkulanah,137743</item>
+        <item>Dolane/Cirkulanah Kokol,137744</item>
+        <item>Dole/Metliki,137751</item>
+        <item>Dolena Avguštin,137752</item>
+        <item>Dolena Božičko,137753</item>
+        <item>Dolena Dominc,137754</item>
+        <item>Dolenčice,137758</item>
+        <item>Dolenja vas pri Želez.,137759</item>
+        <item>Dolenje pri Jelšanah,137763</item>
+        <item>Dolenje/Radomljah,137764</item>
+        <item>Dolga Reber (MP Koper),901244</item>
+        <item>Dolge Njive Novak,137768</item>
+        <item>Dolič/Ptuju,137771</item>
+        <item>Dolina/Trž.,137775</item>
+        <item>Dolinska,135776</item>
+        <item>Dolsko,137778</item>
+        <item>Dolž,137779</item>
+        <item>Dom upokojencev Ptuj,901460</item>
+        <item>Domžale,137785</item>
+        <item>Domžale Petrol,137787</item>
+        <item>Domžale Univ.,137788</item>
+        <item>Dorfarje,137789</item>
+        <item>Dornava,137790</item>
+        <item>Dornava dom,137791</item>
+        <item>Dornava GD,901462</item>
+        <item>Dornavska c. Lovec,150284</item>
+        <item>Dornavska c. Merkur,139964</item>
+        <item>Doslovče,137794</item>
+        <item>Draga/Sori,137806</item>
+        <item>Draga/Škocjanu,137805</item>
+        <item>Dragatuš,137807</item>
+        <item>Dragočajna,137808</item>
+        <item>Dragomelj,137809</item>
+        <item>Dragonja,137811</item>
+        <item>Dragonja G,137812</item>
+        <item>Dragonja K,137813</item>
+        <item>Dragučova,137815</item>
+        <item>Drakovci,137816</item>
+        <item>Drakovci kovač,137817</item>
+        <item>Dravski Dvor,137831</item>
+        <item>Dravski Dvor KS,137832</item>
+        <item>Dražen Vrh,137835</item>
+        <item>Draženci,137836</item>
+        <item>Draženci farma,137837</item>
+        <item>Dražgoše,137839</item>
+        <item>Drbetinci 9,137840</item>
+        <item>Drbetinci KZ,137841</item>
+        <item>Drbetinci Vršič,901473</item>
+        <item>Drenovec/Vinici,137845</item>
+        <item>Drenovec/Zavrču,137846</item>
+        <item>Drgančevje,136578</item>
+        <item>Drolc,137854</item>
+        <item>Drska,136579</item>
+        <item>Drskovče,137855</item>
+        <item>Drstelja,137856</item>
+        <item>Drstelja 15,137857</item>
+        <item>Drstelja K,137858</item>
+        <item>Drtija K,137859</item>
+        <item>Drulovka,135837</item>
+        <item>Drulovka cerkev,150222</item>
+        <item>Drumlažno,137860</item>
+        <item>Duplica,137863</item>
+        <item>Duplica Stol N O,137864</item>
+        <item>Duplje/Trž.,137865</item>
+        <item>Dvor/Žužemb.,137873</item>
+        <item>Dvorjane,137877</item>
+        <item>Dvorjane 46,137878</item>
+        <item>Dvorjane cerkev,137879</item>
+        <item>Dvorje,137880</item>
+        <item>Đuba,902092</item>
+        <item>Erjavčeva koča,137883</item>
+        <item>Fala grad,137886</item>
+        <item>Fala HE,137887</item>
+        <item>Falenti Š,137888</item>
+        <item>Farančan,137890</item>
+        <item>Fažana,900245</item>
+        <item>Fela,137892</item>
+        <item>Finida,137896</item>
+        <item>Fizine,136633</item>
+        <item>Flora,135838</item>
+        <item>Florjan/Medribniku,137899</item>
+        <item>Forme,137909</item>
+        <item>Formin,137910</item>
+        <item>Fram K,137914</item>
+        <item>Frankovo naselje OŠ,150395</item>
+        <item>Funtana,900258</item>
+        <item>Fusine Laghi MP,901254</item>
+        <item>Fužine/Jezerskem,137917</item>
+        <item>Fužine/Trebiji,137918</item>
+        <item>Fužine/Trebiji I,137919</item>
+        <item>Fužine/Trebiji II,137920</item>
+        <item>G.Brezovica/Šentj.,137926</item>
+        <item>G.Grad,137934</item>
+        <item>G.Gradišče pri Šentj.,137936</item>
+        <item>G.Jezero,137939</item>
+        <item>G.Karteljevo K,137946</item>
+        <item>G.Ključarovci,137947</item>
+        <item>G.Ključarovci K,137948</item>
+        <item>G.Laknice,137950</item>
+        <item>G.Log,137953</item>
+        <item>G.Ložine,137954</item>
+        <item>G.Mokro Polje,137955</item>
+        <item>G.Podpoljane K,137963</item>
+        <item>G.Polje/N.mestu,137964</item>
+        <item>G.Radgona,137965</item>
+        <item>G.Radgona Arcont,137966</item>
+        <item>Gabrijele,137986</item>
+        <item>Gabrje/Boštanju,137987</item>
+        <item>Gabrje/Il.Bistrici,137988</item>
+        <item>Gabrje/N.mestu,137989</item>
+        <item>Gabrk,137992</item>
+        <item>Gabrk Š,141667</item>
+        <item>Gabrnik sp.,137993</item>
+        <item>Gabrnik zg.,150667</item>
+        <item>Gabrnik/Ptuju,137994</item>
+        <item>Gabrnik/Ptuju Šošterič,137995</item>
+        <item>Gaj nad Mar.Zg.Kovač K,138000</item>
+        <item>Gaj/Pragerskem,150203</item>
+        <item>Gajevci,138001</item>
+        <item>Gažon,138009</item>
+        <item>Gerečja vas,150478</item>
+        <item>Gerečja vas GD,150479</item>
+        <item>Gibina mlekarna,901490</item>
+        <item>Gladomes,138015</item>
+        <item>Glavni trg,136580</item>
+        <item>Glina,138018</item>
+        <item>Glinek/Škofljici,138020</item>
+        <item>Glinje,138021</item>
+        <item>Globoko/Makolah,138032</item>
+        <item>Gmajna/Raki,138036</item>
+        <item>Gobovce,138037</item>
+        <item>Gobovce vas,150263</item>
+        <item>Gočova,138040</item>
+        <item>Godeninci,138041</item>
+        <item>Godešič,138042</item>
+        <item>Godič,138043</item>
+        <item>Goli Vrh/Podlehniku K,138049</item>
+        <item>Golice,138051</item>
+        <item>Golnik,138052</item>
+        <item>Golnik bloki,138053</item>
+        <item>Golnik Malijevo,138054</item>
+        <item>Gomarenci,138057</item>
+        <item>Gomila pri Jiršovcih,901498</item>
+        <item>Gomila pri Kogu Bajzek,138058</item>
+        <item>Gomila pri Kogu K,138059</item>
+        <item>Gomila pri Kogu Pukšič,138060</item>
+        <item>Gomila/Jiršovcih K,138061</item>
+        <item>Gomila/Juršincih,138062</item>
+        <item>Gomila/Trebnjem,138063</item>
+        <item>Gomilci,138064</item>
+        <item>Gora pri Pečah,138069</item>
+        <item>Gorenja Sava,135839</item>
+        <item>Gorenja Sava nad podvozom,900283</item>
+        <item>Gorenja Sava skakalnica,135840</item>
+        <item>Gorenja vas,138076</item>
+        <item>Gorenja vas Na blatih,150112</item>
+        <item>Gorenje/Kočevju,138081</item>
+        <item>Gorenje/Kr.,135841</item>
+        <item>Gorica/Moravčah,138091</item>
+        <item>Goriča vas,138088</item>
+        <item>Goričak,138094</item>
+        <item>Goričane,138095</item>
+        <item>Goriče/Golniku,138097</item>
+        <item>Goričica/Cerknici,138099</item>
+        <item>Gorišnica,138101</item>
+        <item>Gorišnica K. (bivša Občina),901505</item>
+        <item>Gorjuše,138104</item>
+        <item>Gornji Ivanjci 3 Srt(križišče),901506</item>
+        <item>Gornji Ivanjci 9 a,150883</item>
+        <item>Gornji Ivanjci Dobrava,901507</item>
+        <item>Gornji Ivanjci Kaučič,150884</item>
+        <item>Gospodična K,138108</item>
+        <item>Gosteče,138109</item>
+        <item>Gozd,150198</item>
+        <item>Gozd Martuljek Sp.Rute,138113</item>
+        <item>Gozd Martuljek Zg.Rute,138114</item>
+        <item>Grabe pri Ljutomeru K,138116</item>
+        <item>Grabe/Središču ob D.,138117</item>
+        <item>Grabe/Tratah,138118</item>
+        <item>Grabonoš,138119</item>
+        <item>Grabonoški Vrh,138120</item>
+        <item>Grabšinci K,138121</item>
+        <item>Grabšinski breg,138122</item>
+        <item>Grad/Cerkljah,138129</item>
+        <item>Gradac,138131</item>
+        <item>Gradec,138133</item>
+        <item>Gradis Ul.Vel.Vlahoviča K,136490</item>
+        <item>Gradišče K/M.Sob.,138136</item>
+        <item>Gradišče na Kozjak.Krajnc,138137</item>
+        <item>Gradišče na Kozjaku,138138</item>
+        <item>Gradišče nad Pijavo G.,138139</item>
+        <item>Gradišče/Materiji,138143</item>
+        <item>Grahovo/Cerknici,138151</item>
+        <item>Grajena,150285</item>
+        <item>Grajenščak,150286</item>
+        <item>Grajenščak 45,150287</item>
+        <item>Grajenščak 79,901517</item>
+        <item>Grajenščak kapela,150288</item>
+        <item>Grčarevec,138155</item>
+        <item>Grdina,138156</item>
+        <item>Gregoriči,138157</item>
+        <item>Gresovščak,150233</item>
+        <item>Grič/Ribnici,138163</item>
+        <item>Grlinci,138172</item>
+        <item>Grmovlje,138175</item>
+        <item>Groblje pri Prekopi,138178</item>
+        <item>Grosuplje,138179</item>
+        <item>Grosuplje Motel obr.,138182</item>
+        <item>Grosuplje SM,138187</item>
+        <item>Grušena,138189</item>
+        <item>H.Bellevue/Boh.,900313</item>
+        <item>Hajdoše,138194</item>
+        <item>Hajdoše Žerak,138195</item>
+        <item>Haložan/Ožbaltu,138198</item>
+        <item>Harije,138199</item>
+        <item>Havaji,138200</item>
+        <item>Hecl,138201</item>
+        <item>Hedera,136582</item>
+        <item>Hermanov most,135732</item>
+        <item>Hinje,138203</item>
+        <item>Hlaponci 22,138205</item>
+        <item>Hlaponci Kapela,138206</item>
+        <item>Hlebce,138207</item>
+        <item>Hobovše pri St.Oselici,138208</item>
+        <item>Hočko Pohorje bolnica tbc,138210</item>
+        <item>Hočko Pohorje g.Gale,138211</item>
+        <item>Hočko Pohorje g.Klinc,138212</item>
+        <item>Hočko Pohorje kapela,138213</item>
+        <item>Hočko Pohorje most,138214</item>
+        <item>Homec,138218</item>
+        <item>Hosta,138220</item>
+        <item>Hotavlje,138221</item>
+        <item>Hotel BW,900329</item>
+        <item>Hotemaže,138224</item>
+        <item>Hotič sp.,138227</item>
+        <item>Hotič zg.,138228</item>
+        <item>Hotična,138229</item>
+        <item>Hotinja vas,138230</item>
+        <item>Hotinja vas K,138231</item>
+        <item>Hotinja vas Keršič,138232</item>
+        <item>Hranjigovci,138238</item>
+        <item>Hrast pri Jugorju,138241</item>
+        <item>Hrast pri Vinici,138242</item>
+        <item>Hrastje-Mota,138249</item>
+        <item>Hrastje-Mota K,138250</item>
+        <item>Hrastje/Kr.,135842</item>
+        <item>Hrastje/Kr. I,135843</item>
+        <item>Hrastje/Kr. II,135844</item>
+        <item>Hrastnica Pasja vas,150396</item>
+        <item>Hrastnica pri Logarju,150397</item>
+        <item>Hrastnica pri mlinu,150398</item>
+        <item>Hrastnica pri Osenarju,150399</item>
+        <item>Hrastnik Birtič,138251</item>
+        <item>Hrastnik K,138252</item>
+        <item>Hrastnik Logar ŽP,138253</item>
+        <item>Hrastnik OB,138254</item>
+        <item>Hrastnik obr.,152153</item>
+        <item>Hrastnik Pod skalo,138255</item>
+        <item>Hrastnik Podkraj,138256</item>
+        <item>Hrastnik stek.,138258</item>
+        <item>Hrastovec v Sl.G.,138260</item>
+        <item>Hrašče,138239</item>
+        <item>Hraše center,138240</item>
+        <item>Hraše vzhod,150257</item>
+        <item>Hraše zahod,150258</item>
+        <item>Hraše/Tatinec,900336</item>
+        <item>Hrib-Loški Potok,138268</item>
+        <item>Hrib/Preddvoru,900339</item>
+        <item>Hrpelje,138269</item>
+        <item>Hruševje,138271</item>
+        <item>Hrušica Belo Polje,135733</item>
+        <item>Hrušica Dobrčnik,135734</item>
+        <item>Hrušica K,135735</item>
+        <item>Hrušica pri Obrovu vas,150761</item>
+        <item>Hrušica/Jes.,135736</item>
+        <item>Hrušica/N.mestu,138273</item>
+        <item>Hrušica/Obrovu,138274</item>
+        <item>Hrvaški Brod,138275</item>
+        <item>Hrvatini K,138277</item>
+        <item>Hudi Graben,138280</item>
+        <item>Hudi Kot/Rib.Pohorju K,138281</item>
+        <item>Hudo Polje,138284</item>
+        <item>Hum pri Ormožu,138285</item>
+        <item>Hvaletinci kapela,901532</item>
+        <item>Iga vas,138296</item>
+        <item>Iga vas Š,138297</item>
+        <item>Iglenik,138299</item>
+        <item>Ihan Emona,138300</item>
+        <item>Ihan farma,138301</item>
+        <item>Ihan Flerin,138302</item>
+        <item>Ihan Termit,138303</item>
+        <item>Ihova,138304</item>
+        <item>II. Prekomor,135777</item>
+        <item>Il.Bistrica,138305</item>
+        <item>Il.Bistrica Š AŽ,138306</item>
+        <item>Il.Bistrica Š DK,138307</item>
+        <item>Il.Bistrica ŽP,138308</item>
+        <item>Iljaševci,138309</item>
+        <item>Irča vas,901269</item>
+        <item>Ivanjkovci,138326</item>
+        <item>Ivanjkovci Š,138327</item>
+        <item>Ivanjski Vrh Satler,901535</item>
+        <item>Ivanjski Vrh Šturm,901536</item>
+        <item>Ivanjševci ob Ščavnici kapela,901538</item>
+        <item>Ivanjševski Vrh 41b,901540</item>
+        <item>Ivanjševski Vrh Kapela,901542</item>
+        <item>Izlake KZ,138333</item>
+        <item>Izlake Medijske Toplice,138334</item>
+        <item>Izletniška,902239</item>
+        <item>Izola,138335</item>
+        <item>Izola Dobrava,138336</item>
+        <item>Izola Dobrava K,138337</item>
+        <item>Izola Jagodje,138339</item>
+        <item>Izola Jagodje M.,138340</item>
+        <item>Izola Livade OŠ,150190</item>
+        <item>Izola Mehano,138341</item>
+        <item>Izola Prešernova OŠ,150191</item>
+        <item>Izola reš.pos.,138342</item>
+        <item>Izola TC,138343</item>
+        <item>Izvir Soče K,138345</item>
+        <item>Jablan,138346</item>
+        <item>Jablana,138347</item>
+        <item>Jablanica/Il.Bistrici,138348</item>
+        <item>Jakčeva ulica,136584</item>
+        <item>Jakob,138352</item>
+        <item>Jama/Prašah,135846</item>
+        <item>Jamna,138356</item>
+        <item>Jamna Kocbek,138357</item>
+        <item>Jamnik,138359</item>
+        <item>Janežovci,138361</item>
+        <item>Janežovski Vrh,138363</item>
+        <item>Janhova,150668</item>
+        <item>Janžev Vrh,138365</item>
+        <item>Janžev Vrh Pojbič,138367</item>
+        <item>Janževa Gora,138368</item>
+        <item>Janževski Vrh Čas,138369</item>
+        <item>Janževski Vrh Ramska koča,138370</item>
+        <item>Janževski Vrh Zolar,138371</item>
+        <item>Jarenina,138372</item>
+        <item>Jarenina K,138373</item>
+        <item>Jareninski Dol K,138374</item>
+        <item>Jareninski Dol pri Križu,138375</item>
+        <item>Jareninski Dol Repa,138376</item>
+        <item>Jareninski Dvor,138377</item>
+        <item>Jarše,138378</item>
+        <item>Jasen,138379</item>
+        <item>Jasna,900362</item>
+        <item>Jasnica,138380</item>
+        <item>Jastrebci,138381</item>
+        <item>Jastroblje,138382</item>
+        <item>Javnik Čas,138383</item>
+        <item>Javorje/Delnicah,138384</item>
+        <item>Javornik/Kr.,138387</item>
+        <item>Jazbine,138389</item>
+        <item>Jedinščica,152187</item>
+        <item>Jedlovnik,138391</item>
+        <item>Jelendol,138392</item>
+        <item>Jelovec/Boštanju,138398</item>
+        <item>Jelšane,138400</item>
+        <item>Jenkole,135737</item>
+        <item>Jeprca,138405</item>
+        <item>Jereka,138406</item>
+        <item>Jerman Vrh,138411</item>
+        <item>Jermendol,138412</item>
+        <item>Jeruzalem,150234</item>
+        <item>Jes.Igrišče,135738</item>
+        <item>Jesenice bolnica,135740</item>
+        <item>Jesenice Gimnazija,135741</item>
+        <item>Jesenice Integral,135742</item>
+        <item>Jesenice občina,135743</item>
+        <item>Jesenice Senožeti,135744</item>
+        <item>Jesenice ZD,135745</item>
+        <item>Jesenice ŽP,135746</item>
+        <item>Jesenje K,141710</item>
+        <item>Jesenovec,138419</item>
+        <item>Jesenovec I,138420</item>
+        <item>Jesenovo,138421</item>
+        <item>Jesenovo vas,138422</item>
+        <item>Jezersko Bajte,138429</item>
+        <item>Jezersko Grabnar,138430</item>
+        <item>Jezersko Jezero K,138431</item>
+        <item>Jezersko Kanonir,138432</item>
+        <item>Jezersko Kazina,138433</item>
+        <item>Jezersko Štular,138434</item>
+        <item>Jiršovci,138435</item>
+        <item>Jiršovci K,138436</item>
+        <item>Jodl Činžat,138437</item>
+        <item>Josipdol,138439</item>
+        <item>Josipdol K,138440</item>
+        <item>Jožef pri Sl.Bist.,138441</item>
+        <item>Jugorje pri Metliki,138442</item>
+        <item>Jurij MP,138443</item>
+        <item>Jurij ob Pesnici,138444</item>
+        <item>JURIŠNA VAS,901550</item>
+        <item>Jurjevski dol 8 šef,138447</item>
+        <item>Jurjov most,138448</item>
+        <item>Jurka vas,138449</item>
+        <item>Jurovci,138454</item>
+        <item>Jurovski Dol,138455</item>
+        <item>Jurovski Dol Grubar,138456</item>
+        <item>Jurovski Dol K,138457</item>
+        <item>Jurovski Dol Ketiš,138458</item>
+        <item>Jurovski Dol Kraner,138459</item>
+        <item>Jurovski Dol Krempl,138460</item>
+        <item>Jurovski Dol Sp.Gaster.K,138461</item>
+        <item>Juršinci,138462</item>
+        <item>Juršinci Podhostnik,138463</item>
+        <item>Juršinci Vodol,138464</item>
+        <item>Juršnik,138465</item>
+        <item>Kajžar,138467</item>
+        <item>Kal-Koritnica,138476</item>
+        <item>Kal Koritnica,900384</item>
+        <item>Kal/Zagorje ob S.,150476</item>
+        <item>Kalce/Logatcu,138475</item>
+        <item>Kamna Gorica,138483</item>
+        <item>Kamna Gorica I,138484</item>
+        <item>Kamna Gorica Pr Kozjek,138485</item>
+        <item>Kamne,138486</item>
+        <item>Kamnica/Mar.K,136334</item>
+        <item>Kamnik,138488</item>
+        <item>Kamnik KIK,138490</item>
+        <item>Kamnik Mercator,138489</item>
+        <item>Kamnik Metalka,138491</item>
+        <item>Kamnik Perovo,150199</item>
+        <item>Kamnik Svetilnik,138492</item>
+        <item>Kamnik ŠCRM,141669</item>
+        <item>Kamnik ŽP,138495</item>
+        <item>Kamniška Bistrica,138497</item>
+        <item>Kamnje v Bohinju,138498</item>
+        <item>Kamnolom Rovte,138501</item>
+        <item>Kampel Novaki K,138503</item>
+        <item>Kandijska - Nad mlini,152196</item>
+        <item>Kandrše,138509</item>
+        <item>Kaniža 25,138510</item>
+        <item>Kaniža Kovačič,138511</item>
+        <item>Kaniža Šraj,138512</item>
+        <item>Kanižarica,138513</item>
+        <item>Kapela,138516</item>
+        <item>Kapela Kocjan,138517</item>
+        <item>Kapela pokop.,138518</item>
+        <item>Kapelca,138519</item>
+        <item>Karteljevo,138525</item>
+        <item>Kastelec K,138529</item>
+        <item>Kebelj,138534</item>
+        <item>Kicar 1,150289</item>
+        <item>Kicar 112b,150290</item>
+        <item>Kicar 118b,150291</item>
+        <item>Kicar 48b,150292</item>
+        <item>Kicar 7f,150294</item>
+        <item>Kicar Gernice,150295</item>
+        <item>Kicar Hameršek,901558</item>
+        <item>Kicar K,138535</item>
+        <item>Kicar Nova vas K,138536</item>
+        <item>Kidričevo,138537</item>
+        <item>Kidričevo farma,150622</item>
+        <item>Kidričevo Š,138538</item>
+        <item>Kidričevo Talum,138539</item>
+        <item>Kitajska restavracija,135847</item>
+        <item>Kladje/Cerknem,138542</item>
+        <item>Klance K,138543</item>
+        <item>Klaričeva,135778</item>
+        <item>Kleče pri Dolu,138546</item>
+        <item>Klek dom,138548</item>
+        <item>Klek GD,138549</item>
+        <item>Ključarovci pri Ljut.,138553</item>
+        <item>Ključarovci pri Ljut.K,138554</item>
+        <item>Kloke,138555</item>
+        <item>Klopce/Sl.Bist.,138557</item>
+        <item>Kmetija Požarnik,901560</item>
+        <item>Kmetija Tacer,901561</item>
+        <item>Knape,138559</item>
+        <item>Knezdol,138563</item>
+        <item>Knežak,138562</item>
+        <item>Knežak Š,150762</item>
+        <item>Koča na Gozdu,138577</item>
+        <item>Kočevje,138579</item>
+        <item>Kočevje Petrol,138580</item>
+        <item>Kočevje ŽP,138581</item>
+        <item>Kočna,135747</item>
+        <item>Kočno ob Ložnici,138586</item>
+        <item>Kog,138588</item>
+        <item>Kogovšek,135748</item>
+        <item>Kojuhovje,138591</item>
+        <item>Kokoriči,138593</item>
+        <item>Kokra Kamnolom,138594</item>
+        <item>Kokra Povšnar,138595</item>
+        <item>Kokrica,135848</item>
+        <item>Kokrica PŠ,900423</item>
+        <item>Kokrica žaga,135849</item>
+        <item>Kolarjeva raven Sršen,138596</item>
+        <item>Količevo,138597</item>
+        <item>Količevo Helios,138598</item>
+        <item>Količevo samopost.,138599</item>
+        <item>Kolovrat,138601</item>
+        <item>Komenda PC pod bori,902109</item>
+        <item>Komenda PC pod gabri,902110</item>
+        <item>Komenda PC pod lipami,902108</item>
+        <item>Komenda Š,138605</item>
+        <item>Komenda vas,138606</item>
+        <item>Kompolje/Dobrepolju,138609</item>
+        <item>Kompolje/Lukovici,138610</item>
+        <item>Konjšica,138613</item>
+        <item>Koper,135768</item>
+        <item>Koper Banka,135769</item>
+        <item>Koper Ford nova,152105</item>
+        <item>Koper Luka,135787</item>
+        <item>Koper Mandrač,152179</item>
+        <item>Koper Semedela K,138615</item>
+        <item>Koper Soča,135816</item>
+        <item>Koper Tomos,135812</item>
+        <item>Koper V.n.,135810</item>
+        <item>Koper Žusterna,135820</item>
+        <item>Kopišča,138617</item>
+        <item>Koprivnik v Bohinju,138620</item>
+        <item>Koprivnik/Sovodnju,138621</item>
+        <item>Koračice GD,138624</item>
+        <item>Koritnice,138629</item>
+        <item>Koritno/Bledu,138631</item>
+        <item>Koroška Bela,138633</item>
+        <item>Koroška Bela Acroni,141670</item>
+        <item>Koroška Bela K,135749</item>
+        <item>Koroška Bela trgovina,135750</item>
+        <item>Koroška vas/N.mestu K,138634</item>
+        <item>Korte,138636</item>
+        <item>Korte šola,150192</item>
+        <item>Korte vas,150193</item>
+        <item>Koseze,138642</item>
+        <item>Kosovelov tr,135779</item>
+        <item>Kostanjevec/Sl.Bist.,138648</item>
+        <item>Kostanjevec/Sl.Bist.K,138649</item>
+        <item>Kostanjevica na Krki,138651</item>
+        <item>Kostanjevica na Krki Žol.,138652</item>
+        <item>Košaki Kos,138638</item>
+        <item>Košaki Opekarna,138639</item>
+        <item>Košenice II,136589</item>
+        <item>Košenice III,136590</item>
+        <item>Koštabona,150207</item>
+        <item>Koštabona obr.,138646</item>
+        <item>Kotredež,138660</item>
+        <item>Kotredež Košir,138661</item>
+        <item>Kotredež Orlek,138662</item>
+        <item>Kovor,138667</item>
+        <item>Kozarišče,138671</item>
+        <item>Kozina,138672</item>
+        <item>Kozjak pri Ceršaku K,138674</item>
+        <item>Kozlovičeva,135780</item>
+        <item>Kozminci,138684</item>
+        <item>Kozminci K,141694</item>
+        <item>Kraljeva,135781</item>
+        <item>Kraljeva K,135782</item>
+        <item>Kraljevci,138690</item>
+        <item>Kranj AP,135850</item>
+        <item>Kranj C.Kokrškega Odreda,135851</item>
+        <item>Kranj Dijaški dom,135852</item>
+        <item>Kranj Globus,135854</item>
+        <item>Kranj Gorenjska oblačila,135853</item>
+        <item>Kranj Iskra Labore,135855</item>
+        <item>Kranj Iskra sp.,135856</item>
+        <item>Kranj kolodvor,135857</item>
+        <item>Kranj Kom.cona,138691</item>
+        <item>Kranj Labore,135858</item>
+        <item>Kranj Labore Draksler,135859</item>
+        <item>Kranj Labore Šk.C.,135860</item>
+        <item>Kranj Likozarjeva,135861</item>
+        <item>Kranj Novi dom,135862</item>
+        <item>Kranj Orehek,138692</item>
+        <item>Kranj Orehek nadvoz,150223</item>
+        <item>Kranj Orehek nas.,135863</item>
+        <item>Kranj Orehek trg.,135864</item>
+        <item>Kranj OŠ S.Jenko,135865</item>
+        <item>Kranj OŠ S.Žagar,135866</item>
+        <item>Kranj Planika,135867</item>
+        <item>Kranj Planina otok,135868</item>
+        <item>Kranj Plinarna,135869</item>
+        <item>Kranj Pokopališče,135870</item>
+        <item>Kranj Primskovo,135871</item>
+        <item>Kranj Primskovo GD,135872</item>
+        <item>Kranj Primskovo ZD,135873</item>
+        <item>Kranj Qlandia,135874</item>
+        <item>Kranj Ručigajeva K,135875</item>
+        <item>Kranj Savska cesta,135876</item>
+        <item>Kranj Stolpnice,135877</item>
+        <item>Kranj Stražišče DD,135878</item>
+        <item>Kranj Stražišče Ješe,135879</item>
+        <item>Kranj Stražišče Pražarna,135880</item>
+        <item>Kranj Stražišče PTT,135881</item>
+        <item>Kranj Stražišče Š,135882</item>
+        <item>Kranj Supernova,900448</item>
+        <item>Kranj Tiskanina,135883</item>
+        <item>Kranj V.hrib,135884</item>
+        <item>Kranj Vod.stolp,135885</item>
+        <item>Kranj ZD,135886</item>
+        <item>Kranj ŽP,135887</item>
+        <item>Kranjska Gora,138693</item>
+        <item>Krašce/Moravčah,138694</item>
+        <item>Krašnja,138700</item>
+        <item>Krčevina 37,150299</item>
+        <item>Krčevina 41,150300</item>
+        <item>Krčevina Damjak,150306</item>
+        <item>Krčevina EKO,150307</item>
+        <item>Krčevina kapela,150308</item>
+        <item>Krčevina pri Vurb.most,150309</item>
+        <item>Krčevina pri Vurberku,150310</item>
+        <item>Krčevina Sužnik,150311</item>
+        <item>Krčevina Toplak,150312</item>
+        <item>Krčevina/Ormožu K,138702</item>
+        <item>Krčevina/Ormožu Polak,138703</item>
+        <item>Krčevina/Vurberku 90,150313</item>
+        <item>Kresnice K,141711</item>
+        <item>Križ/Boštanju,150381</item>
+        <item>Križ/Kamniku,138710</item>
+        <item>Križe/Trž.,138715</item>
+        <item>Križe/Trž.K,138716</item>
+        <item>Križevci pri Ljut.,138722</item>
+        <item>Križišče Janhova-Grabe,901603</item>
+        <item>Križni Vrh,138723</item>
+        <item>Križni Vrh 8,150385</item>
+        <item>Križni Vrh 90,150386</item>
+        <item>Krka,136592</item>
+        <item>Krka tehnični pregledi,136593</item>
+        <item>Krka zdrav.,136634</item>
+        <item>Krkavče,150208</item>
+        <item>Krkavče K,138727</item>
+        <item>Krkavče obr.,138726</item>
+        <item>Krmelj,138730</item>
+        <item>Krnica,138731</item>
+        <item>Kronovo,138736</item>
+        <item>Kropa/Rad.,138738</item>
+        <item>Krožna,135783</item>
+        <item>Krožna K,135784</item>
+        <item>Krška vas,138740</item>
+        <item>Krško,135920</item>
+        <item>Krško blag.center,138741</item>
+        <item>Krško Grič,135922</item>
+        <item>Krško OB,135927</item>
+        <item>Krško Sp.Grič pokop.,135928</item>
+        <item>Krško St.vas,135930</item>
+        <item>Krtina/Dobu,138747</item>
+        <item>Krvavec Žičnica,138756</item>
+        <item>Kumen,138764</item>
+        <item>Kungota pri Ptuju,138765</item>
+        <item>Kungota pri Ptuju cerkev,138766</item>
+        <item>Kunova 28,901605</item>
+        <item>Kunova Pachamama,901606</item>
+        <item>Kunova Šinko,901607</item>
+        <item>Kupljenik,138767</item>
+        <item>Kurja vas,138773</item>
+        <item>Kuršinci,138776</item>
+        <item>Kutan,138778</item>
+        <item>Kuteževo,138779</item>
+        <item>Kvasica,138786</item>
+        <item>Kvedrova,135785</item>
+        <item>Lacko,901614</item>
+        <item>Lačaves,138788</item>
+        <item>Lačna Gora,138790</item>
+        <item>Ladja,138791</item>
+        <item>Lago d.Predil V.Nevea 17,900471</item>
+        <item>Lahonci 6,138799</item>
+        <item>Lahonščak,138800</item>
+        <item>Lahovče,138801</item>
+        <item>Lahovče vas,150090</item>
+        <item>Lancova vas,138802</item>
+        <item>Laporje,138803</item>
+        <item>Laporje K,138804</item>
+        <item>Lasigovci 19,138806</item>
+        <item>Lastomerci Bračko,138812</item>
+        <item>Laški Rovt,141671</item>
+        <item>Lavrica,136688</item>
+        <item>Lazaret meja,138816</item>
+        <item>Laze pri Boštanju,138818</item>
+        <item>Laze v Tuhinju,138819</item>
+        <item>Laze/N.mestu,138821</item>
+        <item>Lazec,138824</item>
+        <item>Laznica,138826</item>
+        <item>Laže K,138817</item>
+        <item>Ledinek,138831</item>
+        <item>Lehen na Pohorju,138833</item>
+        <item>Lekarna,152190</item>
+        <item>Lenart v Sl.G.,138837</item>
+        <item>Lenart v Sl.G.Paluc,138838</item>
+        <item>Lepena K,138845</item>
+        <item>Lepence,138846</item>
+        <item>Lesce,138847</item>
+        <item>Lesce Š,138848</item>
+        <item>Lesce ŽP,138849</item>
+        <item>Leskovec pri Krškem,135938</item>
+        <item>Leskovec pri Krškem K,138857</item>
+        <item>Leskovec/Brusnicah,138858</item>
+        <item>Leskovec/Prager.St.Log K,138860</item>
+        <item>Leskovec/Pragerskem 23,138861</item>
+        <item>Lesnina,135786</item>
+        <item>Lešane-Kočar(Lešane 22),901624</item>
+        <item>Lešane 3,901625</item>
+        <item>Lešane Trije Križi,150669</item>
+        <item>Lešane Žižek,150670</item>
+        <item>Leše/Trž.,138851</item>
+        <item>Leše/Trž.K,138852</item>
+        <item>Lešje,138854</item>
+        <item>Lešnica/N.mestu,138862</item>
+        <item>Lešnica/Ormožu K,138863</item>
+        <item>Lešnica/Ormožu sp.,138864</item>
+        <item>Lešnica/Ormožu zg.,138865</item>
+        <item>Letence K,138868</item>
+        <item>Levanjci,138872</item>
+        <item>Leženčeva ravna,138876</item>
+        <item>Libanja Litmerk,138877</item>
+        <item>Libanja Mihalovci,138878</item>
+        <item>Libna,138880</item>
+        <item>Limbuš,138884</item>
+        <item>Limbuš tov.Marles,136383</item>
+        <item>Lipce,135751</item>
+        <item>Liplje,141717</item>
+        <item>Lipnica Iskra,138891</item>
+        <item>Lipnica Š,138892</item>
+        <item>Lipnica z,138893</item>
+        <item>Lipno,138894</item>
+        <item>Lipsenj,138899</item>
+        <item>Litija kegljišče,138902</item>
+        <item>Litija Predilnica,138903</item>
+        <item>Litija Restavracija ŽP,138904</item>
+        <item>Litmerk kapela,138907</item>
+        <item>Litmerk Reš.grad,138908</item>
+        <item>Liza,138910</item>
+        <item>Ljuben,138918</item>
+        <item>Ljuben K,138919</item>
+        <item>Ljubljana AMZS,135956</item>
+        <item>Ljubljana AP,138922</item>
+        <item>Ljubljana Belinka,136031</item>
+        <item>Ljubljana Beričevo,135709</item>
+        <item>Ljubljana Brinje,135708</item>
+        <item>Ljubljana Črnuče,136254</item>
+        <item>Ljubljana Hajdrihova,136129</item>
+        <item>Ljubljana Hrastje,136024</item>
+        <item>Ljubljana Kodrova,136008</item>
+        <item>Ljubljana Nadgorica,136030</item>
+        <item>Ljubljana Podgorica,138925</item>
+        <item>Ljubljana Rudnik,136262</item>
+        <item>Ljubljana Ruski car,135966</item>
+        <item>Ljubljana Sav.nas.,136240</item>
+        <item>Ljubljana Slov.avto,136267</item>
+        <item>Ljubljana Slov.avto|Ljubljana Šiška,136252</item>
+        <item>Ljubljana Sneberje,136025</item>
+        <item>Ljubljana stad.,135948</item>
+        <item>Ljubljana str.,136261</item>
+        <item>Ljubljana Šentjakob,136032</item>
+        <item>Ljubljana Šentvid,136213</item>
+        <item>Ljubljana Šiška,136187</item>
+        <item>Ljubljana Tivoli,136185</item>
+        <item>Ljubljana Tivolska,136165</item>
+        <item>Ljubljana Tobačna,136130</item>
+        <item>Ljubljana Trata,136210</item>
+        <item>Ljubljana Viadukt,135993</item>
+        <item>Ljubljana Zmajski most,136110</item>
+        <item>Ljutomer,138931</item>
+        <item>Ljutomer Tehnostroj,138932</item>
+        <item>Ljutomer ŽP,138933</item>
+        <item>Ločica pri Vranskem,138941</item>
+        <item>Ločič,138939</item>
+        <item>Ločič 1,901629</item>
+        <item>Ločki vrh 1,901630</item>
+        <item>Ločki vrh Kos,901631</item>
+        <item>Ločna,136608</item>
+        <item>Log 2,150343</item>
+        <item>Log 83,150344</item>
+        <item>Log nad Šk.Loko,138946</item>
+        <item>Log obračališče,150345</item>
+        <item>Log pod Mangartom,901300</item>
+        <item>Log v Bohinju,138951</item>
+        <item>Log/Kr.Gori,138954</item>
+        <item>Log/Kr.Gori Petrol,138955</item>
+        <item>Log/Preddvoru,138956</item>
+        <item>Log/Vipavi,138957</item>
+        <item>Log/Zavratec,138958</item>
+        <item>Logarovci 6,138959</item>
+        <item>Logarovci kapela,138960</item>
+        <item>Logatec,138961</item>
+        <item>Logatec Krpan,138963</item>
+        <item>Loka pri Mengšu,138967</item>
+        <item>Loka/Drav.p.,138969</item>
+        <item>Loka/Drav.p.52,138970</item>
+        <item>Loka/Tržiču,138972</item>
+        <item>Lokanja vas,138975</item>
+        <item>Lokavci  9 b križ,901632</item>
+        <item>Lokavci 39 Pucko,150885</item>
+        <item>Lokavci K,150886</item>
+        <item>Lokavci Ribniki K,150887</item>
+        <item>Lokavec/Tratah K,138979</item>
+        <item>Lokavec/Tratah trg.,138980</item>
+        <item>Loke v Tuhinju,138981</item>
+        <item>Lokve/Črnomlju,138994</item>
+        <item>Lom pod Storžičem,138999</item>
+        <item>Lomanoše 5,139000</item>
+        <item>Lomanoše bistro,139001</item>
+        <item>Lopata/Hinjah K,139008</item>
+        <item>Loperšice,139009</item>
+        <item>Lormanje,139010</item>
+        <item>Lormanje K,139011</item>
+        <item>Loška vas,139013</item>
+        <item>Lovnik,139014</item>
+        <item>Lovrenc na Poh.GD,139017</item>
+        <item>Lovrenc na Poh.pokop.,150480</item>
+        <item>Lovrenc na Poh.Tov.kos,139018</item>
+        <item>Lovrenc na Poh.trg,141719</item>
+        <item>Lovrenc na Poh.ZD,139019</item>
+        <item>Lovrenc/Drav.p.,139020</item>
+        <item>Lozice,139024</item>
+        <item>Lož,139021</item>
+        <item>Lucija,136635</item>
+        <item>Lucija AC,136636</item>
+        <item>Lucija H,136638</item>
+        <item>Lucija podvozna,150666</item>
+        <item>Lucija Š,136639</item>
+        <item>Lucija TPC,136637</item>
+        <item>Lucija Vojkova,136640</item>
+        <item>Lucija ZD,136641</item>
+        <item>Lučine,139031</item>
+        <item>Lukavci,139032</item>
+        <item>Lukovica pri Domžalah,139037</item>
+        <item>Luša sp.,139039</item>
+        <item>Luša zg.,139040</item>
+        <item>Lutverci,139045</item>
+        <item>Luže,139046</item>
+        <item>M.Bukovica,139052</item>
+        <item>M.Bukovica vas,139053</item>
+        <item>M.Cikava,136577</item>
+        <item>M.Ilova Gora,139059</item>
+        <item>M.Lašče,139062</item>
+        <item>M.Loče,139064</item>
+        <item>M.Ločnik/Turjaku,139065</item>
+        <item>M.Log,139066</item>
+        <item>M.Mlačevo,139073</item>
+        <item>M.Mraševo,139074</item>
+        <item>M.Nedelja,139075</item>
+        <item>M.Nedelja K,139076</item>
+        <item>M.Nerajec,139077</item>
+        <item>M.Otok,139079</item>
+        <item>M.Poljane,139083</item>
+        <item>M.Račna,139085</item>
+        <item>M.Slatnik,136596</item>
+        <item>M.Tinje,139088</item>
+        <item>M.Varnica,139091</item>
+        <item>M.Varnica 1,139092</item>
+        <item>M.vas/Muretincih,139094</item>
+        <item>M.Zimica,139098</item>
+        <item>Maca,139099</item>
+        <item>Mačkovec/N.mestu,136602</item>
+        <item>Mačkovec/Postojni,139102</item>
+        <item>Mahovci 9,901638</item>
+        <item>Majski vrh K,139105</item>
+        <item>Majšperk,139106</item>
+        <item>Majšperk Breg,139107</item>
+        <item>Majšperk K,150251</item>
+        <item>Makole,139108</item>
+        <item>Makole Marof,139109</item>
+        <item>Malahorna,139111</item>
+        <item>Male Loče vas,150763</item>
+        <item>Malija,139114</item>
+        <item>Maline,139116</item>
+        <item>Malna Draškovič,139118</item>
+        <item>Malna Rotar,139119</item>
+        <item>Manče K,139123</item>
+        <item>Mareda,902090</item>
+        <item>Maribor AP,139129</item>
+        <item>Maribor bloki s 31,136489</item>
+        <item>Maribor Bolnica,136278</item>
+        <item>Maribor Brezje,136306</item>
+        <item>Maribor Brezje obr.,136283</item>
+        <item>Maribor C.xiv.divi.samop.,136292</item>
+        <item>Maribor Dom upok.,136296</item>
+        <item>Maribor ELKO,136481</item>
+        <item>Maribor Europark,136314</item>
+        <item>Maribor Fontana,136468</item>
+        <item>Maribor Glavni trg,136318</item>
+        <item>Maribor Glavni trg|Maribor K.Koclja-Vetrinj.,136343</item>
+        <item>Maribor Greenwich,136327</item>
+        <item>Maribor II. Gimnazija,136372</item>
+        <item>Maribor Jeklotehna,139130</item>
+        <item>Maribor Lesarska Š,136364</item>
+        <item>Maribor pokop.Dobrava K,136423</item>
+        <item>Maribor Prim.ul.,136478</item>
+        <item>Maribor Slavija,136293</item>
+        <item>Maribor STŠ,136476</item>
+        <item>Maribor Štuhec pekarna,136366</item>
+        <item>Maribor Tabor,136467</item>
+        <item>Maribor Tezenska,136307</item>
+        <item>Maribor Tiskarna,136430</item>
+        <item>Maribor tov.Himo,136322</item>
+        <item>Maribor tov.Metalna,136431</item>
+        <item>Maribor tov.MTT Tabor,136487</item>
+        <item>Maribor tov.TAM,136472</item>
+        <item>Maribor tov.TVT,136508</item>
+        <item>Maribor trans.Lening.ul.,136486</item>
+        <item>Maribor TVD Partizan,136482</item>
+        <item>Maribor Vema,139131</item>
+        <item>Maribor ŽP,136507</item>
+        <item>Mariborski otok HE,136382</item>
+        <item>Marjeta na Drav.p.,139137</item>
+        <item>Marjeta na Drav.p.G,139138</item>
+        <item>Markljeva ulica,152189</item>
+        <item>Markovci/Ptuju,139144</item>
+        <item>Markovec,139145</item>
+        <item>Markovec,135789</item>
+        <item>Markovec Em.,135790</item>
+        <item>Markovec Š,135791</item>
+        <item>Markovo Kavran,139148</item>
+        <item>Markovščina,139149</item>
+        <item>Marno,139150</item>
+        <item>Marof/Cerknici,139151</item>
+        <item>Marof/Prečni,139153</item>
+        <item>Marof/Vurberku,139154</item>
+        <item>Martinja vas pri Mokr.,139157</item>
+        <item>Martinjak,139158</item>
+        <item>Matenja vas,139165</item>
+        <item>Materija,139166</item>
+        <item>Mavčiče pokopališče,135888</item>
+        <item>Medija,139170</item>
+        <item>Medija K,139171</item>
+        <item>Medno,136216</item>
+        <item>Medno g.Tome,139173</item>
+        <item>Medoši,139174</item>
+        <item>Medribnik,139175</item>
+        <item>Medribnik Kolednik,139176</item>
+        <item>Medvedce,150252</item>
+        <item>Medvednica,139177</item>
+        <item>Medvešek odcep,139178</item>
+        <item>Medvode,136510</item>
+        <item>Medvode na klancu,139179</item>
+        <item>Meja/Kr.,139180</item>
+        <item>Mejni prehod Gradišče,901654</item>
+        <item>Mekinje,139181</item>
+        <item>Mele,139182</item>
+        <item>Mengeš Lek,139185</item>
+        <item>Mengeš Lovec,139186</item>
+        <item>Mengeš Pavovec,139187</item>
+        <item>Mengeš Petrol,139188</item>
+        <item>Meniška vas,139189</item>
+        <item>Mercator,135792</item>
+        <item>Mereče,139191</item>
+        <item>Mestna knjižnica Kranj,900559</item>
+        <item>Mestne njive,152198</item>
+        <item>Mestni Vrh,139195</item>
+        <item>Mestni Vrh 17 K,150314</item>
+        <item>Mestni vrh 23,901658</item>
+        <item>Mestni Vrh 25,150315</item>
+        <item>Mestni Vrh 56,150316</item>
+        <item>Mestni Vrh 61,139196</item>
+        <item>Mestni Vrh Črešnik,150317</item>
+        <item>Mestni Vrh K,139197</item>
+        <item>Mestni Vrh ribnik K,150318</item>
+        <item>Mestni Vrh Urek,139198</item>
+        <item>Metlika,139202</item>
+        <item>Metlika Črnomaljska,139203</item>
+        <item>Mezgovci,152186</item>
+        <item>Mezgovci ob Pesnici GD,901665</item>
+        <item>Mezgovci ob Pesnici K,150777</item>
+        <item>Mihov dom,139209</item>
+        <item>Mihovce/Drav.p.,139210</item>
+        <item>Mihovci pri V.Ned.,150778</item>
+        <item>Mihovci pri V.Ned.trg.,139212</item>
+        <item>Miklavž center,139213</item>
+        <item>Miklavž Gomile,902068</item>
+        <item>Miklavž Gradišnikova,139214</item>
+        <item>Miklavž kanal,902067</item>
+        <item>Miklavž pri Ormožu,139219</item>
+        <item>Miklavž Ruprova,139215</item>
+        <item>Miklavž šola,139217</item>
+        <item>Miklavž Vauhnik,139218</item>
+        <item>Milhar,139220</item>
+        <item>Milje,139222</item>
+        <item>Mirna,139226</item>
+        <item>Mirna peč,139227</item>
+        <item>Mlaka pri Kr.,135889</item>
+        <item>Mlin,139240</item>
+        <item>Mlin/Rovtah,139242</item>
+        <item>Mlini most,139243</item>
+        <item>Mlinše,139244</item>
+        <item>Močna,139245</item>
+        <item>Modraže,150494</item>
+        <item>Modrič,139247</item>
+        <item>Mojstrana,139249</item>
+        <item>Mojstrana Dovje,139250</item>
+        <item>Mojstrana Podkepa,139251</item>
+        <item>Mokronog,139253</item>
+        <item>Moravci toplice v Slov. goricah K,150784</item>
+        <item>Moravče,139256</item>
+        <item>Moretini,139260</item>
+        <item>Morgani,139261</item>
+        <item>Morje,139262</item>
+        <item>Morski Jarek,139263</item>
+        <item>Morski Jarek K,139264</item>
+        <item>Moste GD,139273</item>
+        <item>Moste Petrol,150662</item>
+        <item>Moste/Žirov.bloki,139275</item>
+        <item>Mostečno,139277</item>
+        <item>Mostje/Ptuju,139283</item>
+        <item>Mostje/Ptuju K,139284</item>
+        <item>Moše,139268</item>
+        <item>MOŠKAJNCI JAMA (Š),902119</item>
+        <item>Moškanjci,139269</item>
+        <item>Moškanjci Sok kapela,901672</item>
+        <item>Moškanjci ŽP,901673</item>
+        <item>Mošnje,139270</item>
+        <item>Motnik,139285</item>
+        <item>Motnik zg.,139286</item>
+        <item>Mrtvice,139297</item>
+        <item>Muhaber,136594</item>
+        <item>Muretinci,139304</item>
+        <item>Murska Sobota AP,136519</item>
+        <item>Murska Sobota Gaj,139309</item>
+        <item>Murska Sobota Polanič,139313</item>
+        <item>Murski Dvor,139317</item>
+        <item>Na Logu,139323</item>
+        <item>Na Luši K,139324</item>
+        <item>Nad Dolinsko,135794</item>
+        <item>Nadlesk,139328</item>
+        <item>Nadlog,139329</item>
+        <item>Naklo/Kr.,139332</item>
+        <item>Naklo/Kr.Š,139333</item>
+        <item>Naklo/Kr.vas,139334</item>
+        <item>Naklo/Kr.ZD,139335</item>
+        <item>Nasova-Neuvirt,901680</item>
+        <item>Nasova 2 ob križišču Frelih,901681</item>
+        <item>Nasova pri Marku,150671</item>
+        <item>Nasovče,139339</item>
+        <item>Negova,139345</item>
+        <item>Negova 112,150888</item>
+        <item>Negova jezero,139346</item>
+        <item>Negova LD,139347</item>
+        <item>Negova Lipnik,901682</item>
+        <item>Negova pokopališče,150889</item>
+        <item>Negovski Vrh 3,150890</item>
+        <item>Negrad,139348</item>
+        <item>Negrad Osovnik,139349</item>
+        <item>Negrod,139350</item>
+        <item>Nemilje,139353</item>
+        <item>Nemilje I,139354</item>
+        <item>Nemška vas/Ribnici,139357</item>
+        <item>Nemškarca,139358</item>
+        <item>Njiverce,901683</item>
+        <item>Njivica/Kr.,139363</item>
+        <item>NM AP (MP),901318</item>
+        <item>Nomenj,139366</item>
+        <item>Norički Vrh K.,901685</item>
+        <item>Noršinci pri Ljut.,139367</item>
+        <item>Nova,135795</item>
+        <item>Nova Cerkev,139369</item>
+        <item>Nova Gorica AP,139373</item>
+        <item>Nova Hrastnica,150400</item>
+        <item>Nova K,901319</item>
+        <item>Nova vas Kortina,139379</item>
+        <item>Nova vas nad Dragonjo,139380</item>
+        <item>Nova vas pri Lescah,139381</item>
+        <item>Nova vas/Blokah,139383</item>
+        <item>Nova vas/Markovcih K,139385</item>
+        <item>Novake,139389</item>
+        <item>Nove Ložine,139391</item>
+        <item>Novi Jork,139393</item>
+        <item>Novi trg,152197</item>
+        <item>Novigrad,900616</item>
+        <item>Novince,901687</item>
+        <item>Novinci Vršec,901688</item>
+        <item>Novo mesto,136569</item>
+        <item>Novo mesto bolnica GG,136571</item>
+        <item>Novo mesto Bršljin,136627</item>
+        <item>Novo mesto Bučna vas,136597</item>
+        <item>Novo mesto C.brigad,136624</item>
+        <item>Novo mesto Drska,136583</item>
+        <item>Novo mesto gim.,136591</item>
+        <item>Novo mesto Gotna vas,136581</item>
+        <item>Novo mesto Kandija,136587</item>
+        <item>Novo mesto Ločna,136606</item>
+        <item>Novo mesto novi most,136619</item>
+        <item>Novo mesto Revoz,136615</item>
+        <item>Novo mesto Šmihel,136618</item>
+        <item>Novo mesto Žabja vas,136626</item>
+        <item>Novokračine,139401</item>
+        <item>Nožice,139402</item>
+        <item>Ob Dravi,901690</item>
+        <item>Oblaki,139406</item>
+        <item>Obrezija,139410</item>
+        <item>Obrež Bobot,139408</item>
+        <item>Obrež GD,139409</item>
+        <item>Obrh,139413</item>
+        <item>Obrne,139414</item>
+        <item>Obrov,139415</item>
+        <item>Očeslavci,139416</item>
+        <item>Okoslavci,139422</item>
+        <item>Okoslavci breg,139423</item>
+        <item>Oljčna pot-L,135798</item>
+        <item>Olmo,135799</item>
+        <item>Olmo Eden,901323</item>
+        <item>Olmo K,135800</item>
+        <item>Olševek,139428</item>
+        <item>Opekarna,139431</item>
+        <item>Oplotnica,139432</item>
+        <item>Orehek/Kr. Š.,900641</item>
+        <item>Orehek/Stopičah,139435</item>
+        <item>Orehova vas 17,139436</item>
+        <item>Orehovci,139437</item>
+        <item>Orehovica/Izlakah,139438</item>
+        <item>Orehovica/Šentjerneju,139439</item>
+        <item>Orlica,139452</item>
+        <item>Orlica Gregel,139453</item>
+        <item>Orlica K,139454</item>
+        <item>Ormož,139456</item>
+        <item>Ormož bolnica,901700</item>
+        <item>Ormož tov.,139457</item>
+        <item>Ornuška vas,139458</item>
+        <item>Ortnek,139459</item>
+        <item>Osek/Sl.G.,139461</item>
+        <item>Osek/Šempasu,139460</item>
+        <item>Osilnica,139463</item>
+        <item>Osluševci,139465</item>
+        <item>Osluševci K,150779</item>
+        <item>Osluševci ŽP,901703</item>
+        <item>Osojnik,139467</item>
+        <item>OŠ Bohinj Bistrica,900654</item>
+        <item>OŠ Bršljin,901327</item>
+        <item>OŠ Koroška Bela,900656</item>
+        <item>OŠ Prežihov Voranc,135752</item>
+        <item>OŠ Sladki Vrh,902064</item>
+        <item>OŠ Sp.Duplek,901735</item>
+        <item>OŠ Središče,901736</item>
+        <item>OŠ V.TINJE,901741</item>
+        <item>Otočec,139487</item>
+        <item>Otočec Grad,139488</item>
+        <item>Otok/Metliki,139490</item>
+        <item>Ozeljan,139495</item>
+        <item>Ožbalt,139493</item>
+        <item>Ožbalt HE,139494</item>
+        <item>Pacinje,139496</item>
+        <item>Pacinje K,901748</item>
+        <item>Paderna,139497</item>
+        <item>Padna,139501</item>
+        <item>Padna K,139502</item>
+        <item>Pangršica K,139515</item>
+        <item>Parecag,139518</item>
+        <item>Parje,139520</item>
+        <item>Parkirišče Huje,900677</item>
+        <item>Partizanska (MPK),901341</item>
+        <item>Pasarela,901342</item>
+        <item>Passo del Predil MP,901343</item>
+        <item>Pavlovci 8,139523</item>
+        <item>Pavlovci K,139524</item>
+        <item>PD Planinka Kop K,139525</item>
+        <item>Peče,139531</item>
+        <item>Peče K,139533</item>
+        <item>Pečica,139534</item>
+        <item>Pečke,139539</item>
+        <item>Perivnik,135890</item>
+        <item>Pernica,139541</item>
+        <item>Pernica jezero,139542</item>
+        <item>Peroj,900693</item>
+        <item>Pesnica pri Mar.,139551</item>
+        <item>Pesnica pri Mar.S4,141721</item>
+        <item>Pesnica rondo,150268</item>
+        <item>Pesniški Dvor,139552</item>
+        <item>Pestike,139553</item>
+        <item>Peščenk,139548</item>
+        <item>Petanjci G,139554</item>
+        <item>Petanjci GD,139555</item>
+        <item>Petanjci kapela,139556</item>
+        <item>Petelinje,139557</item>
+        <item>Petelinjek/Blagovici,139558</item>
+        <item>Petelinjek/Ratežu,139560</item>
+        <item>Petkovec,139563</item>
+        <item>Petkovec Zavčan,139564</item>
+        <item>Petrina,139565</item>
+        <item>Petrinje,139566</item>
+        <item>Petrova vas K,139567</item>
+        <item>Pijava Gorica,139569</item>
+        <item>Pijavice,139570</item>
+        <item>Pilovc,139571</item>
+        <item>Pineta,900704</item>
+        <item>Piran,136642</item>
+        <item>Piran T.t.,136643</item>
+        <item>Pirat,136644</item>
+        <item>Pivka,139579</item>
+        <item>Pivola,139580</item>
+        <item>Placar 42,139582</item>
+        <item>Placar 60,901751</item>
+        <item>Placar KZ,139583</item>
+        <item>Placerovci,139584</item>
+        <item>Plač,139581</item>
+        <item>Plač (meja),901752</item>
+        <item>Planica/Kr.,139585</item>
+        <item>Planina pod Golico,135753</item>
+        <item>Planina pod Golico Transformat,135754</item>
+        <item>Planina pod Šumnikom,139591</item>
+        <item>Planina pri Cerknem,139592</item>
+        <item>Planina/Rakeku,139593</item>
+        <item>Planinska vas/Trbov.,139597</item>
+        <item>Plavišnik,139603</item>
+        <item>Ples,139604</item>
+        <item>Pleš,139605</item>
+        <item>Pleterje/Drav.p.,139616</item>
+        <item>Plitvica,150672</item>
+        <item>Plitvički Vrh,139621</item>
+        <item>Ploderšnica,139623</item>
+        <item>Ploderšnica Savernik,139624</item>
+        <item>Ploderšnica Špindler,139625</item>
+        <item>Pobegi,139628</item>
+        <item>Pobegi P,139629</item>
+        <item>Pobrežje/Ptuju,139631</item>
+        <item>Pobrežje/Ptuju trg.,139632</item>
+        <item>Počehova TSN,136491</item>
+        <item>Pod gradom - parkirišče,901755</item>
+        <item>Pod Gradom,139634</item>
+        <item>Pod Voglom,139635</item>
+        <item>Podbevškova ulica,136603</item>
+        <item>Podbeže,139636</item>
+        <item>Podbeže vas,150764</item>
+        <item>Podblica,139637</item>
+        <item>Podbrezje,139643</item>
+        <item>Podbreznik,152192</item>
+        <item>Podbreznik (MP NM),901350</item>
+        <item>Podcerkev,139645</item>
+        <item>Podgora pri Ložu,139648</item>
+        <item>Podgora/Dobrepolju K,139649</item>
+        <item>Podgora/Prečni,139651</item>
+        <item>Podgora/Šk.Loki,139652</item>
+        <item>Podgorci 60,139654</item>
+        <item>Podgorci Bombek,139655</item>
+        <item>Podgorje Gasilski dom,901756</item>
+        <item>Podgorje Slavka,150200</item>
+        <item>Podgorje/G.Radgoni,139658</item>
+        <item>Podgorje/G.Radgoni Dresl.,139659</item>
+        <item>Podgorje/Kamniku,139660</item>
+        <item>Podgrad/G.Radgoni,139668</item>
+        <item>Podgrad/Izlakah,139669</item>
+        <item>Podgrad/Keblju,139670</item>
+        <item>Podgrad/N.mestu,152181</item>
+        <item>Podgrad/Obrovu,139672</item>
+        <item>Podgrad/Obrovu Š,139673</item>
+        <item>Podgradje,150238</item>
+        <item>Podgraje,139675</item>
+        <item>Podgrič,139676</item>
+        <item>Podhom,139677</item>
+        <item>Podhosta,139678</item>
+        <item>Podhrib,139679</item>
+        <item>Podhruška,139680</item>
+        <item>Podigrac trg.,139681</item>
+        <item>Podjelovo Brdo,139682</item>
+        <item>Podklanec/Orehovici,139686</item>
+        <item>Podklanec/Žireh,139688</item>
+        <item>Podkočna,135755</item>
+        <item>Podkoren,139689</item>
+        <item>Podkraj pri Zagorju,150474</item>
+        <item>Podkum,139692</item>
+        <item>Podkuže,139693</item>
+        <item>Podlanišče,139696</item>
+        <item>Podlehnik,139697</item>
+        <item>Podlehnik ambulanta,139698</item>
+        <item>Podljubelj,139711</item>
+        <item>Podljubelj I,139712</item>
+        <item>Podlože,150253</item>
+        <item>Podlože K,139970</item>
+        <item>Podlubnik,136677</item>
+        <item>Podmeja,139715</item>
+        <item>Podmilj,139717</item>
+        <item>Podnanos,139718</item>
+        <item>Podnart,139719</item>
+        <item>Podnart pri Kovaču,139720</item>
+        <item>Podobeno,139721</item>
+        <item>Podova Lašič,139723</item>
+        <item>Podpadna,139724</item>
+        <item>Podplat,139727</item>
+        <item>Podpreska,139728</item>
+        <item>Podpulfrca,139729</item>
+        <item>Podreča,135891</item>
+        <item>Podreča maln,150226</item>
+        <item>Podrošt,139733</item>
+        <item>Podskrajnik,139737</item>
+        <item>Podstenje,139744</item>
+        <item>Podtabor/Il.Bistrica,139746</item>
+        <item>Podturn pri Dol.T.,139747</item>
+        <item>Podub hotel,150249</item>
+        <item>Podvasca,139749</item>
+        <item>Podvelka,139750</item>
+        <item>Podvelka Potočnik,139751</item>
+        <item>Podvin/Rad.,139752</item>
+        <item>Podvinci,139753</item>
+        <item>Podvinci 1,901760</item>
+        <item>Podvinci 70,150320</item>
+        <item>Podvinci GD,139754</item>
+        <item>Podvinci igrišče,901761</item>
+        <item>Podvinci Velovlek K,139755</item>
+        <item>Podzemelj K,139758</item>
+        <item>Pogled,141266</item>
+        <item>Pogled 7 b,901762</item>
+        <item>Pohorje/Cirkulanah,139759</item>
+        <item>Pohorski dvor bloki,139760</item>
+        <item>Pohorski dvor obr.,139761</item>
+        <item>Pokopališče Srebrniče,136605</item>
+        <item>Pokopališče Šmihel,136607</item>
+        <item>Pokoše,139765</item>
+        <item>Polana/Preddvoru,150279</item>
+        <item>Polana/Sliv.P.,139771</item>
+        <item>Polenci 9,901763</item>
+        <item>Polenšak,139774</item>
+        <item>Polenšak G,139775</item>
+        <item>Polica/Kr.,139779</item>
+        <item>Police 126a,901764</item>
+        <item>Police I,901765</item>
+        <item>Police Kapela,141725</item>
+        <item>Poljane nad Šk.Loko,139783</item>
+        <item>Poljane OŠ,900736</item>
+        <item>Poljane/Kočni,139786</item>
+        <item>Poljčane OŠ,150495</item>
+        <item>Poljčane ŽP,139787</item>
+        <item>Poljče,139788</item>
+        <item>Polje v Bohinju,139791</item>
+        <item>Polje/Izlakah,139792</item>
+        <item>Polšnik K,139797</item>
+        <item>Pomjan,139802</item>
+        <item>Pongrce,139804</item>
+        <item>Ponikve/Dobrepolju,139811</item>
+        <item>Ponikve/Dobrepolju Inv.d.,139810</item>
+        <item>Ponikve/Trebnjem,139813</item>
+        <item>Popovci,139817</item>
+        <item>Poreč,900739</item>
+        <item>Portorož,136645</item>
+        <item>Portorož H,136646</item>
+        <item>Posavec,139819</item>
+        <item>Posrtvica,150134</item>
+        <item>Postojna,139821</item>
+        <item>Postojna LIV,136669</item>
+        <item>Postojna SŠC,139822</item>
+        <item>Postojnska jama,150621</item>
+        <item>POŠ Stogovci,901771</item>
+        <item>Potiskavec,139823</item>
+        <item>Potniški term.,135801</item>
+        <item>Potoče/Ajdovščini,139824</item>
+        <item>Potoče/Preddvoru,139825</item>
+        <item>Potoče/Preddvoru vas,900743</item>
+        <item>Potok/Straži,139827</item>
+        <item>Potok/Tuhinju,139828</item>
+        <item>Potoki/Jes.,139829</item>
+        <item>Povlje,900745</item>
+        <item>Povlje K,150224</item>
+        <item>Poženk,139834</item>
+        <item>Prade,139838</item>
+        <item>Pragersko marof,139839</item>
+        <item>Pragersko ŽP,139840</item>
+        <item>Praprotna Polica,139849</item>
+        <item>Praprotno/Selščici,139850</item>
+        <item>Praše,135892</item>
+        <item>Prebačevo,139851</item>
+        <item>Prebačevo I,139852</item>
+        <item>Prebačevo kapelica,900751</item>
+        <item>Precetinci,139855</item>
+        <item>Prečna,139856</item>
+        <item>Preddvor bloki,139859</item>
+        <item>Preddvor Križnar,150663</item>
+        <item>Preddvor pri Zupancu,139860</item>
+        <item>Preddvor Š,900752</item>
+        <item>Preddvor trgovina,139858</item>
+        <item>Predel K,900753</item>
+        <item>Predel MP,901357</item>
+        <item>Predole K,139866</item>
+        <item>Predoslje,135893</item>
+        <item>Predoslje GD,900754</item>
+        <item>Predoslje Š,135894</item>
+        <item>Predstruge,139867</item>
+        <item>Pregarje,139869</item>
+        <item>Prelesje/Mokronogu,139877</item>
+        <item>Prelog,139878</item>
+        <item>Prelog Magan,139879</item>
+        <item>Premantura,900756</item>
+        <item>Prepolje/Drav.p.,139887</item>
+        <item>Prepolje/Drav.p.G,139888</item>
+        <item>Prerad K,139889</item>
+        <item>Preserje pri Radomljah,139892</item>
+        <item>Preska pri Medvodah,139896</item>
+        <item>Preska pri Tržiču,139897</item>
+        <item>Prestranek,139900</item>
+        <item>Preša,139890</item>
+        <item>Pretrež,139902</item>
+        <item>Prevoje,139910</item>
+        <item>Prevole,139911</item>
+        <item>Pri Amru,139914</item>
+        <item>Pri Barbi,139915</item>
+        <item>Pri Barbi Pavelnu,139916</item>
+        <item>Pri cerkvi,139918</item>
+        <item>Pri Klusu,139919</item>
+        <item>Prigorica/Ribnici,139921</item>
+        <item>Prihodi,135756</item>
+        <item>Prijedor,900771</item>
+        <item>Prilesje,139923</item>
+        <item>Primostek,139926</item>
+        <item>Primskovo Dolnov,900773</item>
+        <item>Primskovo Mercator,135895</item>
+        <item>Primskovo na Klancu,135896</item>
+        <item>Prisoje,135802</item>
+        <item>Prisoje pod,135803</item>
+        <item>Pristava,135757</item>
+        <item>Pristava Spomenik,135758</item>
+        <item>Pristava/Cirkulanah,139931</item>
+        <item>Pristava/Cirkulanah K,139932</item>
+        <item>Pristava/Trž.,139934</item>
+        <item>Proti Jezom,901777</item>
+        <item>Pršetinci K,139948</item>
+        <item>Pršetinci Kapela,139949</item>
+        <item>Prvenci,139953</item>
+        <item>Pš.Polica,139954</item>
+        <item>Pševo,139955</item>
+        <item>Pševska c.52,135897</item>
+        <item>Ptuj AP,139956</item>
+        <item>Ptuj bol.,139957</item>
+        <item>Ptuj Breg,139958</item>
+        <item>Ptuj Breg trg.,139959</item>
+        <item>Ptuj Budina,139960</item>
+        <item>Ptuj Maistrova ulica,150322</item>
+        <item>Ptuj na obrežju,150673</item>
+        <item>Ptuj Nova vas,139961</item>
+        <item>Ptuj Nova vas 89,150323</item>
+        <item>Ptuj Nova vas cerkev,150324</item>
+        <item>Ptuj Ormoška,139962</item>
+        <item>Ptuj Pivkova ulica,150325</item>
+        <item>Ptuj pod Gradom,150326</item>
+        <item>Ptuj Rogoznica,139963</item>
+        <item>Ptuj Rogoznica n.pokop.,139965</item>
+        <item>Ptuj Rogoznica zad.,139966</item>
+        <item>Ptuj SŠC,139967</item>
+        <item>Ptuj Svržnjakova 4,150327</item>
+        <item>Ptuj Transservis,139968</item>
+        <item>Ptuj Turnišče,139969</item>
+        <item>Ptuj Ul. 5 Prekomorske 13,150328</item>
+        <item>Ptuj Zadružni trg,152155</item>
+        <item>Ptuj Župančičeva 10,150330</item>
+        <item>Ptujska Gora,139971</item>
+        <item>Ptujska Gora 108,139972</item>
+        <item>Puče,139973</item>
+        <item>Puče K,139974</item>
+        <item>Pudob,139979</item>
+        <item>Pula,900782</item>
+        <item>Pungart,139980</item>
+        <item>Pungert,900784</item>
+        <item>Puščava/Lovrencu,139983</item>
+        <item>Puščava/Mokronogu,139984</item>
+        <item>Pušenci K,139985</item>
+        <item>Puštal pri Dolencu,150401</item>
+        <item>Qlandia,136610</item>
+        <item>Rabeljčja vas,150332</item>
+        <item>Rače 80,139992</item>
+        <item>Rače Mariborska 61,139993</item>
+        <item>Rače Pinus,139994</item>
+        <item>Račice,150135</item>
+        <item>Radehova,140003</item>
+        <item>Radenci,140004</item>
+        <item>Radizel,140007</item>
+        <item>Radizel 63,140008</item>
+        <item>Radlje ob Dravi,140009</item>
+        <item>Radna vas,140015</item>
+        <item>Radohova vas/Pivki,140016</item>
+        <item>Radomerje,140018</item>
+        <item>Radomerje GD,150239</item>
+        <item>Radomlje,140019</item>
+        <item>Radomlje Pošta,150109</item>
+        <item>Radoslavci,140020</item>
+        <item>Radoslavci Bratuša 68,150498</item>
+        <item>Radovlja,140025</item>
+        <item>Radovljica,140026</item>
+        <item>Radovljica Isospan,140027</item>
+        <item>Radovljica Š,140028</item>
+        <item>Raduha pri Sladkem Vrhu,141727</item>
+        <item>Radvenci 32,150891</item>
+        <item>Radvenci kapela,150892</item>
+        <item>Rafolče,140032</item>
+        <item>Ragovo,136611</item>
+        <item>Ragovska ulica,136612</item>
+        <item>Raka,140035</item>
+        <item>Rakek Jelka,140038</item>
+        <item>Rakek Petrol,140039</item>
+        <item>Rakek ŽP,140040</item>
+        <item>Rakičan,140041</item>
+        <item>Rakitnik,140044</item>
+        <item>Rakovica,135898</item>
+        <item>Rakovnik/Medvodah,140050</item>
+        <item>Ranca,140051</item>
+        <item>Rašica,140054</item>
+        <item>Ratanska vas,140055</item>
+        <item>Rateče MP,901362</item>
+        <item>Rateče Planica,140056</item>
+        <item>Ratež,140058</item>
+        <item>Ratkovec,150665</item>
+        <item>Razbank,140080</item>
+        <item>Razdrto,140084</item>
+        <item>Razdrto K,140085</item>
+        <item>Razdrto tri hiše,140086</item>
+        <item>Razpotje/Izlakah,140093</item>
+        <item>Rdeči Kal,140095</item>
+        <item>Reber/Žužemberku K,140097</item>
+        <item>Rečica/Bledu,140101</item>
+        <item>Rečica/Bledu LIP,140102</item>
+        <item>Rečica/Bledu Žp,140103</item>
+        <item>Regrča vas I,136613</item>
+        <item>Regrča vas II,136614</item>
+        <item>Reka/Hoč.P.,140107</item>
+        <item>Renke,140113</item>
+        <item>Rep,140116</item>
+        <item>Reteče,140129</item>
+        <item>Retje/Loš.P.,140130</item>
+        <item>Retje/V.Laščah,140131</item>
+        <item>Ribče sp.,140132</item>
+        <item>Ribče zg.,140133</item>
+        <item>Ribčev Laz,140134</item>
+        <item>Ribnica na Poh.Čučej,140136</item>
+        <item>Ribnica na Poh.Kosov.K,140137</item>
+        <item>Ribnica na Poh.Lipuš,140138</item>
+        <item>Ribnica na Poh.Puša,140139</item>
+        <item>Ribnica na Poh.Viltužnik,140140</item>
+        <item>Ribnica na Pohorju,140141</item>
+        <item>Ribnica/Dol Ob železnici,152107</item>
+        <item>Ribnica/Dol.,140142</item>
+        <item>Ribno,140145</item>
+        <item>Rihtarovci,140146</item>
+        <item>Rimska peč,901792</item>
+        <item>RITOZNOJ,901793</item>
+        <item>Rižana,140152</item>
+        <item>Rjavci/Hočje,901794</item>
+        <item>Rodica,140160</item>
+        <item>Rodine,140162</item>
+        <item>Rodni Vrh K,140164</item>
+        <item>Rog.Slatina,140165</item>
+        <item>Rogovila,140174</item>
+        <item>Rogoza KS,140175</item>
+        <item>Rogoza obr.,140176</item>
+        <item>Rogoza Vrtec,140177</item>
+        <item>Rogoznica/Jiršovcih,140178</item>
+        <item>Roje,140179</item>
+        <item>Roškar-kmečki turizem,901797</item>
+        <item>Rošnja,140186</item>
+        <item>Rotek,140187</item>
+        <item>Rova/Radomljah,140188</item>
+        <item>Rove,140189</item>
+        <item>Rovte,140193</item>
+        <item>Rovte K,140194</item>
+        <item>Rozmanova,135804</item>
+        <item>Rozmanova I,901367</item>
+        <item>Rozmanova II,902241</item>
+        <item>Rozmanova Š,901368</item>
+        <item>Rožengrunt kapela,140196</item>
+        <item>Rožengrunt žaga,140197</item>
+        <item>Rožice,140199</item>
+        <item>Rožna Dolina,136559</item>
+        <item>Rožna ulica,135899</item>
+        <item>Rucmanci,140206</item>
+        <item>Ručetna vas K,140205</item>
+        <item>Rudno,140212</item>
+        <item>Rumanja vas,140214</item>
+        <item>Runeč,152185</item>
+        <item>Rupa,135900</item>
+        <item>Ruperče,140216</item>
+        <item>Ruperče Ložane,140217</item>
+        <item>Ruperčvrh,140218</item>
+        <item>Ruska kapelica,900823</item>
+        <item>Ruše,140219</item>
+        <item>Ruše GD,150346</item>
+        <item>Ruše Š,140220</item>
+        <item>Ruše ŠC,140223</item>
+        <item>Ruše Škerget,138935</item>
+        <item>Ruše Tov.dušika K,140222</item>
+        <item>Ruše/Smolniku viadukt,138936</item>
+        <item>Ruta,140224</item>
+        <item>Ržiše,140225</item>
+        <item>Sabonje,150765</item>
+        <item>Sabonjski most,140226</item>
+        <item>Sajevce,140230</item>
+        <item>Sakušak,140232</item>
+        <item>Salon Kolpa,152208</item>
+        <item>Sava K,140246</item>
+        <item>Savci 53,140247</item>
+        <item>Savci 70,140248</item>
+        <item>Savica vas/village,140249</item>
+        <item>Savinjsko,901805</item>
+        <item>Sebenje/Bledu,140255</item>
+        <item>Sebenje/Trž.,140256</item>
+        <item>Seča,140261</item>
+        <item>Sečovlje K,140262</item>
+        <item>Sečovlje Š,140263</item>
+        <item>Segovci,140268</item>
+        <item>Segovci 32b,901808</item>
+        <item>Segovci 49,901809</item>
+        <item>Sejanci 51,140269</item>
+        <item>Sela pri Dragatušu,140276</item>
+        <item>Sela pri Raki,140277</item>
+        <item>Sela/Dol.T.,140279</item>
+        <item>Sela/Podgrajah,140281</item>
+        <item>Sela/Ptuju,140282</item>
+        <item>Sela/Ptuju K,140283</item>
+        <item>Sela/Šentjerneju,140284</item>
+        <item>Selca,141672</item>
+        <item>Selce/Pivki,140290</item>
+        <item>Selce/Sl.G.,140291</item>
+        <item>Selce/Tirni,140292</item>
+        <item>Sele pri Polskavi kapela,140293</item>
+        <item>Selnica ob Dravi,140299</item>
+        <item>Selnica ob Muri K,140300</item>
+        <item>Selnica ob Muri Lah,140301</item>
+        <item>Selo pri Moravčah,140303</item>
+        <item>Selo/Ajdovščini,140308</item>
+        <item>Selo/Žireh,140311</item>
+        <item>Selo/Žireh I,140312</item>
+        <item>Semič,140316</item>
+        <item>Senadole,140323</item>
+        <item>Senadolice,140324</item>
+        <item>Senčak pri Juršincih,140325</item>
+        <item>Senčak pri Juršincih 30,140326</item>
+        <item>Senešci,140332</item>
+        <item>Senica sp.,140333</item>
+        <item>Senica zg.,140334</item>
+        <item>Senično,140335</item>
+        <item>Senožeče,140340</item>
+        <item>Senožeti/Lit.pri Janezu,140341</item>
+        <item>Senožeti/Litiji,140342</item>
+        <item>Senožeti/Litiji K,140343</item>
+        <item>Sestrže,150254</item>
+        <item>Sevnica,140390</item>
+        <item>Sevnica Šmarje,140394</item>
+        <item>Sevno,136617</item>
+        <item>Sežana,140396</item>
+        <item>Sežana občina,140397</item>
+        <item>Simonov zaliv,140402</item>
+        <item>Sitarovci,140408</item>
+        <item>Skoke,140436</item>
+        <item>Skorba,140445</item>
+        <item>Skrovnik,140454</item>
+        <item>Sl.Bistrica,140455</item>
+        <item>Sl.Bistrica GD,140457</item>
+        <item>Sl.Bistrica grad,140458</item>
+        <item>Sl.Bistrica Impol,140459</item>
+        <item>Sl.Bistrica LD,140460</item>
+        <item>Sl.Bistrica Leonardo,140456</item>
+        <item>Sl.Bistrica Mercator,140461</item>
+        <item>Sl.Bistrica ZD,140462</item>
+        <item>Sl.Bistrica ŽP,140463</item>
+        <item>Sl.Konjice,140469</item>
+        <item>Sladki Vrh,140470</item>
+        <item>Slamnjak,150240</item>
+        <item>Slap Savica/waterfall,140476</item>
+        <item>Slap/Trž.,140477</item>
+        <item>Slape,140479</item>
+        <item>Slatenik,140480</item>
+        <item>Slatinski Dol,140483</item>
+        <item>Slatna,140484</item>
+        <item>Slavšina Galušak,901819</item>
+        <item>Slavšina Košarjak,901820</item>
+        <item>Slavšina odcep Jaklin,901821</item>
+        <item>Slavšina/Novinci,901822</item>
+        <item>Slivnica pri Mar.,140492</item>
+        <item>Slomi K,140496</item>
+        <item>Slovenja vas,140497</item>
+        <item>Slovenska vas/Mirni,140498</item>
+        <item>Slovenski Javornik,135759</item>
+        <item>Slovenski Javornik K,150194</item>
+        <item>Slovenski Javornik Turist,135760</item>
+        <item>Smednik,140529</item>
+        <item>Smlednik,140536</item>
+        <item>Smokuč,140538</item>
+        <item>Smolinci Hanžekovci,140540</item>
+        <item>Smolnik obračališče,150347</item>
+        <item>Smrečje v Črni,140546</item>
+        <item>Smrečno,140552</item>
+        <item>Smrje,140554</item>
+        <item>Smrjene,140555</item>
+        <item>Sobetinci,140558</item>
+        <item>Soča,140559</item>
+        <item>Sodinci,140566</item>
+        <item>Sodražica,140569</item>
+        <item>Sodrež,140570</item>
+        <item>Sora,140581</item>
+        <item>Sorica,140582</item>
+        <item>Soteska v Bohinju,140587</item>
+        <item>Soteska/Dvoru,140588</item>
+        <item>Soteska/Kamniku,140589</item>
+        <item>Soviče,140593</item>
+        <item>Soviče 1,140594</item>
+        <item>Sovjak,901827</item>
+        <item>Sovodenj,140595</item>
+        <item>Sp.Bitnje pri Bošnjakoviču,135901</item>
+        <item>Sp.Brežnica,140600</item>
+        <item>Sp.Čagona,141730</item>
+        <item>Sp.Danje,140602</item>
+        <item>Sp.Duplek,140606</item>
+        <item>Sp.Duplek Log,140607</item>
+        <item>Sp.Duplek Slanič,140608</item>
+        <item>Sp.Gorica 48,140610</item>
+        <item>Sp.Gorica K,140611</item>
+        <item>Sp.Hajdina,140614</item>
+        <item>Sp.Hajdina Š,140615</item>
+        <item>Sp.Hajdina trg.,150623</item>
+        <item>Sp.Hajdina ŽP,901836</item>
+        <item>Sp.Hoče,140616</item>
+        <item>Sp.Hoče K,140617</item>
+        <item>Sp.Hoče Odc.letališče,140618</item>
+        <item>Sp.Hoče pokop.,140619</item>
+        <item>Sp.Hoče šola,141732</item>
+        <item>Sp.Hoče ŽP,140620</item>
+        <item>Sp.Ivanjci,140622</item>
+        <item>Sp.Ivanjci kapela,901837</item>
+        <item>Sp.Jablane,140623</item>
+        <item>Sp.Jakobski Dol K,140625</item>
+        <item>Sp.Kamenščak kapela,140626</item>
+        <item>Sp.Kapla,140628</item>
+        <item>Sp.Ključarovci kapela,140629</item>
+        <item>Sp.Ključarovci trg.,140630</item>
+        <item>Sp.Kovač,140632</item>
+        <item>Sp.Kungota Fifolt,140634</item>
+        <item>Sp.Kungota Kovač,140635</item>
+        <item>Sp.Lancovo,140636</item>
+        <item>Sp.Leskovec/Ptuju,140639</item>
+        <item>Sp.Lipnica,140640</item>
+        <item>Sp.Log,140641</item>
+        <item>Sp.Loke/Blagovici,140642</item>
+        <item>Sp.Ložnica/Mostečnem,140643</item>
+        <item>Sp.Ložnica/Sl.Bist.Ipavec,140644</item>
+        <item>Sp.Ložnica/Sl.Bist.K,140645</item>
+        <item>Sp.Otok,140647</item>
+        <item>Sp.Pohanca,140650</item>
+        <item>Sp.Poljčane Čoh,140651</item>
+        <item>Sp.Polskava,140652</item>
+        <item>Sp.Polskava 83,140653</item>
+        <item>Sp.Prebukovje,140654</item>
+        <item>Sp.Senarska,140667</item>
+        <item>Sp.Slemen,140668</item>
+        <item>Sp.Sveča,140670</item>
+        <item>Sp.Šalovci,152137</item>
+        <item>Sp.Ščavnica,140664</item>
+        <item>Sp.Ščavnica Police K,140665</item>
+        <item>Sp.Ščavnica Rošker K,140666</item>
+        <item>Sp.Tuštanj,140673</item>
+        <item>Sp.Velka Ankovič,150388</item>
+        <item>Sp.Velka breg,150389</item>
+        <item>Sp.Velka Muhič,150500</item>
+        <item>Sp.Velka Pomberg,150390</item>
+        <item>Sp.Velovlek,140674</item>
+        <item>Sp.Visole,140675</item>
+        <item>Sp.Vižinga,140676</item>
+        <item>Sp.Vodale,140677</item>
+        <item>Sp.Voličina,140678</item>
+        <item>Sp.Voličina Kranjc,140679</item>
+        <item>Sp.Žerjavci,140682</item>
+        <item>Spodnja Bela,140688</item>
+        <item>Spodnje Bitnje,140689</item>
+        <item>Spodnje Gorje,140690</item>
+        <item>Spodnje Gorje trgovina,140691</item>
+        <item>Spodnji Brnik,140692</item>
+        <item>Spodnji Brnik vas,150091</item>
+        <item>Spodnji Ločič,902103</item>
+        <item>Spuhlja,140693</item>
+        <item>Spuhlja Bezjak žaga,901843</item>
+        <item>Spuhlja G,140694</item>
+        <item>Sr.Bitnje Avto prevoz Hafner,135902</item>
+        <item>Sr.Bitnje most pri Bitencu,135903</item>
+        <item>Sr.Bitnje Pokorn,135904</item>
+        <item>Sr.Bitnje Zora,135905</item>
+        <item>Sr.Osek Vogrinec,140703</item>
+        <item>Sr.vas pri Kamniku,140707</item>
+        <item>Sr.Visole,140710</item>
+        <item>Srakovlje,135906</item>
+        <item>Srebotje Nikel,140712</item>
+        <item>Srebotje tran.,140713</item>
+        <item>Srebrniče,140714</item>
+        <item>Srebrničeva,135805</item>
+        <item>Središče ob Dravi,140717</item>
+        <item>Srednja Bela,140718</item>
+        <item>Srednja Bela Kračman,150280</item>
+        <item>Srednja vas pri Poljanah,140719</item>
+        <item>Srednja vas pri Šenčurju,140720</item>
+        <item>Srednja vas pri Tržiču,140721</item>
+        <item>Srednja vas v Bohinju,140722</item>
+        <item>Srednja vas/Goriče,900893</item>
+        <item>Srednje Bitnje,140723</item>
+        <item>Srobotnik/V.Laščah,150439</item>
+        <item>St.Bučka,140729</item>
+        <item>St.Cerkev,140730</item>
+        <item>St.Cesta 84,150241</item>
+        <item>St.Cesta Žerovinci K,150242</item>
+        <item>St.Grad/Krškem,140731</item>
+        <item>St.Lipa,140733</item>
+        <item>St.Log,140734</item>
+        <item>St.Nova vas,140735</item>
+        <item>St.trg pri Ložu,140741</item>
+        <item>St.trg pri Ložu Brest,140742</item>
+        <item>Stadion,135806</item>
+        <item>Stahovica,140751</item>
+        <item>Stanečka vas,150255</item>
+        <item>Stanošina,140758</item>
+        <item>Stara Fužina,140760</item>
+        <item>Stara Gradiška  MP,900903</item>
+        <item>Stara Gradiška MP,900904</item>
+        <item>Stara Sava,900906</item>
+        <item>Stari Dvor,140761</item>
+        <item>Stari Dvor Frankovo,136678</item>
+        <item>Starod,150766</item>
+        <item>Starod vas,150767</item>
+        <item>Starše,140764</item>
+        <item>Stavešinci 11a,901858</item>
+        <item>Stavešinci GD,150893</item>
+        <item>Stavešinci pri križu,901859</item>
+        <item>Stavešinski Vrh 15a,901862</item>
+        <item>Stavešinski Vrh 40 a,901863</item>
+        <item>Stavešinski Vrh 44,901864</item>
+        <item>Stegne,140767</item>
+        <item>Stenko,140771</item>
+        <item>Stogovci 41,901865</item>
+        <item>Stogovci 48,150894</item>
+        <item>Stogovci/G.Radgoni,140775</item>
+        <item>Stogovci/Majšperku,140776</item>
+        <item>Stojnci,140777</item>
+        <item>Stojnci trg.,140778</item>
+        <item>Stoperce,140782</item>
+        <item>Stopiče,140783</item>
+        <item>Stopno,140785</item>
+        <item>Strahinj,140791</item>
+        <item>Strahinj posestvo,140792</item>
+        <item>Stranje,140798</item>
+        <item>Stranje Koritnik,140799</item>
+        <item>Stranje Š,140800</item>
+        <item>Stranje Šlebir,140801</item>
+        <item>Stranska vas/N.mestu,152169</item>
+        <item>Stranska vas/N.mestu K,152168</item>
+        <item>Straža,135761</item>
+        <item>Straža pri Raki,140804</item>
+        <item>Straža pri Raki K,140147</item>
+        <item>Straža/N.mestu,140806</item>
+        <item>Straža/Oplotnici,140807</item>
+        <item>Stražgonjca,140809</item>
+        <item>Strdenova ravna,140811</item>
+        <item>Strelci,140814</item>
+        <item>Strezetina znamenje,140815</item>
+        <item>Strma Gora,140818</item>
+        <item>Strmec Janžekovič,901877</item>
+        <item>Strmec na Predelu,901384</item>
+        <item>StrmecK,901878</item>
+        <item>StrmecKocmut,901879</item>
+        <item>Strug,140822</item>
+        <item>Struge,140823</item>
+        <item>Strunjan,136647</item>
+        <item>Struževo bloki,135907</item>
+        <item>Struževo KS,135908</item>
+        <item>Struževo pod žel.mostom,135909</item>
+        <item>Studenec na Blokah,140831</item>
+        <item>Studenice,140834</item>
+        <item>Studeno/Želez.,140835</item>
+        <item>Studeno/Želez. I,141673</item>
+        <item>Studor,140836</item>
+        <item>Suha,135910</item>
+        <item>Suha veja,140837</item>
+        <item>Suhi Dol/Lučinah,140838</item>
+        <item>Suhi Vrh,140840</item>
+        <item>Sujek K,138641</item>
+        <item>Supernova,135807</item>
+        <item>Sušak,140847</item>
+        <item>Sv. Ana,135808</item>
+        <item>Sv. Ana p.t.,135809</item>
+        <item>Sv.Ana v Sl.G.,140851</item>
+        <item>Sv.Ana v Sl.G.K,140852</item>
+        <item>Sv.Anton,140853</item>
+        <item>Sv.Duh na Ostr.V.,140858</item>
+        <item>Sv.Duh na Ostr.V.K,140859</item>
+        <item>Sv.Duh na Ostr.V.Reš,140860</item>
+        <item>Sv.Duh na Ostr.V.Ropič,140861</item>
+        <item>Sv.Jurij ob Ščavnici,140865</item>
+        <item>Sv.Maver,150214</item>
+        <item>Sv.Maver K,150215</item>
+        <item>Sv.Maver obr.,140869</item>
+        <item>Sv.Peter/Piranu,140872</item>
+        <item>Sv.Peter/Piranu obr.,140873</item>
+        <item>Sv.Peter/Piranu šola,140874</item>
+        <item>Sv.Peter/Piranu ZD,150269</item>
+        <item>Sv.Tomaž,140878</item>
+        <item>Sv.Trojica v Sl.G.,140879</item>
+        <item>Svarje,900938</item>
+        <item>Svečane,140881</item>
+        <item>Svečina,140882</item>
+        <item>Sveti Duh,140884</item>
+        <item>Svetinci,140887</item>
+        <item>Svetinje K,140888</item>
+        <item>Šalara,140236</item>
+        <item>Šalara K,150220</item>
+        <item>Šalara K Gažon,150216</item>
+        <item>Šalara market,135797</item>
+        <item>Šalara pod Gažonom,150217</item>
+        <item>Šalovci breg,152139</item>
+        <item>Šared,140242</item>
+        <item>Šared G,140243</item>
+        <item>Šembije,140315</item>
+        <item>Šempas,140318</item>
+        <item>Šenčur,140329</item>
+        <item>Šenčur na Jami,140330</item>
+        <item>Šenčur poslovna cona,902116</item>
+        <item>Šenčur Š,140331</item>
+        <item>Šentgotard K,140346</item>
+        <item>Šentilj Majer,150391</item>
+        <item>Šentilj/Sl.G.kosi,140348</item>
+        <item>Šentilj/Sl.G.obr.,140349</item>
+        <item>Šentilj/Sl.G.ŽP,140350</item>
+        <item>Šentjernej,140357</item>
+        <item>Šentlambert,140367</item>
+        <item>Šentlambert OŠ,140368</item>
+        <item>ŠENTOVEC,901887</item>
+        <item>Šentožbolt,140369</item>
+        <item>Šentrupert/Mirni,140371</item>
+        <item>Šentvid pri Lukovici,140373</item>
+        <item>Šetarova,140385</item>
+        <item>Ševlje,140388</item>
+        <item>Ševlje K,140389</item>
+        <item>Šikole,140400</item>
+        <item>Škocjan/Kopru K,140422</item>
+        <item>Škocjan/N.mestu,140423</item>
+        <item>Škofije,140425</item>
+        <item>Škofije meja,140426</item>
+        <item>Škofja Loka,136679</item>
+        <item>Škofja Loka EGP,140427</item>
+        <item>Škofja Loka Kroj,136680</item>
+        <item>Škofja Loka Lipica,136681</item>
+        <item>Škofja Loka Plevna,136682</item>
+        <item>Škofja Loka Puštal,140429</item>
+        <item>Škofja Loka St.Loka,136683</item>
+        <item>Škofja Loka ŽP,136684</item>
+        <item>Škofja Riža,140430</item>
+        <item>Škofja Riža K,140431</item>
+        <item>Škofljica,136692</item>
+        <item>Škofljica žaga,136690</item>
+        <item>Škrjanče/N.mestu,140453</item>
+        <item>Škrjančevo,150108</item>
+        <item>Šmarata,140500</item>
+        <item>Šmarca K,140501</item>
+        <item>Šmarca Kik,150201</item>
+        <item>Šmarca vas,140502</item>
+        <item>Šmarje/Kopru,140506</item>
+        <item>Šmarje/Kopru K,140507</item>
+        <item>Šmarje/Kopru K Pomjan,150218</item>
+        <item>Šmarje/Kopru Š,150195</item>
+        <item>Šmarje/Šentjerneju,140508</item>
+        <item>Šmarješke Toplice,140511</item>
+        <item>Šmarjeta/N.mestu,140513</item>
+        <item>Šmartno na Pohorju,140514</item>
+        <item>Šmartno v Tuhinju,140526</item>
+        <item>Šmartno/Cerkljah,140527</item>
+        <item>Šmihel/Novi Gorici,140531</item>
+        <item>Šmiklavž/G.Gradu,140534</item>
+        <item>Šomat K,140578</item>
+        <item>Španov most,140683</item>
+        <item>Špitalič/Motniku,140687</item>
+        <item>Šratovci,140711</item>
+        <item>Štatenberk,140765</item>
+        <item>Štelcl,140769</item>
+        <item>Štorje,140789</item>
+        <item>Štrekljevec,140813</item>
+        <item>Štrihovec,140816</item>
+        <item>Štrit,140817</item>
+        <item>Študa polje,150110</item>
+        <item>Študa trgovina,140826</item>
+        <item>Štuki,150334</item>
+        <item>Štuki 21a,150335</item>
+        <item>Šukljetova ulica,152195</item>
+        <item>Šukljetova, Krallova ulica,136620</item>
+        <item>Šumančeva žaga,140846</item>
+        <item>Šumica,138223</item>
+        <item>Tarvisio autostazione,900972</item>
+        <item>Tarvisio V.S.Spizzo,901389</item>
+        <item>Tarvisio Via Stefano Spizzo,900973</item>
+        <item>Tatinec,140902</item>
+        <item>Tatinec vas,900975</item>
+        <item>TC Tuš,136648</item>
+        <item>Tekačevo,140905</item>
+        <item>Tenetiše/Kokrici,140910</item>
+        <item>Tenetiše/Kokrici Orli,140911</item>
+        <item>Terme Ptuj,901896</item>
+        <item>Terme Snovik,140916</item>
+        <item>Tesno,140920</item>
+        <item>TIC Ptuj,901897</item>
+        <item>Tinjska Gora,140925</item>
+        <item>Tirna,140926</item>
+        <item>Tirosek,140927</item>
+        <item>Tišina,140928</item>
+        <item>Todraž,140931</item>
+        <item>Todraž RUŽV,140932</item>
+        <item>Tolsti vrh/Leskovec,141735</item>
+        <item>Tominčeva 24,135911</item>
+        <item>Tominje,140944</item>
+        <item>Tomšičeva,135813</item>
+        <item>Tomšičeva I,135762</item>
+        <item>Tomšičeva II,135763</item>
+        <item>Tomšičeva K,135814</item>
+        <item>Tomšičeva trg.,135764</item>
+        <item>Tonkina koča,900989</item>
+        <item>Topol/Studencu na Blokah,140949</item>
+        <item>Topolc,140950</item>
+        <item>Topole/Mengšu,140951</item>
+        <item>TPV,136621</item>
+        <item>Trata IC sever,902140</item>
+        <item>Trata MD,136685</item>
+        <item>Trata pri Velesovem,140959</item>
+        <item>Trate/Muri,140961</item>
+        <item>Trate/Muri 23,150392</item>
+        <item>Trate/Muri 48,140962</item>
+        <item>Trate/Muri grad,140963</item>
+        <item>Trava,140964</item>
+        <item>Travnik/Loškem p.,140966</item>
+        <item>Trbčane,140968</item>
+        <item>Trboje,140969</item>
+        <item>Trbovlje Bevško,140973</item>
+        <item>Trbovlje bol.,140974</item>
+        <item>Trbovlje cementarna,140975</item>
+        <item>Trbovlje Doležalek,150129</item>
+        <item>Trbovlje Flere,140977</item>
+        <item>Trbovlje Gabersko,140978</item>
+        <item>Trbovlje Iskra,140979</item>
+        <item>Trbovlje Kom.,140980</item>
+        <item>Trbovlje občina,140981</item>
+        <item>Trbovlje STT,140983</item>
+        <item>Trbovlje Sušnik,140984</item>
+        <item>Trbovlje Svoboda,140985</item>
+        <item>Trbovlje TE,140986</item>
+        <item>Trbovlje Trg rev.,140987</item>
+        <item>Trbovlje trž.,140988</item>
+        <item>Trbovlje Žale,140989</item>
+        <item>Trbovlje ŽP,150790</item>
+        <item>Trebež Kamnolom,135765</item>
+        <item>Trebija,141000</item>
+        <item>Trebnje,141002</item>
+        <item>Trebnje Labod,141003</item>
+        <item>Trenta info središče,141007</item>
+        <item>Trenta kamp,901002</item>
+        <item>Trenta Kamp Triglav,901003</item>
+        <item>Trg Brolo,135815</item>
+        <item>Trgovišče,141008</item>
+        <item>Trilobit K,135766</item>
+        <item>Trniče,141011</item>
+        <item>Trnjava,141012</item>
+        <item>Trnje,136676</item>
+        <item>Trnovci,141017</item>
+        <item>Trnovec pri Sl.Bist.,141019</item>
+        <item>Trnovec/Metliki,141020</item>
+        <item>Trnovo/Il.Bistrici,141029</item>
+        <item>Trnovska vas,141030</item>
+        <item>Trnovska vas most,141031</item>
+        <item>Trojane,141035</item>
+        <item>Trotkova,150895</item>
+        <item>Trotovnik,141037</item>
+        <item>Trst/Trieste železniška postaja,901396</item>
+        <item>Trstenik/Golniku,141040</item>
+        <item>Trstenik/Sl.G.,141041</item>
+        <item>Trška Gora,141039</item>
+        <item>Trzin dom,150484</item>
+        <item>Trzin GD,141050</item>
+        <item>Trzin ind.cona,141051</item>
+        <item>Trzin Mlake,141052</item>
+        <item>Trzin vas,141053</item>
+        <item>Tržec GD,902065</item>
+        <item>Tržec Lipa,141045</item>
+        <item>Tržec Majolka,902066</item>
+        <item>Tržec trg.,141046</item>
+        <item>Tržič,141047</item>
+        <item>Tržič Peko,141048</item>
+        <item>Tržič Trio,141049</item>
+        <item>Tržišče,141054</item>
+        <item>Tržnica,901905</item>
+        <item>Tublje pri Hrpeljah,141056</item>
+        <item>Tupaliče,141061</item>
+        <item>Tupaliče K,141062</item>
+        <item>Tupaliče na gmajni,901020</item>
+        <item>Turiška vas na Pohorju,141065</item>
+        <item>Turjak,141066</item>
+        <item>Turjanci,141067</item>
+        <item>Turki,141070</item>
+        <item>Turški Vrh,141075</item>
+        <item>Ugovec,141078</item>
+        <item>Ul. 15 Maja,135817</item>
+        <item>Ulica Slavka Gruma,136623</item>
+        <item>Umag,901035</item>
+        <item>Urh,141082</item>
+        <item>Uršna sela,141084</item>
+        <item>Uršna sela Kapš,141085</item>
+        <item>Uršna sela ZD,141086</item>
+        <item>V.Bloke,141090</item>
+        <item>V.Brdo,141091</item>
+        <item>V.Brusnice,141093</item>
+        <item>V.Lašče,141104</item>
+        <item>V.Mlačevo,141112</item>
+        <item>V.Mraševo,141114</item>
+        <item>V.Nedelja trg.,141115</item>
+        <item>V.Podljuben K,141119</item>
+        <item>V.Račna,141123</item>
+        <item>V.Tinje,141125</item>
+        <item>V.Varnica,141128</item>
+        <item>V.Varnica Lah kapela,901911</item>
+        <item>V.vas pri Krškem,141129</item>
+        <item>V.Vrh/Blokah,141130</item>
+        <item>V.Zimica,141132</item>
+        <item>Vahtnica,150082</item>
+        <item>Valburga,141135</item>
+        <item>Valdoltra,141136</item>
+        <item>Valeta,136649</item>
+        <item>Valkanela,901040</item>
+        <item>Vareja,141144</item>
+        <item>Varejski hrib,141146</item>
+        <item>Vas na skali,901050</item>
+        <item>Vaše/Medvodah,141148</item>
+        <item>Vel.Bučna vas,901399</item>
+        <item>Velesovo,141158</item>
+        <item>Vena Pilona,135818</item>
+        <item>Veniše,141162</item>
+        <item>Veterno,141173</item>
+        <item>Vičanci kapela,141178</item>
+        <item>Videm pri Ptuju,141179</item>
+        <item>Videm/Dobrepolju,141180</item>
+        <item>Videm/Ljubljani,141181</item>
+        <item>Videž,141182</item>
+        <item>Videž vas,150896</item>
+        <item>Vidrga,141187</item>
+        <item>Villa Marija,136650</item>
+        <item>Viltuš,141189</item>
+        <item>Vinarje,141190</item>
+        <item>Vinica,141191</item>
+        <item>Vinotoč Celec Stogovci 58,901927</item>
+        <item>Vinski hram Jeruzalem,150243</item>
+        <item>Vinski Vrh kapela,150265</item>
+        <item>Vinski Vrh križ,150266</item>
+        <item>Vintarovci 13,901928</item>
+        <item>Vintarovci 24,901929</item>
+        <item>Vintarovci 3,901930</item>
+        <item>Vintarovci Arnuševi,901931</item>
+        <item>Vintgar,141197</item>
+        <item>Vintgar Fortuna,141198</item>
+        <item>Vipava,141199</item>
+        <item>Vir Cerkev,150107</item>
+        <item>Vir/Domžalah,141205</item>
+        <item>Virmaše,141206</item>
+        <item>Visoče/Trž.K,141217</item>
+        <item>Visoko/Kr.,141218</item>
+        <item>Viševek,141209</item>
+        <item>Viševek K,141210</item>
+        <item>Vitan K,141219</item>
+        <item>Vitomarci Brlak K,141224</item>
+        <item>Vitomarci Rola,141225</item>
+        <item>Vodice,141228</item>
+        <item>Vodice/Lj.,141229</item>
+        <item>Vodranci,141231</item>
+        <item>Vogel križišče/crossroad,141611</item>
+        <item>Voglje,141236</item>
+        <item>Vogričevci,141237</item>
+        <item>Voklo,141248</item>
+        <item>Volavče,141251</item>
+        <item>Volča,141252</item>
+        <item>Volčji Potok,141259</item>
+        <item>Volčji Potok Šraj,141260</item>
+        <item>Vopovlje,141262</item>
+        <item>Vosek,141263</item>
+        <item>Vraber,141265</item>
+        <item>Vranoviči,141267</item>
+        <item>Vransko,141268</item>
+        <item>Vratja vas,141269</item>
+        <item>Vrba,141270</item>
+        <item>Vrbica,141271</item>
+        <item>Vrbovec,141275</item>
+        <item>Vrbovo,141276</item>
+        <item>Vrh Kozjaka/Črnem Vrhu,141279</item>
+        <item>Vrh nad Želimljami,141282</item>
+        <item>Vrhe pri Dolžu,141286</item>
+        <item>Vrhe/Trbov.,141288</item>
+        <item>Vrhloga,141292</item>
+        <item>Vrhnika,141293</item>
+        <item>Vrhnika pri Ložu,141296</item>
+        <item>Vrhovlje na Rafolčah K,141302</item>
+        <item>Vrhpeč,141308</item>
+        <item>Vrhpolje/Kamniku,141309</item>
+        <item>Vrhpolje/Kamniku most,141310</item>
+        <item>Vrhpolje/Moravčah,141311</item>
+        <item>Vrsar,901096</item>
+        <item>Vršič,141314</item>
+        <item>Vrtača pri Semiču,141317</item>
+        <item>Vrtec Bršljin,136625</item>
+        <item>Vrtovin,141319</item>
+        <item>Vučja Jama/Zg.Velki K,141324</item>
+        <item>Vučja vas,141325</item>
+        <item>Vuhred,141326</item>
+        <item>Vuhred HE,141327</item>
+        <item>Vukovski Dol,141328</item>
+        <item>Vurberk,141329</item>
+        <item>Vurberk 14,901937</item>
+        <item>Vurberk K,141330</item>
+        <item>Vurberk polje,141331</item>
+        <item>Vurmat Šturm,141332</item>
+        <item>Vuzmetinci,141335</item>
+        <item>Vuzmetinci Govedič,141336</item>
+        <item>Zabiče,141338</item>
+        <item>Zaboršt,141341</item>
+        <item>Zabreznica,141343</item>
+        <item>Zadnja vas/Trž.,141352</item>
+        <item>Zadraga,141355</item>
+        <item>Zagajski Vrh,141740</item>
+        <item>Zagojiči,141365</item>
+        <item>Zagorci,141368</item>
+        <item>Zagorica/Dobrniču,141370</item>
+        <item>Zagorica/Litiji,141371</item>
+        <item>Zagorje ob S.,141372</item>
+        <item>Zagorje ob S.Borišek,141373</item>
+        <item>Zagorje ob S.Bregar,141374</item>
+        <item>Zagorje ob S.Drnovšek,141375</item>
+        <item>Zagorje ob S.Farčnik,141376</item>
+        <item>Zagorje ob S.K,141377</item>
+        <item>Zagorje ob S.Kisovec,141378</item>
+        <item>Zagorje ob S.Koprivc,141379</item>
+        <item>Zagorje ob S.Košenina,141380</item>
+        <item>Zagorje ob S.Polje,141381</item>
+        <item>Zagorje ob S.Savšek,141382</item>
+        <item>Zagorje ob S.Siporeks,141383</item>
+        <item>Zagorje ob S.Sršen,141384</item>
+        <item>Zagorje ob S.St.trg,141385</item>
+        <item>Zagorje ob S.Stope,141386</item>
+        <item>Zagorje ob S.Varnost,141387</item>
+        <item>Zagorje ob S.ŽP,141388</item>
+        <item>Zagorje/Knežaku,141390</item>
+        <item>Zajčji Vrh,141401</item>
+        <item>Zajelše,141403</item>
+        <item>Zakl,141404</item>
+        <item>Zali Log,141414</item>
+        <item>Zaljči,141416</item>
+        <item>Zalog pod Trojico,141419</item>
+        <item>Zalog pri Cerkljah,141420</item>
+        <item>Zalog pri Cerkljah sp,141421</item>
+        <item>Zalog pri Škocjanu,141422</item>
+        <item>Zalog/Goriče,901118</item>
+        <item>Zaloka/Čemšeniku,141424</item>
+        <item>Zameško,141432</item>
+        <item>Zameško K,141433</item>
+        <item>Zaplana,141435</item>
+        <item>Zapoge,141436</item>
+        <item>Zapuže,141439</item>
+        <item>Zapuže K,141440</item>
+        <item>Zarečica,141442</item>
+        <item>Zarečje,141443</item>
+        <item>Zasadi/Desterniku 15,141444</item>
+        <item>Zasadi/Desterniku 3,141445</item>
+        <item>Zasip,141446</item>
+        <item>Zavrč,141449</item>
+        <item>Zavrč grad,141450</item>
+        <item>Zavrč trg.,141451</item>
+        <item>Zavrh/Sl.g.,141456</item>
+        <item>Zavrh/Sl.g.K,141457</item>
+        <item>Zbigovci Ficko,141477</item>
+        <item>Zbigovci GD,141478</item>
+        <item>Zbilje jezero,141479</item>
+        <item>Zbilje K,141480</item>
+        <item>Zbiljski gaj,141481</item>
+        <item>Zbure,141482</item>
+        <item>Zdenska vas,141483</item>
+        <item>Zdravstveni dom,152199</item>
+        <item>Zduša,141486</item>
+        <item>Zemenska Vaga,141507</item>
+        <item>Zg.Bitnje Jenko,135913</item>
+        <item>Zg.Bitnje trgovina,135915</item>
+        <item>Zg.Boč,141520</item>
+        <item>Zg.Brežnica,150384</item>
+        <item>Zg.Duplek,135710</item>
+        <item>Zg.Duplek 145 K,141522</item>
+        <item>Zg.Duplek 156 a,901958</item>
+        <item>Zg.Duplek pri križu,141523</item>
+        <item>Zg.Gladomes,141524</item>
+        <item>Zg.Gorica kapela,141525</item>
+        <item>Zg.Gorica KRS,141526</item>
+        <item>Zg.Gorje,141527</item>
+        <item>Zg.Hajdina,150624</item>
+        <item>Zg.Hajdina 158,150625</item>
+        <item>Zg.Hajdina G,141529</item>
+        <item>Zg.Hoče,141731</item>
+        <item>Zg.Hoče polje,141530</item>
+        <item>Zg.Jablane,141533</item>
+        <item>Zg.Jakobski Dol,141535</item>
+        <item>Zg.Jakobski Dol Kraut,141536</item>
+        <item>Zg.Kamenščak 23,150244</item>
+        <item>Zg.Kamenščak K Ljutomer,141537</item>
+        <item>Zg.Kamenščak Križ,150245</item>
+        <item>Zg.Kapla,141538</item>
+        <item>Zg.Korena Dvoršak,141539</item>
+        <item>Zg.Korena Hrastnik,141540</item>
+        <item>Zg.Korena Vurberk K,141541</item>
+        <item>Zg.Kozjak,141542</item>
+        <item>Zg.Kozjak Mlakar,141543</item>
+        <item>Zg.Kungota,141545</item>
+        <item>Zg.Kungota Kozjak,141546</item>
+        <item>Zg.Lancovo,141547</item>
+        <item>Zg.Leskovec/Ptuju,141550</item>
+        <item>Zg.Loke,141551</item>
+        <item>Zg.Ložnica/Mostečnem,141552</item>
+        <item>Zg.Ložnica/Sl.Bist.,141553</item>
+        <item>Zg.Ložnica/Sl.Bist.K,141554</item>
+        <item>Zg.Obrež,141555</item>
+        <item>Zg.Osek,141557</item>
+        <item>Zg.Otok,141558</item>
+        <item>Zg.Poljčane,141563</item>
+        <item>Zg.Polskava,141564</item>
+        <item>Zg.Polskava g.Golob,141565</item>
+        <item>Zg.Polskava Š,141566</item>
+        <item>Zg.Porčič,141567</item>
+        <item>Zg.Porčič Marles,141568</item>
+        <item>Zg.Prebukovje,141569</item>
+        <item>Zg.Pristava,141570</item>
+        <item>Zg.Ravno/Žetalah,141572</item>
+        <item>Zg.Ročica Ajlec,141577</item>
+        <item>Zg.Senarska,141580</item>
+        <item>Zg.Senarska K,902126</item>
+        <item>Zg.Šalovci,152138</item>
+        <item>Zg.Ščavnica Žamotna vas K,141578</item>
+        <item>Zg.Šklendrovec,141581</item>
+        <item>Zg.Tuhinj Mlinar,141583</item>
+        <item>Zg.Velka,901976</item>
+        <item>Zg.Velka 91,141589</item>
+        <item>Zg.Velka Broder,141585</item>
+        <item>Zg.Velka Fifolt,141586</item>
+        <item>Zg.Velka K,141587</item>
+        <item>Zg.Velka Kocbek,141588</item>
+        <item>Zg.Velka obr.,150393</item>
+        <item>Zg.Velka PTT,141590</item>
+        <item>Zg.Velka Tomažič,141591</item>
+        <item>Zg.Velovlek,141592</item>
+        <item>Zg.Visole,141593</item>
+        <item>Zg.Vižinga,141594</item>
+        <item>Zg.Vrtiče,141595</item>
+        <item>Zg.Žerjavci tran.,141596</item>
+        <item>Zg.Žerjavci Vrabl,141597</item>
+        <item>Zgornja Bela,141599</item>
+        <item>Zgornje Bitnje,141600</item>
+        <item>Zgornje Bitnje 140,135916</item>
+        <item>Zgornje Bitnje K,135917</item>
+        <item>Zgornji Brnik,141601</item>
+        <item>Zimica K,141620</item>
+        <item>Zlatoličje,141631</item>
+        <item>Zlatoličje Krepfl,141632</item>
+        <item>Zminec,141637</item>
+        <item>Zminec dom,141638</item>
+        <item>Zminec pri Kajbetu,141639</item>
+        <item>Zminec Švaunar,141640</item>
+        <item>Zmrzlek,141641</item>
+        <item>Zobčeva ulica,152205</item>
+        <item>Zvirče,141660</item>
+        <item>Žabjak 18,150336</item>
+        <item>Žabjak 2,150337</item>
+        <item>Žablje,150225</item>
+        <item>Žablje K,901139</item>
+        <item>Žabnica,135918</item>
+        <item>Žadovinek,141354</item>
+        <item>Žaga/Mlinšah,141359</item>
+        <item>Žaga/Moravčah,141360</item>
+        <item>Žaga/Trž.,141361</item>
+        <item>Žajdl,141402</item>
+        <item>Žale/Žetalah,141409</item>
+        <item>Žamenci GD,141428</item>
+        <item>Žamenci K,141429</item>
+        <item>Ždinja vas,141484</item>
+        <item>Žeje,141490</item>
+        <item>Železne dveri,150246</item>
+        <item>Železne Dveri K,150247</item>
+        <item>Železniki cerkev,141497</item>
+        <item>Železniki Češnjica,141494</item>
+        <item>Železniki Domel,141495</item>
+        <item>Železniki Plavž,141496</item>
+        <item>Želodnik,141506</item>
+        <item>Ženjak,141509</item>
+        <item>Žepovci,141512</item>
+        <item>Žepovci 117,901982</item>
+        <item>Žepovci 57,150897</item>
+        <item>Žepovci 97,150675</item>
+        <item>Žerjavec,135767</item>
+        <item>Žerjavka,141514</item>
+        <item>Žerovinci,141515</item>
+        <item>Žerovinci GD,141516</item>
+        <item>Žerovnica,141517</item>
+        <item>Žetale,141518</item>
+        <item>Žetale Paukon,141519</item>
+        <item>Žiberci,141602</item>
+        <item>Žibrše K,141603</item>
+        <item>Žice,141604</item>
+        <item>Žice Perko,141605</item>
+        <item>Žiče/Radomljah,141606</item>
+        <item>Žičnica V.planina,141610</item>
+        <item>Žiganja vas,141613</item>
+        <item>Žihlava,141614</item>
+        <item>Žihlava trg.,141615</item>
+        <item>Žikarce Slanič,150111</item>
+        <item>Žiri,141621</item>
+        <item>Žiri Dom,141622</item>
+        <item>Žiri K,141623</item>
+        <item>Žiri market,141624</item>
+        <item>Žirovnica,141674</item>
+        <item>Žirovnica OPC,139274</item>
+        <item>Žitečka vas,141627</item>
+        <item>Žlebič,141634</item>
+        <item>Žlebič K,141635</item>
+        <item>Žnidaričevo nabr. Mladika,150338</item>
+        <item>Župa,141650</item>
+        <item>Župečja vas,141652</item>
+        <item>Župetinci 19 (Brezovjak križiš,901989</item>
+        <item>Župetinci 26,901990</item>
+        <item>Župetinci 41,901991</item>
+        <item>Župetinci 8,901992</item>
+        <item>Župetinci Andrenci K,141656</item>
+        <item>Žusterna bazen,902240</item>
+        <item>Žusterna III,135821</item>
+        <item>Žužemberk,141657</item>
+        <item>Žvirče,141661</item>
+    </string-array>
+</resources>
