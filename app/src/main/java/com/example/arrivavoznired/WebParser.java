@@ -80,9 +80,14 @@ public class WebParser {
 
                     //price
                     String price = connection.getElementsByClass("price").first().text();
+                    System.out.println("Querydate "+this.date);
+                    System.out.println("Curdate "+curDate);
+                    if(curDate.equals(this.date)){
 
-                    if(curDate.equals(this.date) && depHour > curHour && depMin > curMin){
-                        retList.add(new Bus(departureTime,arrivalTime,price,length,duration,this.departurename,this.arrivalname));
+                        if((depHour > curHour) || (depHour == curHour && depMin >= curMin)) {
+
+                            retList.add(new Bus(departureTime, arrivalTime, price, length, duration, this.departurename, this.arrivalname));
+                        }
                     }
                     else{
                         retList.add(new Bus(departureTime,arrivalTime,price,length,duration,this.departurename,this.arrivalname));

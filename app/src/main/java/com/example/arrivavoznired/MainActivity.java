@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         input_date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                final_input_date = dayOfMonth + "." + (month + 1) + "." + year;
+                final_input_date = String.format("%02d.%02d.%04d",dayOfMonth,month+1,year);
             }
         });
 

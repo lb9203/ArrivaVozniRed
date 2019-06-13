@@ -2,12 +2,14 @@ package com.example.arrivavoznired;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -59,6 +61,7 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
         TextView length;
         TextView price;
         TextView duration;
+        ImageView shareButton;
 
         BusViewHolder(final View itemView, final Context con){
             super(itemView);
@@ -70,7 +73,8 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
             length = (TextView) itemView.findViewById(R.id.card_length);
             price = (TextView) itemView.findViewById(R.id.card_price);
             duration = (TextView) itemView.findViewById(R.id.card_duration);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            shareButton = (ImageView) itemView.findViewById(R.id.card_share_button);
+            shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String msg_depname = depname.getText().toString();
@@ -80,14 +84,15 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
                     String msg_price = price.getText().toString();
                     String msg_duration = duration.getText().toString();
                     String msg_length = length.getText().toString();
-                    String message = String.format("%s(%s) - %s(%s)\nČas: %s, Cena: %s, Pot:%s",msg_depname,msg_deptime,msg_arrname,msg_arrtime,msg_duration,msg_price,msg_length);
-
-                    AlertDialog.Builder alertBuilder = new AlertDialog.Builder(con);
-                    alertBuilder.setMessage(message);
-                    AlertDialog alert = alertBuilder.create();
-                    alert.show();
+                    String message = String.format("%s(%s) - %s(%s)\nČas: %s, Cena: %s, Pot: %s",msg_depname,msg_deptime,msg_arrname,msg_arrtime,msg_duration,msg_price,msg_length);
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT,message);
+                    sendIntent.setType("text/plain");
+                    con.startActivity(sendIntent);
                 }
             });
+
         }
     }
 }
