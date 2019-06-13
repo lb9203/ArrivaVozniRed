@@ -4,6 +4,10 @@
     <string name="input_arrival">Izstopna Postaja</string>
     <string name="button_swap">Zamenjaj Postaji</string>
     <string name="button_send">Išči Vozni Red</string>
+    <string name="action_favourites">Priljubljene povezave</string>
+    <string name="action_settings">Nastavitve</string>
+    <string name="keepLastInput">Shrani zadnje uporabljene postaje</string>
+    <string name="noShowPastBus">Skrij pretekle avtobusne termine</string>
     <string-array name="stations">
         <item>Adergas,137007</item>
         <item>Adria,152191</item>

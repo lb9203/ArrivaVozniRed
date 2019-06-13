@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar_main_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/AppThemeNoActionBar.BarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_departure_layout"
         android:layout_width="match_parent"
@@ -50,7 +59,7 @@
     <LinearLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
@@ -71,5 +80,13 @@
             android:layout_weight="1"
             android:text="@string/button_send" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/favourite_button"
+        android:layout_width="133dp"
+        android:layout_height="67dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="2pt"
+        app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
 </LinearLayout>

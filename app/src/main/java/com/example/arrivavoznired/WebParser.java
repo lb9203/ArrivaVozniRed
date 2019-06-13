@@ -1,6 +1,9 @@
 package com.example.arrivavoznired;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.widget.CalendarView;
 
 import org.jsoup.Jsoup;
@@ -18,11 +21,13 @@ public class WebParser {
     private String arrivalname;
     private String date;
     private String url;
+    private Context context;
 
-    WebParser(String dname,String did,String aname,String aid,String date){
+    WebParser(String dname, String did, String aname, String aid, String date, Context con){
         departurename = dname;
         arrivalname = aname;
         this.date = date;
+        this.context = con;
         url = String.format("https://arriva.si/vozni-redi/" +
                 "?departure_id=%s" +
                 "&departure=%s" +
@@ -40,6 +45,8 @@ public class WebParser {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean noShowPastBuses = sharedPref.getBoolean("noShowPastBuses",true);
         List<Bus> retList = new ArrayList<>();
 
         try{
@@ -82,7 +89,7 @@ public class WebParser {
                     String price = connection.getElementsByClass("price").first().text();
                     System.out.println("Querydate "+this.date);
                     System.out.println("Curdate "+curDate);
-                    if(curDate.equals(this.date)){
+                    if(noShowPastBuses && curDate.equals(this.date)){
 
                         if((depHour > curHour) || (depHour == curHour && depMin >= curMin)) {
 

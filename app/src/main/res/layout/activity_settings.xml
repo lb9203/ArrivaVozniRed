@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/noShowPastBuses_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5pt"
+        android:paddingLeft="10pt"
+        android:paddingRight="10pt"
+        android:text="@string/noShowPastBus"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/saveLastInput_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5pt"
+        android:paddingLeft="10pt"
+        android:paddingRight="10pt"
+        android:text="@string/keepLastInput"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+</LinearLayout>
