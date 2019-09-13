@@ -14,7 +14,7 @@
         android:layout_margin="5pt"
         android:paddingLeft="10pt"
         android:paddingRight="10pt"
-        android:text="@string/noShowPastBus"
+        android:text="@string/dont_show_past_buses"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
     <android.support.v7.widget.SwitchCompat
@@ -24,6 +24,6 @@
         android:layout_margin="5pt"
         android:paddingLeft="10pt"
         android:paddingRight="10pt"
-        android:text="@string/keepLastInput"
+        android:text="@string/keep_last_input"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 </LinearLayout>

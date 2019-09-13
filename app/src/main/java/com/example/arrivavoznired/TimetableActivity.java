@@ -1,14 +1,11 @@
 package com.example.arrivavoznired;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.Toolbar;
 
 import java.util.List;
 
@@ -33,30 +30,37 @@ public class TimetableActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
 
         Intent intent   = getIntent();
         Bundle extra    = intent.getExtras();
         assert extra != null;
-        String departure_station_name   = extra.getString("departure_station_name");
-        String arrival_station_name     = extra.getString("arrival_station_name");
-        String departure_station_id     = extra.getString("departure_station_id");
-        String arrival_station_id       = extra.getString("arrival_station_id");
-        String input_date               = extra.getString("input_date");
 
-        WebParser wp = new WebParser(departure_station_name,departure_station_id,
-                arrival_station_name,arrival_station_id,input_date,this);
+        String departureStationName   = extra.getString("departure_station_name");
+        String arrivalStationName     = extra.getString("arrival_station_name");
+        String departureStationId     = extra.getString("departure_station_id");
+        String arrivalStationId       = extra.getString("arrival_station_id");
+        String inputDate              = extra.getString("input_date");
+
+        assert departureStationName != null;
+        assert arrivalStationName   != null;
+
+        WebParser wp = new WebParser(departureStationName,departureStationId,
+                arrivalStationName,arrivalStationId,inputDate,this);
         List<Bus> busList = wp.fetchData();
 
-        RecyclerView bus_recycler = (RecyclerView)findViewById(R.id.bus_recycler);
+        RecyclerView busRecycler = findViewById(R.id.bus_recycler);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this);
-        bus_recycler.setLayoutManager(layoutManager);
+        busRecycler.setLayoutManager(layoutManager);
         BusCardViewAdapter adapter = new BusCardViewAdapter(busList, this);
-        bus_recycler.setAdapter(adapter);
+        busRecycler.setAdapter(adapter);
 
 
     }

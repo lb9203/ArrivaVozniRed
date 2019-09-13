@@ -27,6 +27,11 @@ public class FavouriteLine {
         }
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public String getDeparture() {
         return departure;
     }
@@ -43,7 +48,7 @@ public class FavouriteLine {
 
 
     //Function to turn favourite list into String
-    public String ListToString(List<FavouriteLine> favouriteList){
+    static String listToString(List<FavouriteLine> favouriteList){
         StringBuilder favouriteString = new StringBuilder();
 
         for(FavouriteLine fl:favouriteList){
@@ -53,8 +58,8 @@ public class FavouriteLine {
         return favouriteString.toString();
     }
 
-    //Function to turn favourite string into List
-    public List<FavouriteLine> StringToList(String favouriteString){
+    //Function to turn favourites string into List
+    static List<FavouriteLine> stringToList(String favouriteString){
         List<FavouriteLine> favouriteList = new ArrayList<>();
 
         String[] splitFav = favouriteString.split(",");

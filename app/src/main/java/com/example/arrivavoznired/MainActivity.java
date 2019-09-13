@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -40,13 +42,14 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String FAVOURITE_LINES_KEY = "favourite_lines";
+    static final String LAST_INPUT_DEPARTURE_KEY = "last_input_departure";
+    static final String LAST_INPUT_ARRIVAL_KEY = "last_input_arrival";
+
 
     //Build favourites menu
     void buildFavourites(){
-        favouritesBuilder.setTitle("Izberi priljubljeno povezavo");
-
-        List<FavouriteLine> favList = new FavouriteLine("a","b").StringToList(
-                sharedPref.getString("favourite_lines",""));
+        favouritesBuilder.setTitle(getResources().getString(R.string.choose_favourite));
 
         final String[] favArr = new String[favList.size()];
 
@@ -54,84 +57,104 @@ public class MainActivity extends AppCompatActivity {
             favArr[i] = favList.get(i).toString();
         }
 
+        Arrays.sort(favArr);
+
         favouritesBuilder.setItems(favArr, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String[] chosenFav = favArr[which].split(" - ");
-                input_departure.setText(chosenFav[0]);
-                input_arrival.setText(chosenFav[1]);
-                input_departure.clearFocus();
-                input_arrival.clearFocus();
+                inputDeparture.setText(chosenFav[0]);
+                inputArrival.setText(chosenFav[1]);
+                inputDeparture.clearFocus();
+                inputArrival.clearFocus();
             }
         });
 
-        favourites_dialog = favouritesBuilder.create();
+        favouritesDialog = favouritesBuilder.create();
     }
 
     //Check if current stations are valid
     boolean checkStationsValid(){
-        String departure_station_name   = input_departure.getText().toString();
-        String arrival_station_name     = input_arrival.getText().toString();
+        String departureStationName   = inputDeparture.getText().toString();
+        String arrivalStationName     = inputArrival.getText().toString();
 
 
-        String departure_station_id     = station_id_map.get(
-                departure_station_name.toLowerCase());
+        String departureStationId     = stationIdMap.get(
+                departureStationName.toLowerCase());
 
-        String arrival_station_id       = station_id_map.get(
-                arrival_station_name.toLowerCase());
+        String arrivalStationId       = stationIdMap.get(
+                arrivalStationName.toLowerCase());
 
-        if(departure_station_id!=null && arrival_station_id!=null){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return departureStationId != null && arrivalStationId != null;
     }
 
-    //Check if line is in favourite, set favourite_button image accordingly
-    boolean checkFavourite(FavouriteLine line, List<FavouriteLine> favList){
-        if (favList.contains(line)){
-            favourite_button.setImageResource(R.drawable.ic_favorite_black_24dp);
-            System.out.println("Line is favourited.");
-            return true;
-        }
-        else{
-            favourite_button.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-            System.out.println("Line not favourited.");
-            return false;
-        }
+
+    //Check if line is in favourite, set favouriteButton image accordingly
+    boolean checkFavourite(FavouriteLine line){
+        return favList.contains(line);
     }
 
     //Run checkFavourite with no parameters, current input values are considered
-    boolean checkFavouriteCurrent(){
-        String departure_station_name   = input_departure.getText().toString();
-        String arrival_station_name     = input_arrival.getText().toString();
-        FavouriteLine line = new FavouriteLine(departure_station_name,arrival_station_name);
-        List<FavouriteLine> favList = line.StringToList(
-                sharedPref.getString("favourite_lines",""));
-        return checkFavourite(line,favList);
+    boolean checkFavourite(){
+
+        FavouriteLine line = new FavouriteLine(inputDeparture.getText().toString(),
+                inputArrival.getText().toString()
+        );
+
+        return checkFavourite(line);
     }
 
-    //Views
-    AutoCompleteTextView    input_departure;
-    AutoCompleteTextView    input_arrival;
-    CalendarView            input_date;
-    Button                  button_swap;
-    Button                  button_send;
-    ImageView               favourite_button;
+    void showStationsNotFoundAlert(){
+        alertBuilder.setMessage(getResources().getString(R.string.stations_not_found_error));
+
+        AlertDialog errorDialog = alertBuilder.create();
+        checkFavourite();
+        errorDialog.show();
+    }
+
+    void morphFavouriteButtonDrawable(){
+        AnimatedVectorDrawableCompat newDrawable = isFavourite ? addToRemove : removeToAdd;
+        if (!newDrawable.equals(currentDrawable)) {
+            favouriteButton.setImageDrawable(newDrawable);
+            newDrawable.start();
+            currentDrawable = newDrawable;
+        }
+    }
+
+    void setFavouriteButtonDrawable(){
+        favouriteButton.setImageDrawable(isFavourite?addToRemove:removeToAdd);
+    }
+
+    //Input views
+    AutoCompleteTextView    inputDeparture;
+    AutoCompleteTextView    inputArrival;
+    CalendarView            inputDate;
+
+    //Utility views
+    Button                  buttonSwap;
+    Button                  buttonSend;
+    ImageView               favouriteButton;
     Toolbar                 myToolbar;
     ProgressDialog          dialog;
-    AlertDialog             favourites_dialog;
+    AlertDialog             favouritesDialog;
 
     //Variables
-    List<String>            autocomplete_station_list;
-    Map<String,String>      station_id_map;
-    AlertDialog.Builder     alertBuilder;
-    AlertDialog.Builder     favouritesBuilder;
-    String                  final_input_date;
-    SimpleDateFormat        sdf;
-    SharedPreferences       sharedPref;
-    SharedPreferences.Editor prefEditor;
+    List<String>                autocompleteStationList;
+    Map<String,String>          stationIdMap;
+    AlertDialog.Builder         alertBuilder;
+    AlertDialog.Builder         favouritesBuilder;
+    String                      finalInputDate;
+    SimpleDateFormat            sdf;
+    SharedPreferences           sharedPref;
+    SharedPreferences.Editor    prefEditor;
+    boolean                     isFavourite;
+    boolean                     isSwapping;
+    List<FavouriteLine>         favList;
+
+    AnimatedVectorDrawableCompat addToRemove;
+    AnimatedVectorDrawableCompat removeToAdd;
+    AnimatedVectorDrawableCompat currentDrawable;
+
 
     @SuppressLint("SimpleDateFormat")
     @Override
@@ -140,13 +163,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Views
-        input_departure = (AutoCompleteTextView)findViewById(R.id.input_departure);
-        input_arrival   = (AutoCompleteTextView)findViewById(R.id.input_arrival);
-        input_date      = (CalendarView)findViewById(R.id.input_date);
-        button_swap     = (Button)findViewById(R.id.button_swap);
-        button_send     = (Button)findViewById(R.id.button_send);
-        favourite_button= (ImageView)findViewById(R.id.favourite_button);
-        myToolbar       = (Toolbar)findViewById(R.id.my_toolbar_main_activity);
+        inputDeparture      = findViewById(R.id.input_departure);
+        inputArrival        = findViewById(R.id.input_arrival);
+        inputDate           = findViewById(R.id.input_date);
+        buttonSwap          = findViewById(R.id.button_swap);
+        buttonSend          = findViewById(R.id.button_send);
+        favouriteButton     = findViewById(R.id.favourite_button);
+        myToolbar           = findViewById(R.id.my_toolbar_main_activity);
+
+        //Favourite transition animations
+        addToRemove = AnimatedVectorDrawableCompat.create(
+                this,R.drawable.heart_add_to_remove_anim
+        );
+
+        removeToAdd = AnimatedVectorDrawableCompat.create(
+                this,R.drawable.heart_remove_to_add_anim
+        );
 
         //Set action bar
         setSupportActionBar(myToolbar);
@@ -155,7 +187,11 @@ public class MainActivity extends AppCompatActivity {
         sharedPref      = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor      = sharedPref.edit();
 
+        favList = FavouriteLine.stringToList(sharedPref.getString(FAVOURITE_LINES_KEY,""));
 
+        isFavourite = checkFavourite();
+        isSwapping = false;
+        morphFavouriteButtonDrawable();
 
         //Create favourite items dialog
         favouritesBuilder = new AlertDialog.Builder(this);
@@ -165,28 +201,28 @@ public class MainActivity extends AppCompatActivity {
         //Build loading alert dialog
         alertBuilder    = new AlertDialog.Builder(this);
         dialog          = new ProgressDialog(this);
-        dialog.setMessage("Iščem rezultate...");
+        dialog.setMessage(getResources().getString(R.string.loading_message));
 
         //Date formatter and calendar updater
         sdf                 = new SimpleDateFormat("dd.MM.yyyy");
-        final_input_date    = sdf.format(Calendar.getInstance().getTime());
-        input_date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        finalInputDate = sdf.format(Calendar.getInstance().getTime());
+        inputDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @SuppressLint("DefaultLocale")
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                final_input_date = String.format("%02d.%02d.%04d",dayOfMonth,month+1,year);
+                finalInputDate = String.format("%02d.%02d.%04d",dayOfMonth,month+1,year);
             }
         });
 
         //Lose focus on action done listener for arrival station input
-        input_arrival.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        inputArrival.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId== EditorInfo.IME_ACTION_DONE){
-                    input_arrival.clearFocus();
+                    inputArrival.clearFocus();
                     InputMethodManager imm =
                             (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(input_arrival.getWindowToken(), 0);
+                    imm.hideSoftInputFromWindow(inputArrival.getWindowToken(), 0);
                     return true;
                 }
                 return false;
@@ -194,162 +230,165 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Clear station input fields if focused
-        input_departure.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        inputDeparture.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    input_departure.setText("");
+                    inputDeparture.setText("");
                 }
             }
         });
 
-        input_arrival.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        inputArrival.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus){
-                    input_arrival.setText("");
+                    inputArrival.setText("");
                 }
 
             }
         });
 
         //Go to izstopnaPostaja when autoComplete value is selected on vstopnaPostaja
-        input_departure.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        inputDeparture.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                input_arrival.requestFocus();
+                inputArrival.requestFocus();
 
             }
         });
 
         //Close keyboard when autoComplete value is selected on izstopnaPostaja
-        input_arrival.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        inputArrival.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                input_arrival.clearFocus();
+                inputArrival.clearFocus();
                 InputMethodManager imm =
                         (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(input_arrival.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(inputArrival.getWindowToken(), 0);
 
 
             }
         });
 
         //Favourite/unfavourite line button click listener
-        favourite_button.setOnClickListener(new View.OnClickListener() {
+        favouriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                FavouriteLine line = null;
-                String departure_station_name   = input_departure.getText().toString();
-                String arrival_station_name     = input_arrival.getText().toString();
+                FavouriteLine line = new FavouriteLine(
+                        inputDeparture.getText().toString(),inputArrival.getText().toString()
+                );
 
-                if(checkStationsValid()){
-                    line = new FavouriteLine(departure_station_name,arrival_station_name);
-                    List<FavouriteLine> favList = line.StringToList(
-                            sharedPref.getString("favourite_lines",""));
-                    if(checkFavourite(line,favList)){
-                        favList.remove(line);
-                        checkFavourite(line,favList);
-                    }else{
-                        favList.add(line);
-                        checkFavourite(line,favList);
-                    }
-                    prefEditor.putString("favourite_lines",line.ListToString(favList));
-                    prefEditor.apply();
-                    buildFavourites();
+                isFavourite = checkFavourite(line);
 
+                if(isFavourite){
+                    favList.remove(line);
+                }else{
+                    favList.add(line);
                 }
-                else{
-                    String error = "Vpisane postaje ne obstajajo.\n" +
-                            "Preverite imena postaj in poskusite ponovno.";
 
-                    alertBuilder.setMessage(error);
+                isFavourite = !isFavourite;
 
-                    AlertDialog errorDialog = alertBuilder.create();
-                    checkFavouriteCurrent();
-                    errorDialog.show();
+                morphFavouriteButtonDrawable();
 
-                }
+
+                prefEditor.putString(FAVOURITE_LINES_KEY,FavouriteLine.listToString(favList));
+                prefEditor.apply();
+
+                buildFavourites();
 
 
 
             }
         });
 
-        input_departure.addTextChangedListener(new TextWatcher() {
+        inputDeparture.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                //Empty because it has to be overriden
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                //Empty because it has to be overriden
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                checkFavouriteCurrent();
+                if(!isSwapping){
+                    isFavourite = checkFavourite();
+                    morphFavouriteButtonDrawable();
+                }
+
             }
         });
 
-        input_arrival.addTextChangedListener(new TextWatcher() {
+        inputArrival.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                //Empty because it has to be overriden
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                //Empty because it has to be overriden
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                checkFavouriteCurrent();
+                if(!isSwapping){
+                    isFavourite = checkFavourite();
+                    morphFavouriteButtonDrawable();
+                }
             }
         });
 
         //Swap button listener
-        button_swap.setOnClickListener(new View.OnClickListener() {
+        buttonSwap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input_departure.clearFocus();
-                input_arrival.clearFocus();
+                inputDeparture.clearFocus();
+                inputArrival.clearFocus();
 
-                String departure_text   = input_departure.getText().toString();
-                String arrival_text     = input_arrival.getText().toString();
-                input_arrival.setText(departure_text);
-                input_departure.setText(arrival_text);
+                String departureText   = inputDeparture.getText().toString();
+                String arrivalText     = inputArrival.getText().toString();
 
-                checkFavouriteCurrent();
+                isSwapping = true;
+
+                inputArrival.setText(departureText);
+                inputDeparture.setText(arrivalText);
+
+                isSwapping = false;
+                isFavourite = checkFavourite();
+                morphFavouriteButtonDrawable();
+
             }
         });
 
         //Send button listener, calls TimetableActivity to display requested line timetable
-        button_send.setOnClickListener(new View.OnClickListener() {
+        buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input_departure.clearFocus();
-                input_arrival.clearFocus();
+                inputDeparture.clearFocus();
+                inputArrival.clearFocus();
 
-                String departure_station_name   = input_departure.getText().toString();
+                String departureStationName   = inputDeparture.getText().toString();
 
-                String arrival_station_name     = input_arrival.getText().toString();
+                String arrivalStationName     = inputArrival.getText().toString();
 
-                String departure_station_id     = station_id_map.get(
-                        departure_station_name.toLowerCase());
+                String departureStationId     = stationIdMap.get(
+                        departureStationName.toLowerCase());
 
-                String arrival_station_id       = station_id_map.get(
-                        arrival_station_name.toLowerCase());
+                String arrivalStationId       = stationIdMap.get(
+                        arrivalStationName.toLowerCase());
 
                 if(checkStationsValid()){
                     dialog.show();
 
-                    if(sharedPref.getBoolean("saveLastInput",true)){
-                        prefEditor.putString("lastInputDeparture",departure_station_name);
-                        prefEditor.putString("lastInputArrival",arrival_station_name);
+                    if(sharedPref.getBoolean(SettingsActivity.SAVE_LAST_INPUT_KEY,true)){
+                        prefEditor.putString(LAST_INPUT_DEPARTURE_KEY,departureStationName);
+                        prefEditor.putString(LAST_INPUT_ARRIVAL_KEY,arrivalStationName);
                         prefEditor.apply();
                     }
 
@@ -357,28 +396,22 @@ public class MainActivity extends AppCompatActivity {
                             TimetableActivity.class);
 
                     processQueryIntent.putExtra("departure_station_name",
-                            departure_station_name);
+                            departureStationName);
 
                     processQueryIntent.putExtra("departure_station_id",
-                            departure_station_id);
+                            departureStationId);
 
                     processQueryIntent.putExtra("arrival_station_name",
-                            arrival_station_name);
+                            arrivalStationName);
 
                     processQueryIntent.putExtra("arrival_station_id",
-                            arrival_station_id);
+                            arrivalStationId);
 
                     processQueryIntent.putExtra("input_date",
-                            final_input_date);
+                            finalInputDate);
                     startActivity(processQueryIntent);
                 }else{
-                    String error = "Vpisane postaje ne obstajajo.\n" +
-                            "Preverite imena postaj in poskusite ponovno.";
-
-                    alertBuilder.setMessage(error);
-
-                    AlertDialog errorDialog = alertBuilder.create();
-                    errorDialog.show();
+                    showStationsNotFoundAlert();
                 }
 
             }
@@ -386,26 +419,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Parse station xml file for list of stations and their IDs
-        autocomplete_station_list   = new ArrayList<>();
-        station_id_map              = new HashMap<>();
+        autocompleteStationList = new ArrayList<>();
+        stationIdMap = new HashMap<>();
         String [] stationArray      = getResources().getStringArray(R.array.stations);
 
         for(String station:stationArray){
             String[] splitStation = station.split(",");
             String stationName = splitStation[0];
             String stationID = splitStation[1];
-            autocomplete_station_list.add(stationName);
-            station_id_map.put(stationName.toLowerCase(),stationID);
+            autocompleteStationList.add(stationName);
+            stationIdMap.put(stationName.toLowerCase(),stationID);
         }
 
-        ArrayAdapter<String> input_adapter = new ArrayAdapter<String>(
-                this,android.R.layout.simple_list_item_1,autocomplete_station_list);
+        ArrayAdapter<String> inputAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, autocompleteStationList);
 
         //Set input thresholds
-        input_departure.setAdapter(input_adapter);
-        input_departure.setThreshold(2);
-        input_arrival.setAdapter(input_adapter);
-        input_arrival.setThreshold(2);
+        inputDeparture.setAdapter(inputAdapter);
+        inputDeparture.setThreshold(2);
+        inputArrival.setAdapter(inputAdapter);
+        inputArrival.setThreshold(2);
 
         //Set last used stations
 
@@ -415,15 +448,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        dialog.hide();
-        if(sharedPref.getBoolean("saveLastInput",true)){
-            input_departure.setText(sharedPref.getString("lastInputDeparture",""));
-            input_arrival.setText(sharedPref.getString("lastInputArrival",""));
+        dialog.dismiss();
+        if(sharedPref.getBoolean(SettingsActivity.SAVE_LAST_INPUT_KEY,true)){
+            inputDeparture.setText(sharedPref.getString(LAST_INPUT_DEPARTURE_KEY,""));
+            inputArrival.setText(sharedPref.getString(LAST_INPUT_ARRIVAL_KEY,""));
         }
         else{
-            input_departure.setText("");
-            input_arrival.setText("");
+            inputDeparture.setText("");
+            inputArrival.setText("");
         }
+
     }
 
     @Override
@@ -441,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
             case R.id.action_favorites:
-                favourites_dialog.show();
+                favouritesDialog.show();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
@@ -449,5 +483,11 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

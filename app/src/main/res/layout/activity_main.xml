@@ -1,92 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar_main_activity"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/AppThemeNoActionBar.BarTheme"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_departure_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5pt">
-
-        <AutoCompleteTextView
-            android:id="@+id/input_departure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5pt"
-            android:layout_weight="1"
-            android:hint="@string/input_departure"
-            android:imeOptions="actionNext"
-            android:inputType="text" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_arrival_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <AutoCompleteTextView
-            android:id="@+id/input_arrival"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5pt"
-            android:layout_weight="1"
-            android:hint="@string/input_arrival"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
-
-    <CalendarView
-        android:id="@+id/input_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5pt" />
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <Button
-            android:id="@+id/button_swap"
-            style="@style/Widget.AppCompat.Button.Colored"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar_main_activity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/AppThemeNoActionBar.BarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_departure_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5pt"
-            android:layout_weight="1"
-            android:text="@string/button_swap" />
+            android:layout_marginTop="5pt">
 
-        <Button
-            android:id="@+id/button_send"
-            style="@style/Widget.AppCompat.Button.Colored"
+            <AutoCompleteTextView
+                android:id="@+id/input_departure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5pt"
+                android:layout_weight="1"
+                android:hint="@string/input_departure"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_arrival_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/input_arrival"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5pt"
+                android:layout_weight="1"
+                android:hint="@string/input_arrival"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <CalendarView
+            android:id="@+id/input_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5pt"
-            android:layout_weight="1"
-            android:text="@string/button_send" />
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt" />
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_swap"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5pt"
+                android:layout_weight="1"
+                android:text="@string/button_swap" />
+
+            <Button
+                android:id="@+id/button_send"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5pt"
+                android:layout_weight="1"
+                android:text="@string/button_send" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/favourite_button"
+            android:layout_width="133dp"
+            android:layout_height="67dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2pt"
+            app:srcCompat="@drawable/heart_add_to_remove_anim" />
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/favourite_button"
-        android:layout_width="133dp"
-        android:layout_height="67dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="2pt"
-        app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
-
-</LinearLayout>
+</ScrollView>

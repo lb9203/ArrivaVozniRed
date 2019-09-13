@@ -2,7 +2,6 @@ package com.example.arrivavoznired;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
@@ -10,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.CompoundButton;
 
 public class SettingsActivity extends AppCompatActivity {
+    public static final String SAVE_LAST_INPUT_KEY = "save_last_input";
+    public static final String DONT_SHOW_PAST_BUSES_KEY = "dont_show_past_buses";
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -19,7 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if(id==android.R.id.home)
+        if(id == android.R.id.home)
         {
             finish();
             return true;
@@ -28,8 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    SwitchCompat noShowPastBuses_switch;
-    SwitchCompat saveLastInput_switch;
+    SwitchCompat dontShowPastBusesSwitch;
+    SwitchCompat saveLastInputSwitch;
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor prefEditor;
@@ -39,45 +41,37 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Nastavitve");
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setTitle(getResources().getString(R.string.settings_title));
+        }
 
 
 
-        noShowPastBuses_switch  = (SwitchCompat)findViewById(R.id.noShowPastBuses_switch);
-        saveLastInput_switch    = (SwitchCompat)findViewById(R.id.saveLastInput_switch);
+        dontShowPastBusesSwitch = findViewById(R.id.noShowPastBuses_switch);
+        saveLastInputSwitch = findViewById(R.id.saveLastInput_switch);
 
         //Shared Preferences
         sharedPref      = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor      = sharedPref.edit();
 
-        saveLastInput_switch.setChecked(sharedPref.getBoolean("saveLastInput",true));
-        noShowPastBuses_switch.setChecked(sharedPref.getBoolean("noShowPastBuses",true));
+        saveLastInputSwitch.setChecked(sharedPref.getBoolean(SAVE_LAST_INPUT_KEY,true));
+        dontShowPastBusesSwitch.setChecked(sharedPref.getBoolean(DONT_SHOW_PAST_BUSES_KEY,true));
 
         //Change settings according to switch positions
-        saveLastInput_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        saveLastInputSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    prefEditor.putBoolean("saveLastInput",true);
-                }
-                else{
-                    prefEditor.putBoolean("saveLastInput",false);
-                }
+                prefEditor.putBoolean(SAVE_LAST_INPUT_KEY,isChecked);
                 prefEditor.apply();
             }
         });
 
-        noShowPastBuses_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        dontShowPastBusesSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    prefEditor.putBoolean("noShowPastBuses",true);
-                }
-                else{
-                    prefEditor.putBoolean("noShowPastBuses",false);
-                }
+                prefEditor.putBoolean(DONT_SHOW_PAST_BUSES_KEY,isChecked);
                 prefEditor.apply();
             }
         });

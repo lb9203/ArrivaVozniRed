@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_favorites"
-        android:icon="@drawable/ic_favorite_white_24dp"
+        android:icon="@drawable/ic_heart_noborder"
         android:title="@string/action_favourites"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_white_24dp"
-        android:title="@string/action_settings"
+        android:title="@string/"
         app:showAsAction="ifRoom"/>
 </menu>
