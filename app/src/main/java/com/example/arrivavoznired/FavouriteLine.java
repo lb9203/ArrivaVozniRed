@@ -1,7 +1,7 @@
 package com.example.arrivavoznired;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,12 @@ public class FavouriteLine {
     FavouriteLine(String d,String a){
         departure = d;
         arrival = a;
+    }
+
+    FavouriteLine(String lineString){
+        String[] temp = lineString.split(" - ");
+        departure = temp[0];
+        arrival = temp[1];
     }
 
 

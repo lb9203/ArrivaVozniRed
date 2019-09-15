@@ -1,24 +1,23 @@
 package com.example.arrivavoznired;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -27,11 +26,20 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -42,10 +50,14 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Shared preferences keys
     static final String FAVOURITE_LINES_KEY = "favourite_lines";
     static final String LAST_INPUT_DEPARTURE_KEY = "last_input_departure";
     static final String LAST_INPUT_ARRIVAL_KEY = "last_input_arrival";
 
+    //Intent actions
+    static final String WIDGET_LAUNCH_ACTION = "widget_launch_action";
+    static final String FINISH_ACTIVITY_ACTION = "finish_activity_action";
 
     //Build favourites menu
     void buildFavourites(){
@@ -63,11 +75,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String[] chosenFav = favArr[which].split(" - ");
+                isSwapping = true;
                 inputDeparture.setText(chosenFav[0]);
                 inputArrival.setText(chosenFav[1]);
+                isSwapping = false;
+                isFavourite = checkFavourite();
+                morphFavouriteButtonDrawable();
                 inputDeparture.clearFocus();
                 inputArrival.clearFocus();
             }
+
         });
 
         favouritesDialog = favouritesBuilder.create();
@@ -135,18 +152,19 @@ public class MainActivity extends AppCompatActivity {
     Button                  buttonSend;
     ImageView               favouriteButton;
     Toolbar                 myToolbar;
-    ProgressDialog          dialog;
     AlertDialog             favouritesDialog;
+    LinearLayout            containerLayoutFocusable;
 
     //Variables
-    List<String>                autocompleteStationList;
+    String[]                    autocompleteStationArray;
     Map<String,String>          stationIdMap;
-    AlertDialog.Builder         alertBuilder;
-    AlertDialog.Builder         favouritesBuilder;
+    MaterialAlertDialogBuilder  alertBuilder;
+    MaterialAlertDialogBuilder  favouritesBuilder;
     String                      finalInputDate;
     SimpleDateFormat            sdf;
     SharedPreferences           sharedPref;
     SharedPreferences.Editor    prefEditor;
+    AppWidgetManager            appWidgetManager;
     boolean                     isFavourite;
     boolean                     isSwapping;
     List<FavouriteLine>         favList;
@@ -163,21 +181,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Views
-        inputDeparture      = findViewById(R.id.input_departure);
-        inputArrival        = findViewById(R.id.input_arrival);
-        inputDate           = findViewById(R.id.input_date);
-        buttonSwap          = findViewById(R.id.button_swap);
-        buttonSend          = findViewById(R.id.button_send);
-        favouriteButton     = findViewById(R.id.favourite_button);
-        myToolbar           = findViewById(R.id.my_toolbar_main_activity);
+        inputDeparture              = findViewById(R.id.input_departure);
+        inputArrival                = findViewById(R.id.input_arrival);
+        inputDate                   = findViewById(R.id.input_date);
+        buttonSwap                  = findViewById(R.id.button_swap);
+        buttonSend                  = findViewById(R.id.button_send);
+        favouriteButton             = findViewById(R.id.favourite_button);
+        myToolbar                   = findViewById(R.id.my_toolbar_main_activity);
+        containerLayoutFocusable    = findViewById(R.id.container_layout_focusable);
 
         //Favourite transition animations
         addToRemove = AnimatedVectorDrawableCompat.create(
-                this,R.drawable.heart_add_to_remove_anim
+                this,R.drawable.heart_add_to_remove_anim_rotation
         );
 
         removeToAdd = AnimatedVectorDrawableCompat.create(
-                this,R.drawable.heart_remove_to_add_anim
+                this,R.drawable.heart_remove_to_add_anim_rotation
         );
 
         //Set action bar
@@ -189,19 +208,19 @@ public class MainActivity extends AppCompatActivity {
 
         favList = FavouriteLine.stringToList(sharedPref.getString(FAVOURITE_LINES_KEY,""));
 
+        appWidgetManager = AppWidgetManager.getInstance(this);
+
         isFavourite = checkFavourite();
         isSwapping = false;
         morphFavouriteButtonDrawable();
 
         //Create favourite items dialog
-        favouritesBuilder = new AlertDialog.Builder(this);
+        favouritesBuilder = new MaterialAlertDialogBuilder(this);
         buildFavourites();
 
 
         //Build loading alert dialog
-        alertBuilder    = new AlertDialog.Builder(this);
-        dialog          = new ProgressDialog(this);
-        dialog.setMessage(getResources().getString(R.string.loading_message));
+        alertBuilder    = new MaterialAlertDialogBuilder(this);
 
         //Date formatter and calendar updater
         sdf                 = new SimpleDateFormat("dd.MM.yyyy");
@@ -219,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId== EditorInfo.IME_ACTION_DONE){
-                    inputArrival.clearFocus();
+                    containerLayoutFocusable.requestFocus();
                     InputMethodManager imm =
                             (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(inputArrival.getWindowToken(), 0);
@@ -239,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Clear text of inputArrival when focused
         inputArrival.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -262,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         inputArrival.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                inputArrival.clearFocus();
+                containerLayoutFocusable.requestFocus();
                 InputMethodManager imm =
                         (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(inputArrival.getWindowToken(), 0);
@@ -275,6 +295,11 @@ public class MainActivity extends AppCompatActivity {
         favouriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (!checkStationsValid()){
+                    showStationsNotFoundAlert();
+                    return;
+                }
 
                 FavouriteLine line = new FavouriteLine(
                         inputDeparture.getText().toString(),inputArrival.getText().toString()
@@ -297,6 +322,12 @@ public class MainActivity extends AppCompatActivity {
                 prefEditor.apply();
 
                 buildFavourites();
+
+                ComponentName favouritesWidgetName = new ComponentName(getApplicationContext(),FavouritesWidget.class);
+                int[] appWidgetIds = appWidgetManager.getAppWidgetIds(favouritesWidgetName);
+
+                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds,R.id.favourites_list);
+
 
 
 
@@ -324,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Update favourite status if text changed
         inputArrival.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -384,7 +416,6 @@ public class MainActivity extends AppCompatActivity {
                         arrivalStationName.toLowerCase());
 
                 if(checkStationsValid()){
-                    dialog.show();
 
                     if(sharedPref.getBoolean(SettingsActivity.SAVE_LAST_INPUT_KEY,true)){
                         prefEditor.putString(LAST_INPUT_DEPARTURE_KEY,departureStationName);
@@ -419,20 +450,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Parse station xml file for list of stations and their IDs
-        autocompleteStationList = new ArrayList<>();
         stationIdMap = new HashMap<>();
         String [] stationArray      = getResources().getStringArray(R.array.stations);
+        autocompleteStationArray    = new String[stationArray.length];
 
-        for(String station:stationArray){
-            String[] splitStation = station.split(",");
+        for(int i=0;i<stationArray.length;i++){
+            String[] splitStation = stationArray[i].split(",");
             String stationName = splitStation[0];
             String stationID = splitStation[1];
-            autocompleteStationList.add(stationName);
+            autocompleteStationArray[i] = stationName;
             stationIdMap.put(stationName.toLowerCase(),stationID);
         }
 
         ArrayAdapter<String> inputAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, autocompleteStationList);
+                this, R.layout.dropdown_menu_item, autocompleteStationArray);
 
         //Set input thresholds
         inputDeparture.setAdapter(inputAdapter);
@@ -440,22 +471,53 @@ public class MainActivity extends AppCompatActivity {
         inputArrival.setAdapter(inputAdapter);
         inputArrival.setThreshold(2);
 
+
         //Set last used stations
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
     }
 
     //Hide loading dialog when activity resumes
     @Override
     public void onResume(){
         super.onResume();
-        dialog.dismiss();
-        if(sharedPref.getBoolean(SettingsActivity.SAVE_LAST_INPUT_KEY,true)){
-            inputDeparture.setText(sharedPref.getString(LAST_INPUT_DEPARTURE_KEY,""));
-            inputArrival.setText(sharedPref.getString(LAST_INPUT_ARRIVAL_KEY,""));
-        }
-        else{
-            inputDeparture.setText("");
-            inputArrival.setText("");
+
+        Intent mainActivityIntent = getIntent();
+
+        assert mainActivityIntent.getAction() != null;
+
+        switch (mainActivityIntent.getAction()) {
+            case WIDGET_LAUNCH_ACTION:
+                inputDeparture.setText(mainActivityIntent.getStringExtra(FavouritesWidget.PRESET_DEPARTURE_STATION_KEY));
+                inputArrival.setText(mainActivityIntent.getStringExtra(FavouritesWidget.PRESET_ARRIVAL_STATION_KEY));
+                buttonSend.callOnClick();
+                finish();
+                break;
+            default:
+                if (sharedPref.getBoolean(SettingsActivity.SAVE_LAST_INPUT_KEY, true)) {
+                    inputDeparture.setText(sharedPref.getString(LAST_INPUT_DEPARTURE_KEY, ""));
+                    inputArrival.setText(sharedPref.getString(LAST_INPUT_ARRIVAL_KEY, ""));
+                } else {
+                    inputDeparture.setText("");
+                    inputArrival.setText("");
+                }
+                break;
         }
 
     }
@@ -485,9 +547,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onBackPressed() {
+        super.onBackPressed();
+        containerLayoutFocusable.requestFocus();
     }
+
 }

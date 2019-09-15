@@ -2,9 +2,11 @@ package com.example.arrivavoznired;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 
@@ -32,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat dontShowPastBusesSwitch;
     SwitchCompat saveLastInputSwitch;
+    Toolbar toolbarSettingsActivity;
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor prefEditor;
@@ -41,9 +44,12 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        if(getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbarSettingsActivity = findViewById(R.id.my_toolbar_settings_activity);
+
+        setSupportActionBar(toolbarSettingsActivity);
+        if(getSupportActionBar() != null){
             getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(getResources().getString(R.string.settings_title));
         }
 

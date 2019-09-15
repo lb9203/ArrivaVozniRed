@@ -1,10 +1,7 @@
 package com.example.arrivavoznired;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.StrictMode;
-import android.preference.PreferenceManager;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.jsoup.Jsoup;
@@ -12,57 +9,82 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-class WebParser {
-    private String departurename;
-    private String arrivalname;
-    private String date;
-    private String url;
-    private Context context;
+public class AsyncBusScraper extends AsyncTask<Void,Integer,List<Bus>> {
 
-    WebParser(String dname, String did, String aname, String aid, String date, Context con){
-        departurename = dname;
-        arrivalname = aname;
-        this.date = date;
-        this.context = con;
-        url = String.format("https://arriva.si/vozni-redi/" +
-                "?departure_id=%s" +
-                "&departure=%s" +
-                "&destination=%s" +
-                "&destination_id=%s" +
-                "&trip_date=%s",
-                did,
-                dname.replace(" ","+"),
-                aname.replace(" ","+"),
-                aid,
-                date);
+    private String mDepartureName;
+    private String mArrivalName;
+    private String mDate;
+    private boolean mDontShowPastBuses;
+
+    private BusCardViewAdapter mAdapter;
+    private List<Bus> mBusList;
+    private String mUrl;
+    private ProgressDialog mProgressDialog;
+
+    AsyncBusScraper(
+            String departureName,
+            String departureId,
+            String arrivalName,
+            String arrivalId,
+            String date,
+            boolean dontShowPastBuses,
+            List<Bus> busList,
+            BusCardViewAdapter adapter,
+            ProgressDialog progressDialog
+            ){
+        mDepartureName = departureName;
+        mArrivalName = arrivalName;
+        mDate = date;
+        mDontShowPastBuses = dontShowPastBuses;
+        mBusList = busList;
+        mAdapter = adapter;
+        mProgressDialog = progressDialog;
+
+
+        mUrl = String.format("https://arriva.si/vozni-redi/" +
+                        "?departure_id=%s" +
+                        "&departure=%s" +
+                        "&destination=%s" +
+                        "&destination_id=%s" +
+                        "&trip_date=%s",
+                departureId,
+                mDepartureName.replace(" ","+"),
+                mArrivalName.replace(" ","+"),
+                arrivalId,
+                mDate);
     }
 
-    List<Bus> fetchData(){
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+    @Override
+    protected void onPostExecute(List<Bus> buses) {
+        super.onPostExecute(buses);
+        mAdapter.notifyDataSetChanged();
+        mProgressDialog.dismiss();
+    }
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean noShowPastBuses = sharedPref.getBoolean("noShowPastBuses",true);
-        List<Bus> retList = new ArrayList<>();
+    @Override
+    protected List<Bus> doInBackground(Void... voids) {
 
         try{
             Calendar curTime = Calendar.getInstance();
-            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
             String curDate = sdf.format(curTime.getTime());
             int curHour = curTime.get(Calendar.HOUR_OF_DAY);
             int curMin = curTime.get(Calendar.MINUTE);
 
-            Document doc = Jsoup.connect(this.url).get();
+            Document doc = Jsoup.connect(this.mUrl).get();
 
             Element connections = doc.getElementsByClass("connections").first();
 
             int i=0;
             for(Element connection:connections.getElementsByClass("connection")){
+                if(isCancelled()){
+                    //The calling activity has been destroyer, the async task must be cancelled to prevent memory leaks
+                    return null;
+                }
                 if(i>0){
                     //departure-arrival
                     Element departureArrival = connection.getElementsByClass("departure-arrival").first();
@@ -86,16 +108,18 @@ class WebParser {
 
                     //price
                     String price = connection.getElementsByClass("price").first().text();
-                    if(noShowPastBuses && curDate.equals(this.date)){
+
+                    if(mDontShowPastBuses && curDate.equals(this.mDate)){
 
                         if((depHour > curHour) || (depHour == curHour && depMin >= curMin)) {
 
-                            retList.add(new Bus(departureTime, arrivalTime, price, length, duration, this.departurename, this.arrivalname));
+                            mBusList.add(new Bus(departureTime, arrivalTime, price, length, duration, mDepartureName, mArrivalName));
                         }
                     }
                     else{
-                        retList.add(new Bus(departureTime,arrivalTime,price,length,duration,this.departurename,this.arrivalname));
+                        mBusList.add(new Bus(departureTime,arrivalTime,price,length,duration,mDepartureName,mArrivalName));
                     }
+
 
 
                 }
@@ -105,7 +129,7 @@ class WebParser {
         catch (Exception e){
             Log.d("WebParser",e.getLocalizedMessage());
         }
-        return retList;
+        return mBusList;
     }
 
 

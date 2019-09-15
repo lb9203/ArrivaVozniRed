@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arriva Bus Itinerary</string>
+    <string name="app_name">Arriva Bus Timetable</string>
     <string name="action_favourites">Favourite lines</string>
-    <string name="button_send">Find bus itinerary</string>
+    <string name="button_send">Find timetable</string>
     <string name="button_swap">Switch stations</string>
     <string name="choose_favourite">Select favourite line</string>
     <string name="dont_show_past_buses">Hide past buses</string>
@@ -14,4 +14,9 @@
     <string name="stations_not_found_error">Input stations not found. Check stations names and try again.</string>
     <string name="favourite_button_add_description">Add to favourites</string>
     <string name="favourite_button_remove_description">Remove from favourites</string>
+    <string name="timetable_title">Bus Timetable</string>
+    <string name="button_share">Share</string>
+    <string name="bus_share_text">%s(%s) - %s(%s)%n, Price: %s, Length: %s,  Duration: %s</string>
+    <string name="add_widget">Add widget</string>
+    <string name="widget_empty_text">No favourite lines to display.</string>
 </resources>

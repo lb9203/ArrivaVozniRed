@@ -7,23 +7,29 @@
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/noShowPastBuses_switch"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar_settings_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5pt"
-        android:paddingLeft="10pt"
-        android:paddingRight="10pt"
-        android:text="@string/dont_show_past_buses"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppThemeNoActionBar.BarTheme" />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/saveLastInput_switch"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/noShowPastBuses_switch"
+        style="@style/Widget.MaterialComponents.CompoundButton.Switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5pt"
         android:paddingLeft="10pt"
         android:paddingRight="10pt"
-        android:text="@string/keep_last_input"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        android:text="@string/dont_show_past_buses" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/saveLastInput_switch"
+        style="@style/Widget.MaterialComponents.CompoundButton.Switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10pt"
+        android:paddingRight="10pt"
+        android:text="@string/keep_last_input" />
 </LinearLayout>

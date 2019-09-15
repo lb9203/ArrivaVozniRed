@@ -7,7 +7,15 @@
     android:orientation="vertical"
     tools:context=".TimetableActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolar_timetable_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppThemeNoActionBar.BarTheme" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bus_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

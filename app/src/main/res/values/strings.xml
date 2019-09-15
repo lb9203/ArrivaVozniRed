@@ -2792,4 +2792,12 @@
         <item>Žužemberk,141657</item>
         <item>Žvirče,141661</item>
     </string-array>
+    <string name="timetable_title">Vozni red</string>
+    <string name="button_share">Deli</string>
+    <string name="card_station_names_text" translatable="false">%s - %s</string>
+    <string name="card_departure_arrival_times_text" translatable="false">%s - %s</string>
+    <string name="bus_share_text">%s(%s) - %s(%s)%n, Cena: %s, Pot: %s, Trajanje: %s</string>
+    <string name="card_extra_bus_data_text" translatable="false">%-13s %-13s %-13s</string>
+    <string name="widget_empty_text">Ni priljubljenih linij za prikaz.</string>
+    <string name="add_widget">Dodaj bližnjice</string>
 </resources>
