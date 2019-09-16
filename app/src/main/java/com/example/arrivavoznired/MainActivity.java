@@ -1,7 +1,7 @@
 package com.example.arrivavoznired;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
+import android.app.DatePickerDialog;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -25,13 +25,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -138,14 +137,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void setFavouriteButtonDrawable(){
-        favouriteButton.setImageDrawable(isFavourite?addToRemove:removeToAdd);
-    }
 
     //Input views
     AutoCompleteTextView    inputDeparture;
     AutoCompleteTextView    inputArrival;
-    CalendarView            inputDate;
+    TextView                inputDate;
+    DatePickerDialog        inputDateDialog;
 
     //Utility views
     Button                  buttonSwap;
@@ -160,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
     Map<String,String>          stationIdMap;
     MaterialAlertDialogBuilder  alertBuilder;
     MaterialAlertDialogBuilder  favouritesBuilder;
-    String                      finalInputDate;
     SimpleDateFormat            sdf;
     SharedPreferences           sharedPref;
     SharedPreferences.Editor    prefEditor;
@@ -213,23 +209,34 @@ public class MainActivity extends AppCompatActivity {
         isFavourite = checkFavourite();
         isSwapping = false;
         morphFavouriteButtonDrawable();
-
         //Create favourite items dialog
         favouritesBuilder = new MaterialAlertDialogBuilder(this);
         buildFavourites();
-
 
         //Build loading alert dialog
         alertBuilder    = new MaterialAlertDialogBuilder(this);
 
         //Date formatter and calendar updater
-        sdf                 = new SimpleDateFormat("dd.MM.yyyy");
-        finalInputDate = sdf.format(Calendar.getInstance().getTime());
-        inputDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @SuppressLint("DefaultLocale")
+        sdf                         = new SimpleDateFormat("dd.MM.yyyy");
+        final Calendar calendar     = Calendar.getInstance();
+
+        inputDate.setText(sdf.format(calendar.getTime()));
+
+
+        inputDateDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                finalInputDate = String.format("%02d.%02d.%04d",dayOfMonth,month+1,year);
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(year,month,dayOfMonth);
+                inputDate.setText(sdf.format(calendar.getTime()));
+            }
+        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+
+
+
+        inputDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputDateDialog.show();
             }
         });
 
@@ -439,7 +446,7 @@ public class MainActivity extends AppCompatActivity {
                             arrivalStationId);
 
                     processQueryIntent.putExtra("input_date",
-                            finalInputDate);
+                            inputDate.getText().toString());
                     startActivity(processQueryIntent);
                 }else{
                     showStationsNotFoundAlert();
@@ -507,6 +514,9 @@ public class MainActivity extends AppCompatActivity {
                 inputDeparture.setText(mainActivityIntent.getStringExtra(FavouritesWidget.PRESET_DEPARTURE_STATION_KEY));
                 inputArrival.setText(mainActivityIntent.getStringExtra(FavouritesWidget.PRESET_ARRIVAL_STATION_KEY));
                 buttonSend.callOnClick();
+                finish();
+                break;
+            case FINISH_ACTIVITY_ACTION:
                 finish();
                 break;
             default:

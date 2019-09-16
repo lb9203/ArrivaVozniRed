@@ -5,17 +5,8 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.ListView;
 import android.widget.RemoteViews;
-import android.widget.TextView;
-
-import com.google.android.material.textview.MaterialTextView;
-
-import java.util.List;
 
 /**
  * Implementation of App Widget functionality.
@@ -72,11 +63,5 @@ public class FavouritesWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
-
-        super.onReceive(context, intent);
-    }
 }
 

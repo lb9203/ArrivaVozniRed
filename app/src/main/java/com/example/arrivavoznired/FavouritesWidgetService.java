@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FavouritesWidgetService extends RemoteViewsService {
@@ -21,10 +20,10 @@ public class FavouritesWidgetService extends RemoteViewsService {
 
 class FavouritesRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
-    SharedPreferences sharedPref;
+    private SharedPreferences sharedPref;
     private Context mContext;
     private int mAppWidgetId;
-    List<FavouriteLine> mFavouritesList;
+    private List<FavouriteLine> mFavouritesList;
 
     FavouritesRemoteViewsFactory(Context context, Intent intent){
         mContext = context;

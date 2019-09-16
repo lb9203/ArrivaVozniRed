@@ -38,11 +38,11 @@ public class FavouriteLine {
         return super.hashCode();
     }
 
-    public String getDeparture() {
+    String getDeparture() {
         return departure;
     }
 
-    public String getArrival() {
+    String getArrival() {
         return arrival;
     }
 

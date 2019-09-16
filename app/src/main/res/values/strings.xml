@@ -2800,4 +2800,5 @@
     <string name="card_extra_bus_data_text" translatable="false">%-13s %-13s %-13s</string>
     <string name="widget_empty_text">Ni priljubljenih linij za prikaz.</string>
     <string name="add_widget">Dodaj bližnjice</string>
+    <string name="input_date">Datum</string>
 </resources>
