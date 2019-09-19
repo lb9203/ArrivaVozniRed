@@ -18,6 +18,7 @@
     <style name="AppThemeNoActionBar.BarTheme" parent="AppThemeNoActionBar">
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="colorControlNormal">#FFFFFF</item>
+
     </style>
 
 

@@ -1,18 +1,20 @@
 package com.example.arrivavoznired;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
-
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class SettingsActivity extends AppCompatActivity {
     public static final String SAVE_LAST_INPUT_KEY = "save_last_input";
     public static final String DONT_SHOW_PAST_BUSES_KEY = "dont_show_past_buses";
+    public static final String ERASE_INPUT_ON_CLICK_KEY = "erase_input_on_click";
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -32,8 +34,9 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    SwitchCompat dontShowPastBusesSwitch;
-    SwitchCompat saveLastInputSwitch;
+    SwitchMaterial dontShowPastBusesSwitch;
+    SwitchMaterial saveLastInputSwitch;
+    SwitchMaterial eraseInputOnClickSwitch;
     Toolbar toolbarSettingsActivity;
 
     SharedPreferences sharedPref;
@@ -55,8 +58,9 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
-        dontShowPastBusesSwitch = findViewById(R.id.noShowPastBuses_switch);
-        saveLastInputSwitch = findViewById(R.id.saveLastInput_switch);
+        dontShowPastBusesSwitch = findViewById(R.id.dont_show_past_buses_switch);
+        saveLastInputSwitch     = findViewById(R.id.save_list_input_switch);
+        eraseInputOnClickSwitch = findViewById(R.id.erase_input_on_click_switch);
 
         //Shared Preferences
         sharedPref      = PreferenceManager.getDefaultSharedPreferences(this);
@@ -64,6 +68,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         saveLastInputSwitch.setChecked(sharedPref.getBoolean(SAVE_LAST_INPUT_KEY,true));
         dontShowPastBusesSwitch.setChecked(sharedPref.getBoolean(DONT_SHOW_PAST_BUSES_KEY,true));
+        eraseInputOnClickSwitch.setChecked(sharedPref.getBoolean(ERASE_INPUT_ON_CLICK_KEY,false));
 
         //Change settings according to switch positions
         saveLastInputSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -78,6 +83,14 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefEditor.putBoolean(DONT_SHOW_PAST_BUSES_KEY,isChecked);
+                prefEditor.apply();
+            }
+        });
+
+        eraseInputOnClickSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefEditor.putBoolean(ERASE_INPUT_ON_CLICK_KEY,isChecked);
                 prefEditor.apply();
             }
         });

@@ -2801,4 +2801,5 @@
     <string name="widget_empty_text">Ni priljubljenih linij za prikaz.</string>
     <string name="add_widget">Dodaj bližnjice</string>
     <string name="input_date">Datum</string>
+    <string name="erase_input_on_click">Pobriši vnosna polja pred vnosom.</string>
 </resources>

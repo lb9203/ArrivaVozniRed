@@ -259,7 +259,9 @@ public class MainActivity extends AppCompatActivity {
         inputDeparture.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (sharedPref.getBoolean(SettingsActivity.ERASE_INPUT_ON_CLICK_KEY,false)
+                && hasFocus
+                ) {
                     inputDeparture.setText("");
                 }
             }
@@ -269,7 +271,9 @@ public class MainActivity extends AppCompatActivity {
         inputArrival.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (sharedPref.getBoolean(SettingsActivity.ERASE_INPUT_ON_CLICK_KEY,false)
+                        && hasFocus
+                ) {
                     inputArrival.setText("");
                 }
 
