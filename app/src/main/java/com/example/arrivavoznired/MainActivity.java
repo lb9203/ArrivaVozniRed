@@ -202,7 +202,9 @@ public class MainActivity extends AppCompatActivity {
         sharedPref      = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor      = sharedPref.edit();
 
+        assert sharedPref.getString(FAVOURITE_LINES_KEY,"") != null;
         favList = FavouriteLine.stringToList(sharedPref.getString(FAVOURITE_LINES_KEY,""));
+
 
         appWidgetManager = AppWidgetManager.getInstance(this);
 
@@ -348,12 +350,12 @@ public class MainActivity extends AppCompatActivity {
         inputDeparture.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //Empty because it has to be overriden
+                //Empty because it has to be overridden.
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //Empty because it has to be overriden
+                //Empty because it has to be overridden.
             }
 
             @Override
@@ -370,12 +372,12 @@ public class MainActivity extends AppCompatActivity {
         inputArrival.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //Empty because it has to be overriden
+                //Empty because it has to be overridden.
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //Empty because it has to be overriden
+                //Empty because it has to be overridden.
             }
 
             @Override
