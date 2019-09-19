@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,21 +39,24 @@ import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
-
+@SuppressLint("SimpleDateFormat")
 public class MainActivity extends AppCompatActivity {
 
     //Shared preferences keys
     static final String FAVOURITE_LINES_KEY = "favourite_lines";
     static final String LAST_INPUT_DEPARTURE_KEY = "last_input_departure";
     static final String LAST_INPUT_ARRIVAL_KEY = "last_input_arrival";
+    static final String CACHE_VERSION_KEY = "cache_version";
 
     //Intent actions
     static final String WIDGET_LAUNCH_ACTION = "widget_launch_action";
@@ -135,6 +139,30 @@ public class MainActivity extends AppCompatActivity {
             newDrawable.start();
             currentDrawable = newDrawable;
         }
+    }
+
+    void startCache(){
+        Calendar curCal = Calendar.getInstance();
+
+        SimpleDateFormat cacheDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String curDate = cacheDateFormat.format(curCal.getTime());
+        String cacheVersion = sharedPref.getString(CACHE_VERSION_KEY,"01.01.1970");
+        try {
+            Date curDateDate = cacheDateFormat.parse(curDate);
+            Date cacheVersionDate = cacheDateFormat.parse(cacheVersion);
+            if(cacheVersionDate.before(curDateDate)){
+                Log.d("startCache:",cacheVersion+" is before "+curDate+", invalidating.");
+                BusCache.invalidateCache(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME);
+                prefEditor.putString(CACHE_VERSION_KEY,curDate);
+            }
+            else{
+                Log.d("startCache:",cacheVersion+" is not before "+curDate+", loading.");
+                BusCache.loadCache(new ReaderPackage(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME));
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -510,6 +538,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        startCache();
 
         Intent mainActivityIntent = getIntent();
 

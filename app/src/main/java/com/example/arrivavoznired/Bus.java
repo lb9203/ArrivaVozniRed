@@ -1,6 +1,8 @@
 package com.example.arrivavoznired;
 
-class Bus {
+import java.io.Serializable;
+
+class Bus implements Serializable {
     String departureTime;
     String arrivalTime;
     String departureStationName;
