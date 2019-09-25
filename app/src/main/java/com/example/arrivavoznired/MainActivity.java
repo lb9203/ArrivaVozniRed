@@ -134,8 +134,12 @@ public class MainActivity extends AppCompatActivity {
 
     void morphFavouriteButtonDrawable(){
         AnimatedVectorDrawableCompat newDrawable = isFavourite ? addToRemove : removeToAdd;
+        String contentDescription = isFavourite ?
+                getResources().getString(R.string.favourite_button_remove_description):
+                getResources().getString(R.string.favourite_button_add_description);
         if (!newDrawable.equals(currentDrawable)) {
             favouriteButton.setImageDrawable(newDrawable);
+            favouriteButton.setContentDescription(contentDescription);
             newDrawable.start();
             currentDrawable = newDrawable;
         }
