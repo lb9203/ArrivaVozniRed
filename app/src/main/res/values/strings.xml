@@ -5,16 +5,18 @@
     <string name="button_swap">Zamenjaj Postaji</string>
     <string name="button_send">Išči Vozni Red</string>
     <string name="action_favourites">Priljubljene povezave</string>
+    <string name="favourite_button_add_description">Dodaj med priljubljene</string>
+    <string name="favourite_button_remove_description">Odstrani od priljubljenih</string>
     <string name="keep_last_input">Shrani zadnje uporabljene postaje</string>
     <string name="dont_show_past_buses">Skrij pretekle avtobusne termine</string>
     <string name="choose_favourite">"Izberi priljubljeno povezavo"</string>
     <string name="loading_message">"Iščem rezultate…"</string>
     <string name="stations_not_found_error">"Vpisane postaje ne obstajajo.\nPreverite imena postaj in poskusite ponovno."</string>
-    <string name="settings_title">"Nastavitve</string>
+    <string name="settings_title">"Nastavitve</string><![CDATA[
 
     -->Content descriptions
-    <string name="favourite_button_add_description">"Dodaj med priljubljene"</string>
-    <string name="favourite_button_remove_description">"Odstrani od priljubljenih"</string>
+
+    ]]>
     <string-array name="stations">
         <item>Adergas,137007</item>
         <item>Adria,152191</item>

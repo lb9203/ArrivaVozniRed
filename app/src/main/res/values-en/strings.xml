@@ -12,8 +12,6 @@
     <string name="loading_message">Fetching results…</string>
     <string name="settings_title">Settings</string>
     <string name="stations_not_found_error">Input stations not found. Check stations names and try again.</string>
-    <string name="favourite_button_add_description">Add to favourites</string>
-    <string name="favourite_button_remove_description">Remove from favourites</string>
     <string name="timetable_title">Bus Timetable</string>
     <string name="button_share">Share</string>
     <string name="bus_share_text">%s(%s) - %s(%s)%n, Price: %s, Length: %s,  Duration: %s</string>
@@ -21,4 +19,6 @@
     <string name="widget_empty_text">No favourite lines to display.</string>
     <string name="input_date">Date</string>
     <string name="erase_input_on_click">Erase input fields before new input.</string>
+    <string name="favourite_button_add_description">Add to favourites</string>
+    <string name="favourite_button_remove_description">Remove from favourites</string>
 </resources>

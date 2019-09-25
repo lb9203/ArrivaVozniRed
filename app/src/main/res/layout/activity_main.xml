@@ -123,6 +123,7 @@
             android:layout_height="67dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
+            android:contentDescription="@string/favourite_button_add_description"
             app:srcCompat="@drawable/heart_add_to_remove_anim_rotation" />
 
     </LinearLayout>
