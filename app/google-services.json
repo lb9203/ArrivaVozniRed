@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "149765060423",
+    "firebase_url": "https://arrivavoznired.firebaseio.com",
+    "project_id": "arrivavoznired",
+    "storage_bucket": "arrivavoznired.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149765060423:android:71f0a87ca1917e852e3e62",
+        "android_client_info": {
+          "package_name": "com.example.arrivavoznired"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149765060423-96rvlgeq6buiqn5id5jlsg7snp9i8mq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.arrivavoznired",
+            "certificate_hash": "f92d3b13a4d1c2c698be3c9f1356ff6e5d0770f4"
+          }
+        },
+        {
+          "client_id": "149765060423-egsvova1s6eepug5hsokjp3gig8llvq5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD28jQFLDtRZa3rwOEQhq8EhSW6yuoSSb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149765060423-egsvova1s6eepug5hsokjp3gig8llvq5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
