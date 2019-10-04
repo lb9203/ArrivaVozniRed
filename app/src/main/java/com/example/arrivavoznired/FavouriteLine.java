@@ -15,13 +15,6 @@ public class FavouriteLine {
         arrival = a;
     }
 
-    FavouriteLine(String lineString){
-        String[] temp = lineString.split(" - ");
-        departure = temp[0];
-        arrival = temp[1];
-    }
-
-
     @Override
     public boolean equals(@Nullable Object obj) {
         if(obj instanceof FavouriteLine){
@@ -53,7 +46,11 @@ public class FavouriteLine {
     }
 
 
-    //Function to turn favourite list into String
+    /**
+     * Turns a List of FavouriteLines into a String, used for storing it in sharedPrefs.
+     * @param favouriteList List of favouriteLines to be turned into a string.
+     * @return a String representation of the favouriteLine list.
+     */
     static String listToString(List<FavouriteLine> favouriteList){
         StringBuilder favouriteString = new StringBuilder();
 
@@ -64,7 +61,12 @@ public class FavouriteLine {
         return favouriteString.toString();
     }
 
-    //Function to turn favourites string into List
+
+    /**
+     * Turns a String of FavouriteLines into a List, for using it after pulling it from sharedPref.
+     * @param favouriteString String of favouriteLines to be turned into a List.
+     * @return a List representation of the favouriteLine list.
+     */
     static List<FavouriteLine> stringToList(String favouriteString){
         List<FavouriteLine> favouriteList = new ArrayList<>();
 

@@ -63,7 +63,10 @@ public class MainActivity extends AppCompatActivity {
     static final String WIDGET_LAUNCH_ACTION = "widget_launch_action";
     static final String FINISH_ACTIVITY_ACTION = "finish_activity_action";
 
-    //Build favourites menu
+
+    /**
+     * Build the favourites menu from shared preferences.
+     */
     void buildFavourites(){
         favouritesBuilder.setTitle(getResources().getString(R.string.choose_favourite));
 
@@ -94,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
         favouritesDialog = favouritesBuilder.create();
     }
 
-    //Check if current stations are valid
+
+    /**
+     * Check if input stations are valid (exist in the station Map).
+     * Display errors on TextInputLayouts if either station is not valid.
+     * @return boolean true if both stations exist, false otherwise.
+     */
     boolean checkStationsValid(){
         String departureStationName   = inputDeparture.getText().toString();
         String arrivalStationName     = inputArrival.getText().toString();
@@ -122,21 +130,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Check if line is in favourite, set favouriteButton image accordingly
+    /**
+     * Check if a line is a favourite line.
+     * @param line FavouriteLine to be checked against list of favourites.
+     * @return boolean true if the provided line is currently in favourites, false otherwise.
+     */
     boolean checkFavourite(FavouriteLine line){
         return favList.contains(line);
     }
 
-    //Run checkFavourite with no parameters, current input values are considered
-    boolean checkFavourite(){
 
+    /**
+     * Check if currently inputted line is among favourite lines.
+     * @return boolean true if the input line is among favourites.
+     */
+    boolean checkFavourite(){
         FavouriteLine line = new FavouriteLine(inputDeparture.getText().toString(),
                 inputArrival.getText().toString()
         );
-
         return checkFavourite(line);
     }
 
+
+    /**
+     * Morph the favourite button depending on if the current stations are favourites.
+     */
     void morphFavouriteButtonDrawable(){
         AnimatedVectorDrawableCompat newDrawable = isFavourite ? addToRemove : removeToAdd;
         String contentDescription = isFavourite ?
@@ -150,7 +168,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void startCache(){
+
+    /**
+     * Initialize the cache, invalidating it if the cache is older than the current day.
+     */
+    void initializeCache(){
         Calendar curCal = Calendar.getInstance();
 
         SimpleDateFormat cacheDateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -160,12 +182,12 @@ public class MainActivity extends AppCompatActivity {
             Date curDateDate = cacheDateFormat.parse(curDate);
             Date cacheVersionDate = cacheDateFormat.parse(cacheVersion);
             if(cacheVersionDate.before(curDateDate)){
-                Log.d("startCache:",cacheVersion+" is before "+curDate+", invalidating.");
+                Log.d("initializeCache:",cacheVersion+" is before "+curDate+", invalidating.");
                 BusCache.invalidateCache(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME);
                 prefEditor.putString(CACHE_VERSION_KEY,curDate);
             }
             else{
-                Log.d("startCache:",cacheVersion+" is not before "+curDate+", loading.");
+                Log.d("initializeCache:",cacheVersion+" is not before "+curDate+", loading.");
                 BusCache.loadCache(new ReaderPackage(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME));
             }
         } catch (ParseException e) {
@@ -242,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
         sharedPref      = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor      = sharedPref.edit();
 
-        assert sharedPref.getString(FAVOURITE_LINES_KEY,"") != null;
         favList = FavouriteLine.stringToList(sharedPref.getString(FAVOURITE_LINES_KEY,""));
 
 
@@ -303,10 +324,7 @@ public class MainActivity extends AppCompatActivity {
                 ) {
                     inputDeparture.setText("");
                 }
-
-                if(!hasFocus){
-                    inputDepartureLayout.setError(null);
-                }
+                inputDepartureLayout.setError(null);
             }
         });
 
@@ -319,10 +337,7 @@ public class MainActivity extends AppCompatActivity {
                 ) {
                     inputArrival.setText("");
                 }
-
-                if(!hasFocus){
-                    inputArrivalLayout.setError(null);
-                }
+                inputArrivalLayout.setError(null);
             }
         });
 
@@ -390,6 +405,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Update favourite status if text changed
         inputDeparture.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -551,7 +567,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
 
-        startCache();
+        initializeCache();
 
         Intent mainActivityIntent = getIntent();
 
