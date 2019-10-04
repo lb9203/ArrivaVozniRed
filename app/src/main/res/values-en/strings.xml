@@ -21,4 +21,6 @@
     <string name="erase_input_on_click">Erase input fields before new input.</string>
     <string name="favourite_button_add_description">Add to favourites</string>
     <string name="favourite_button_remove_description">Remove from favourites</string>
+    <string name="departure_station_not_found_error">Departure station not found</string>
+    <string name="arrival_station_not_found_error">Arrival station not found</string>
 </resources>

@@ -13,15 +13,15 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class BusCache {
+class BusCache {
 
     private static String TAG = BusCache.class.getCanonicalName();
 
-    public static String CACHE_FILENAME = "cache.bin";
+    static String CACHE_FILENAME = "cache.bin";
 
     private static HashMap<String,ArrayList<Bus>> busCache = new HashMap<>();
 
-    public static HashMap<String, ArrayList<Bus>> getBusCache() {
+    static HashMap<String, ArrayList<Bus>> getBusCache() {
         return busCache;
     }
 
@@ -29,7 +29,7 @@ public class BusCache {
      * @param key String of key for cache, should be "[departureID]-[arrivalID]"
      * @return boolean true if cache contains the given route, false if otherwise.
      */
-    public static boolean contains(String key){
+    static boolean contains(String key){
         return busCache.containsKey(key);
     }
 
@@ -38,7 +38,7 @@ public class BusCache {
      * @param key String of key for cache, should be "[departureID]-[arrivalID]"
      * @return ArrayList of buses for the given route.
      */
-    public static ArrayList<Bus> getBusListFromCache(String key){
+    static ArrayList<Bus> getBusListFromCache(String key){
         return busCache.get(key);
     }
 
@@ -47,7 +47,7 @@ public class BusCache {
      * @param key String of key for cache, should be "[departureID]-[arrivalID]" of route.
      * @param busList list of buses for the given route.
      */
-    public static void putBusListIntoCache(String key,ArrayList<Bus> busList){
+    static void putBusListIntoCache(String key, ArrayList<Bus> busList){
         busCache.put(key,busList);
     }
 
@@ -56,7 +56,7 @@ public class BusCache {
      * Prepares cache for use.
      * @param readerPackage ReaderPackage with filename to load cache from.
      */
-    public static void loadCache(ReaderPackage readerPackage){
+    static void loadCache(ReaderPackage readerPackage){
         new BusCache.Reader().execute(readerPackage);
     }
 
@@ -65,7 +65,7 @@ public class BusCache {
      * Saves cache into internal storage.
      * @param writerPackage WriterPackage with filename
      */
-    public static void saveCache(WriterPackage writerPackage){
+    static void saveCache(WriterPackage writerPackage){
         new BusCache.Writer().execute(writerPackage);
     }
 
@@ -74,7 +74,7 @@ public class BusCache {
      * @param filename filename of cache file.
      * @return boolean true if cache file was deleted, false if not.
      */
-    public static boolean invalidateCache(String filename){
+    static boolean invalidateCache(String filename){
         busCache = new HashMap<>();
         File cacheFile = new File(filename);
         return cacheFile.delete();

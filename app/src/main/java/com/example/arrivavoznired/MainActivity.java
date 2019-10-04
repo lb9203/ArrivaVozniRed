@@ -38,6 +38,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -105,6 +106,18 @@ public class MainActivity extends AppCompatActivity {
         String arrivalStationId       = stationIdMap.get(
                 arrivalStationName.toLowerCase());
 
+        if(departureStationId == null){
+            inputDepartureLayout.setError(
+                    getResources().getString(R.string.departure_station_not_found_error)
+            );
+        }
+
+        if(arrivalStationId == null){
+            inputArrivalLayout.setError(
+                    getResources().getString(R.string.arrival_station_not_found_error)
+            );
+        }
+
         return departureStationId != null && arrivalStationId != null;
     }
 
@@ -122,14 +135,6 @@ public class MainActivity extends AppCompatActivity {
         );
 
         return checkFavourite(line);
-    }
-
-    void showStationsNotFoundAlert(){
-        alertBuilder.setMessage(getResources().getString(R.string.stations_not_found_error));
-
-        AlertDialog errorDialog = alertBuilder.create();
-        checkFavourite();
-        errorDialog.show();
     }
 
     void morphFavouriteButtonDrawable(){
@@ -173,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
     //Input views
     AutoCompleteTextView    inputDeparture;
     AutoCompleteTextView    inputArrival;
+    TextInputLayout         inputDepartureLayout;
+    TextInputLayout         inputArrivalLayout;
     TextView                inputDate;
     DatePickerDialog        inputDateDialog;
 
@@ -187,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
     //Variables
     String[]                    autocompleteStationArray;
     Map<String,String>          stationIdMap;
-    MaterialAlertDialogBuilder  alertBuilder;
     MaterialAlertDialogBuilder  favouritesBuilder;
     SimpleDateFormat            sdf;
     SharedPreferences           sharedPref;
@@ -211,6 +217,8 @@ public class MainActivity extends AppCompatActivity {
         //Views
         inputDeparture              = findViewById(R.id.input_departure);
         inputArrival                = findViewById(R.id.input_arrival);
+        inputDepartureLayout        = findViewById(R.id.input_departure_layout);
+        inputArrivalLayout          = findViewById(R.id.input_arrival_layout);
         inputDate                   = findViewById(R.id.input_date);
         buttonSwap                  = findViewById(R.id.button_swap);
         buttonSend                  = findViewById(R.id.button_send);
@@ -246,9 +254,6 @@ public class MainActivity extends AppCompatActivity {
         //Create favourite items dialog
         favouritesBuilder = new MaterialAlertDialogBuilder(this);
         buildFavourites();
-
-        //Build loading alert dialog
-        alertBuilder    = new MaterialAlertDialogBuilder(this);
 
         //Date formatter and calendar updater
         sdf                         = new SimpleDateFormat("dd.MM.yyyy");
@@ -294,9 +299,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (sharedPref.getBoolean(SettingsActivity.ERASE_INPUT_ON_CLICK_KEY,false)
-                && hasFocus
+                        && hasFocus
                 ) {
                     inputDeparture.setText("");
+                }
+
+                if(!hasFocus){
+                    inputDepartureLayout.setError(null);
                 }
             }
         });
@@ -311,6 +320,9 @@ public class MainActivity extends AppCompatActivity {
                     inputArrival.setText("");
                 }
 
+                if(!hasFocus){
+                    inputArrivalLayout.setError(null);
+                }
             }
         });
 
@@ -342,7 +354,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!checkStationsValid()){
-                    showStationsNotFoundAlert();
                     return;
                 }
 
@@ -486,8 +497,6 @@ public class MainActivity extends AppCompatActivity {
                     processQueryIntent.putExtra("input_date",
                             inputDate.getText().toString());
                     startActivity(processQueryIntent);
-                }else{
-                    showStationsNotFoundAlert();
                 }
 
             }
@@ -538,7 +547,6 @@ public class MainActivity extends AppCompatActivity {
         return super.dispatchTouchEvent( event );
     }
 
-    //Hide loading dialog when activity resumes
     @Override
     public void onResume(){
         super.onResume();

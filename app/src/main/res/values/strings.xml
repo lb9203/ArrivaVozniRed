@@ -2804,4 +2804,6 @@
     <string name="add_widget">Dodaj bližnjice</string>
     <string name="input_date">Datum</string>
     <string name="erase_input_on_click">Pobriši vnosna polja pred vnosom.</string>
+    <string name="departure_station_not_found_error">Vstopna postaja ne obstaja</string>
+    <string name="arrival_station_not_found_error">Izstopna postaja ne obstaja</string>
 </resources>
