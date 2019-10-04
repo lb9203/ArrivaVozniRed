@@ -399,9 +399,6 @@ public class MainActivity extends AppCompatActivity {
 
                 appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds,R.id.favourites_list);
 
-
-
-
             }
         });
 
