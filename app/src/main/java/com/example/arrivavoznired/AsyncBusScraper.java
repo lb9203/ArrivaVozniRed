@@ -1,6 +1,5 @@
 package com.example.arrivavoznired;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -8,17 +7,25 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
 
+    private String buildDisplayPathUrl(String dataArgs){
+        return  "https://arriva.si/wp-admin/admin-ajax.php?action=get_DepartureStationList&"+
+                dataArgs.substring(1,dataArgs.length()-1).
+                        replace("\"","").
+                        replace(":","=").
+                        replace(",","&").
+                        replace(" ","+");
+    }
+
+    private static final String TAG = AsyncBusScraper.class.getSimpleName();
+
     private String mDepartureName;
     private String mArrivalName;
-    private String mDate;
-    private String mDepartureId;
-    private String mArrivalId;
     private ArrayList<Bus> mBusList;
     private String mUrl;
 
@@ -32,10 +39,7 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
             ){
         mDepartureName = departureName;
         mArrivalName = arrivalName;
-        mDate = date;
         mBusList = busList;
-        mDepartureId = departureId;
-        mArrivalId = arrivalId;
 
         mUrl = String.format("https://arriva.si/vozni-redi/" +
                         "?departure_id=%s" +
@@ -47,7 +51,7 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
                 mDepartureName.replace(" ","+"),
                 mArrivalName.replace(" ","+"),
                 arrivalId,
-                mDate);
+                date);
     }
 
     @Override
@@ -57,7 +61,6 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
 
     @Override
     protected ArrayList<Bus> doInBackground(Void... voids) {
-
         try{
             Document doc = Jsoup.connect(this.mUrl).get();
 
@@ -70,6 +73,12 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
                     return null;
                 }
                 if(i>0){
+
+                    //Display path url
+                    Element displayPath = connection.getElementsByClass("display-path").first();
+                    String dataArgs = displayPath.attr("data-args");
+                    String displayPathUrl = buildDisplayPathUrl(dataArgs);
+
                     //departure-arrival
                     Element departureArrival = connection.getElementsByClass("departure-arrival").first();
 
@@ -92,13 +101,13 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
                     String price = connection.getElementsByClass("price").first().text();
 
 
-                    mBusList.add(new Bus(departureTime,arrivalTime,price,length,duration,mDepartureName,mArrivalName));
+                    mBusList.add(new Bus(departureTime,arrivalTime,mDepartureName,mArrivalName,price,length,duration,displayPathUrl));
                 }
                 i++;
             }
         }
         catch (Exception e){
-            Log.d("WebParser",e.getLocalizedMessage());
+            Log.d(TAG,e.getLocalizedMessage());
         }
         return mBusList;
     }
