@@ -36,6 +36,9 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
         return pathList.size();
     }
 
+    public void setPathList(List<String> pathList) {
+        this.pathList = pathList;
+    }
 
     class PathViewHolder extends RecyclerView.ViewHolder{
 

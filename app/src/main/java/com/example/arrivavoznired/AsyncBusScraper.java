@@ -7,11 +7,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Locale;
 
-public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
+public class AsyncBusScraper extends AsyncTask<Void,Bus,ArrayList<Bus>> {
 
     private String buildDisplayPathUrl(String dataArgs){
         return  "https://arriva.si/wp-admin/admin-ajax.php?action=get_DepartureStationList&"+
@@ -26,8 +26,9 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
 
     private String mDepartureName;
     private String mArrivalName;
-    private ArrayList<Bus> mBusList;
     private String mUrl;
+
+    private WeakReference<TimetableActivity> timetableActivityWeakReference;
 
     AsyncBusScraper(
             String departureName,
@@ -35,11 +36,10 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
             String arrivalName,
             String arrivalId,
             String date,
-            ArrayList<Bus> busList
+            TimetableActivity timetableActivity
             ){
         mDepartureName = departureName;
         mArrivalName = arrivalName;
-        mBusList = busList;
 
         mUrl = String.format("https://arriva.si/vozni-redi/" +
                         "?departure_id=%s" +
@@ -52,15 +52,31 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
                 mArrivalName.replace(" ","+"),
                 arrivalId,
                 date);
+
+
+        timetableActivityWeakReference = new WeakReference<>(timetableActivity);
     }
 
     @Override
     protected void onPostExecute(ArrayList<Bus> buses) {
         super.onPostExecute(buses);
+        timetableActivityWeakReference.get().displayBusesInRecycler(buses);
+
+    }
+
+    @Override
+    protected void onProgressUpdate(Bus... values) {
+        super.onProgressUpdate(values);
+        for (Bus bus : values) {
+            AsyncPathScraper asyncPathScraper = new AsyncPathScraper(bus);
+            asyncPathScraper.execute();
+        }
+
     }
 
     @Override
     protected ArrayList<Bus> doInBackground(Void... voids) {
+        ArrayList<Bus> retBusList = new ArrayList<>();
         try{
             Document doc = Jsoup.connect(this.mUrl).get();
 
@@ -100,8 +116,14 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
                     //price
                     String price = connection.getElementsByClass("price").first().text();
 
+                    //Create new bus from scraped parameters
+                    Bus newBus = new Bus(departureTime,arrivalTime,mDepartureName,mArrivalName,price,length,duration,displayPathUrl);
 
-                    mBusList.add(new Bus(departureTime,arrivalTime,mDepartureName,mArrivalName,price,length,duration,displayPathUrl));
+                    //Start scraper for bus path
+                    publishProgress(newBus);
+
+                    //Add bus to list
+                    retBusList.add(newBus);
                 }
                 i++;
             }
@@ -109,7 +131,7 @@ public class AsyncBusScraper extends AsyncTask<Void,Integer,ArrayList<Bus>> {
         catch (Exception e){
             Log.d(TAG,e.getLocalizedMessage());
         }
-        return mBusList;
+        return retBusList;
     }
 
 

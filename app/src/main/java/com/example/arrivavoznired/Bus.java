@@ -35,16 +35,6 @@ class Bus implements Serializable {
         this.length = length;
         this.duration = duration;
         this.displayPathUrl = displayPathUrl;
-        pathList = new ArrayList<>();
-    }
-
-    public void setPathList(List<String> pathList) {
-        this.pathList = pathList;
-    }
-
-    public String toString(Context context){
-        return String.format(Locale.getDefault(),
-                "%s(%s) - %s(%s)",
-                this.departureStationName,this.departureTime,this.arrivalStationName,this.arrivalTime);
+        this.pathList = new ArrayList<>();
     }
 }

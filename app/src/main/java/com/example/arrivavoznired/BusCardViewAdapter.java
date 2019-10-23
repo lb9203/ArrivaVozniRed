@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -56,7 +57,7 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
                         currentBus.price,currentBus.length,currentBus.duration)
         );
 
-
+        busViewHolder.pathRecycler.setAdapter(new PathAdapter(currentBus.pathList));
     }
 
     @Override
@@ -70,6 +71,7 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
         MaterialTextView departureArrivalTimes;
         MaterialTextView extraBusData;
         RecyclerView pathRecycler;
+        PathAdapter pathAdapter;
 
         final Context parentContext;
 
@@ -81,8 +83,17 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
             extraBusData            = itemView.findViewById(R.id.card_extra_bus_data);
             pathRecycler            = itemView.findViewById(R.id.path_recycler);
             parentContext           = con;
+            pathAdapter             = new PathAdapter(null);
 
             pathRecycler.setLayoutManager(new LinearLayoutManager(parentContext));
+            pathRecycler.setAdapter(pathAdapter);
+
+            busCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pathRecycler.setVisibility(pathRecycler.getVisibility()==View.VISIBLE?View.GONE:View.VISIBLE);
+                }
+            });
         }
     }
 }

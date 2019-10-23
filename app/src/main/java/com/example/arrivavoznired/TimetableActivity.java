@@ -1,47 +1,20 @@
 package com.example.arrivavoznired;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.MenuItem;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class TimetableActivity extends AppCompatActivity {
-
-    final static String TAG = TimetableActivity.class.getSimpleName();
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if(id==android.R.id.home)
-        {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     Toolbar toolbarTimetableActivity;
     RecyclerView busRecycler;
@@ -54,12 +27,12 @@ public class TimetableActivity extends AppCompatActivity {
     String departureStationId;
     String arrivalStationId;
     String inputDate;
+    String cacheKey;
 
     boolean dontShowPastBuses;
 
     BusCardViewAdapter adapter;
 
-    @SuppressLint({"SimpleDateFormat", "StaticFieldLeak"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +62,7 @@ public class TimetableActivity extends AppCompatActivity {
         arrivalStationId       = extra.getString("arrival_station_id");
         inputDate              = extra.getString("input_date");
 
-        final String cacheKey = departureStationId+"-"+arrivalStationId+"-"+inputDate;
+        cacheKey = departureStationId+"-"+arrivalStationId+"-"+inputDate;
 
         //Assert that inputs aren't null
         assert departureStationName != null;
@@ -110,42 +83,69 @@ public class TimetableActivity extends AppCompatActivity {
 
         if (BusCache.contains(cacheKey)){
             busList.addAll(BusCache.getBusListFromCache(cacheKey));
-            displayBusesInRecycler();
+            displayBusesInRecycler(busList);
         }
         else {
-            asyncTimetableGetter = new AsyncBusScraper(departureStationName, departureStationId,
-                    arrivalStationName, arrivalStationId, inputDate, busList){
-                @Override
-                protected void onPostExecute(ArrayList<Bus> buses) {
-                    super.onPostExecute(buses);
-                    if(!buses.isEmpty()){
-                        BusCache.putBusListIntoCache(cacheKey,buses);
-                    }
-                    displayBusesInRecycler();
-                }
-            };
-
+            asyncTimetableGetter = new AsyncBusScraper(
+                    departureStationName,
+                    departureStationId,
+                    arrivalStationName,
+                    arrivalStationId,
+                    inputDate,
+                    this);
             asyncTimetableGetter.execute();
         }
     }
 
-    void displayBusesInRecycler(){
+    public void displayBusesInRecycler(ArrayList<Bus> buses){
+        if(!buses.isEmpty()){
+            BusCache.putBusListIntoCache(cacheKey,buses);
+        }
+        busList.addAll(buses);
+        displayBusesInRecycler();
+    }
+
+    public void displayBusesInRecycler(){
         Calendar curTime = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String curDate = sdf.format(curTime.getTime());
         int curHour = curTime.get(Calendar.HOUR_OF_DAY);
         int curMin = curTime.get(Calendar.MINUTE);
         for (int i = 0; i < busList.size(); i++) {
+            System.out.println("Bus");
             if(dontShowPastBuses && curDate.equals(inputDate)){
                 int depHour = Integer.parseInt(busList.get(i).departureTime.split(":")[0]);
                 int depMin = Integer.parseInt(busList.get(i).departureTime.split(":")[1]);
-                if( (depHour < curHour) || (depHour == curHour && depMin < curMin-5 ) ) {
+                if( (depHour < curHour) || (depHour == curHour && depMin < curMin ) ) {
                     busList.remove(i--);
                 }
             }
         }
+        System.out.println("Done");
         adapter.notifyDataSetChanged();
+        for (Bus a:
+             busList) {
+            System.out.println(a.departureTime);
+        }
         loadingBusesDialog.dismiss();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if(id==android.R.id.home)
+        {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -154,7 +154,6 @@ public class TimetableActivity extends AppCompatActivity {
         if(asyncTimetableGetter!=null){
             asyncTimetableGetter.cancel(true);
         }
-
     }
 
     @Override

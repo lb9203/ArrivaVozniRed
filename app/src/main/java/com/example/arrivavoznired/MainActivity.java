@@ -182,12 +182,10 @@ public class MainActivity extends AppCompatActivity {
             Date curDateDate = cacheDateFormat.parse(curDate);
             Date cacheVersionDate = cacheDateFormat.parse(cacheVersion);
             if(cacheVersionDate.before(curDateDate)){
-                Log.d("initializeCache:",cacheVersion+" is before "+curDate+", invalidating.");
                 BusCache.invalidateCache(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME);
                 prefEditor.putString(CACHE_VERSION_KEY,curDate);
             }
             else{
-                Log.d("initializeCache:",cacheVersion+" is not before "+curDate+", loading.");
                 BusCache.loadCache(new ReaderPackage(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME));
             }
         } catch (ParseException e) {
@@ -234,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BusCache.invalidateCache(MainActivity.this.getCacheDir()+BusCache.CACHE_FILENAME);
         setContentView(R.layout.activity_main);
 
         //Views
