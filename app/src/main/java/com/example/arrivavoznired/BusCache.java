@@ -48,7 +48,8 @@ class BusCache {
      * @param busList list of buses for the given route.
      */
     static void putBusListIntoCache(String key, ArrayList<Bus> busList){
-        busCache.put(key,busList);
+        ArrayList<Bus> copiedBusList = new ArrayList<>(busList);
+        busCache.put(key,copiedBusList);
     }
 
 

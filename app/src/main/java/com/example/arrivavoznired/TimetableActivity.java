@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 
 import java.text.ParseException;
@@ -21,6 +22,8 @@ import java.util.Date;
 import java.util.List;
 
 public class TimetableActivity extends AppCompatActivity {
+
+    final static String TAG = TimetableActivity.class.getSimpleName();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -103,8 +106,7 @@ public class TimetableActivity extends AppCompatActivity {
 
         busRecycler.setAdapter(adapter);
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        dontShowPastBuses = sharedPref.getBoolean(SettingsActivity.DONT_SHOW_PAST_BUSES_KEY,true);
+        dontShowPastBuses = SettingsActivity.arePastBusesShown(TimetableActivity.this);
 
         if (BusCache.contains(cacheKey)){
             busList.addAll(BusCache.getBusListFromCache(cacheKey));
@@ -137,8 +139,8 @@ public class TimetableActivity extends AppCompatActivity {
             if(dontShowPastBuses && curDate.equals(inputDate)){
                 int depHour = Integer.parseInt(busList.get(i).departureTime.split(":")[0]);
                 int depMin = Integer.parseInt(busList.get(i).departureTime.split(":")[1]);
-                if((depHour < curHour) || (depHour == curHour && depMin < curMin)) {
-                    busList.remove(i++);
+                if( (depHour < curHour) || (depHour == curHour && depMin < curMin-5 ) ) {
+                    busList.remove(i--);
                 }
             }
         }

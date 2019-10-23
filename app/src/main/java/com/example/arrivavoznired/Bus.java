@@ -1,8 +1,11 @@
 package com.example.arrivavoznired;
 
+import android.content.Context;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 class Bus implements Serializable {
     String departureTime;
@@ -37,5 +40,11 @@ class Bus implements Serializable {
 
     public void setPathList(List<String> pathList) {
         this.pathList = pathList;
+    }
+
+    public String toString(Context context){
+        return String.format(Locale.getDefault(),
+                "%s(%s) - %s(%s)",
+                this.departureStationName,this.departureTime,this.arrivalStationName,this.arrivalTime);
     }
 }

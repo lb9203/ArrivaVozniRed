@@ -1,5 +1,6 @@
 package com.example.arrivavoznired;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -95,4 +96,18 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
+
+    public static boolean arePastBusesShown(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DONT_SHOW_PAST_BUSES_KEY,true);
+    }
+
+    public static boolean isLastInputSaved(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(SAVE_LAST_INPUT_KEY,true);
+    }
+
+    public static boolean isInputErasedOnClick(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(ERASE_INPUT_ON_CLICK_KEY,true);
+    }
+
+
 }
