@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -18,8 +17,6 @@ import java.util.Locale;
 
 public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.BusViewHolder> {
 
-    private static final String TAG = BusCardViewAdapter.class.getSimpleName();
-
     private List<Bus> busList;
     private Context context;
 
@@ -30,13 +27,13 @@ public class BusCardViewAdapter extends RecyclerView.Adapter<BusCardViewAdapter.
 
     @NonNull
     @Override
-    public BusViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public BusViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_list_item,viewGroup,false);
         return new BusViewHolder(v, context);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BusViewHolder busViewHolder, int i) {
+    public void onBindViewHolder(BusViewHolder busViewHolder, int i) {
         Bus currentBus = busList.get(i);
 
         busViewHolder.stationNames.setText(

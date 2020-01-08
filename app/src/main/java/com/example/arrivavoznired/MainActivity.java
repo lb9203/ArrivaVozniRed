@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -529,7 +528,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ArrayAdapter<String> inputAdapter = new ArrayAdapter<>(
-                this, R.layout.dropdown_menu_item, autocompleteStationArray);
+                this, R.layout.layout_dropdown_menu_item, autocompleteStationArray);
 
         //Set input thresholds
         inputDeparture.setAdapter(inputAdapter);

@@ -16,16 +16,6 @@ public class FavouritesWidget extends AppWidgetProvider {
     public static final String PRESET_DEPARTURE_STATION_KEY = "preset_departure_station";
     public static final String PRESET_ARRIVAL_STATION_KEY = "preset_arrival_station";
 
-    static void updateAppWidget(final Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
-
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_favourites);
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-    }
-
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
@@ -34,7 +24,7 @@ public class FavouritesWidget extends AppWidgetProvider {
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,appWidgetId);
             intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
 
-            RemoteViews views = new RemoteViews(context.getPackageName(),R.layout.widget_favourites);
+            RemoteViews views = new RemoteViews(context.getPackageName(),R.layout.layout_widget_favourites);
             views.setRemoteAdapter(R.id.favourites_list, intent);
             views.setEmptyView(R.id.favourites_list,R.id.empty_text_view);
 

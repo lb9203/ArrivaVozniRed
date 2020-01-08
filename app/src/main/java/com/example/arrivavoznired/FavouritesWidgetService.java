@@ -34,13 +34,18 @@ class FavouritesRemoteViewsFactory implements RemoteViewsService.RemoteViewsFact
 
     @Override
     public void onCreate() {
+        resetSharedPref();
+    }
+
+    public void resetSharedPref(){
         sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
+
     }
 
     @Override
     public void onDataSetChanged() {
         mFavouritesList = FavouriteLine.stringToList(
-                sharedPref.getString(MainActivity.FAVOURITE_LINES_KEY,"")
+                sharedPref.getString(MainActivity.FAVOURITE_LINES_KEY, "")
         );
     }
 
@@ -59,7 +64,7 @@ class FavouritesRemoteViewsFactory implements RemoteViewsService.RemoteViewsFact
 
         RemoteViews favouritesListItem = new RemoteViews(
                 mContext.getPackageName(),
-                R.layout.widget_favourites_item_clickable);
+                R.layout.layout_widget_favourites_item_clickable);
 
         favouritesListItem.setTextViewText(R.id.favourite_line_clickable,
                 mFavouritesList.get(i).toString()

@@ -69,7 +69,7 @@ public class AsyncBusScraper extends AsyncTask<Void,Bus,ArrayList<Bus>> {
         super.onProgressUpdate(values);
         for (Bus bus : values) {
             AsyncPathScraper asyncPathScraper = new AsyncPathScraper(bus);
-            asyncPathScraper.execute();
+            asyncPathScraper.executeOnExecutor(THREAD_POOL_EXECUTOR);
         }
 
     }
